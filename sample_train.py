@@ -20,6 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 import lazy_eval
 
 END_THINK = "<channel|>"
+BOS = 2
 
 
 def post(upstream, path, body, timeout=1800):
@@ -34,9 +35,11 @@ def answer_text(raw):
 
 
 def one(a, rec, k):
-    msgs = [{"role": "user", "content": lazy_eval.PROMPT.format(question=rec["question"])}]
+    msgs = [{"role": "user", "content": lazy_eval.prompt(rec["question"])}]
     prompt = post(a.upstream, "/apply-template", {"messages": msgs, "chat_template_kwargs": {"enable_thinking": True}})["prompt"]
-    ids = post(a.upstream, "/tokenize", {"content": prompt, "add_special": False, "parse_special": True})["tokens"]
+    # add_special: /completion takes token ids as given, and the chat endpoint the eval uses starts with <bos>
+    ids = post(a.upstream, "/tokenize", {"content": prompt, "add_special": True, "parse_special": True})["tokens"]
+    assert ids[0] == BOS and ids[1] != BOS, ids[:3]
     r = post(a.upstream, "/completion", {
         "prompt": ids, "n_predict": a.max_tokens, "temperature": a.temperature, "top_p": a.top_p, "top_k": a.top_k,
         "min_p": 0.0, "seed": a.seed * 1000 + k, "cache_prompt": False, "return_tokens": True,

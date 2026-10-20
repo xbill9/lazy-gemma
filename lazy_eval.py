@@ -3,12 +3,14 @@
 
   lazy_eval.py run <upstream> <data.jsonl> <out.jsonl> [--limit N] [--samples K] [--temperature T]
                    [--max-tokens M] [--budget B] [--no-think] [--concurrency C]
+                   [--prompt-budget N]
   lazy_eval.py score <out.jsonl>
 
 Thinking is on per request (chat_template_kwargs enable_thinking), since the rig servers default to
 --reasoning off. Only `content` is graded; the thinking goes to `reasoning_content`. completion_tokens
 is the server's count with the model's own tokenizer and covers thinking plus answer. --budget sends
-llama.cpp's per-request thinking_budget_tokens, the no-training way to think less.
+llama.cpp's per-request thinking_budget_tokens, the no-training way to think less. --prompt-budget
+states a budget in the prompt instead (PROMPT_BUDGET), for the model trained to follow it.
 
 GSM8K prompt and grading are copied from gemma4-dev/jev-tpu-v5e1/gen_eval.py: right when the number
 after "Answer:" (else the last number) equals the reference.
@@ -29,6 +31,14 @@ PROMPT = (
     "Solve the following math problem. Think step by step, then give the final answer "
     "on its own last line as 'Answer: <number>'.\n\n{question}"
 )
+PROMPT_BUDGET = (
+    "Solve the following math problem. Think for at most {budget} tokens, then give the final answer "
+    "on its own last line as 'Answer: <number>'.\n\n{question}"
+)
+
+
+def prompt(question, budget=None):
+    return PROMPT.format(question=question) if budget is None else PROMPT_BUDGET.format(budget=budget, question=question)
 
 
 def number(s):
@@ -64,7 +74,7 @@ def one(a, rec, k):
     body = {
         "temperature": a.temperature,
         "max_tokens": a.max_tokens,
-        "messages": [{"role": "user", "content": PROMPT.format(question=rec["question"])}],
+        "messages": [{"role": "user", "content": prompt(rec["question"], a.prompt_budget)}],
         "chat_template_kwargs": {"enable_thinking": not a.no_think},
         "cache_prompt": False,
     }
@@ -154,6 +164,7 @@ def main():
     r.add_argument("--budget", type=int)
     r.add_argument("--no-think", action="store_true")
     r.add_argument("--concurrency", type=int, default=1)
+    r.add_argument("--prompt-budget", type=int, help="state a thinking budget in the prompt (PROMPT_BUDGET)")
     s = sub.add_parser("score")
     s.add_argument("out")
     a = p.parse_args()
