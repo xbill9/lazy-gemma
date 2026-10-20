@@ -1,0 +1,1 @@
+~/llama.cpp/build/bin/llama-server -m /home/xbill/models/gemma-4-E2B-it-qat-q4_0-exact-v2/gemma-4-E2B-it-q4_0-exact.gguf --host 127.0.0.1 --port 8080 -ngl 99 -c 8192 --parallel 1 -fa 1 -t 6 --metrics  # llama.cpp b11696-3-g7182ef71e
