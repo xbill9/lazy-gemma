@@ -2,7 +2,7 @@
 """lazy_eval.py -- accuracy and output tokens per answer on GSM8K, against a llama-server, scored in code.
 
   lazy_eval.py run <upstream> <data.jsonl> <out.jsonl> [--limit N] [--samples K] [--temperature T]
-                   [--max-tokens M] [--budget B] [--no-think]
+                   [--max-tokens M] [--budget B] [--no-think] [--concurrency C]
   lazy_eval.py score <out.jsonl>
 
 Thinking is on per request (chat_template_kwargs enable_thinking), since the rig servers default to
@@ -20,8 +20,10 @@ import os
 import re
 import statistics
 import sys
+import threading
 import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 PROMPT = (
     "Solve the following math problem. Think step by step, then give the final answer "
@@ -119,13 +121,18 @@ def run(a):
         recs = recs[: a.limit]
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     rows = []
-    with open(a.out, "w") as f:  # one request at a time; written as it goes so a crash keeps the rows
-        for rec in recs:
-            for k in range(a.samples):
-                row = one(a, rec, k)
+    lock = threading.Lock()
+    with open(a.out, "w") as f:  # written as it goes so a crash keeps the rows
+
+        def job(rec, k):
+            row = one(a, rec, k)
+            with lock:
                 rows.append(row)
                 f.write(json.dumps(row) + "\n")
                 f.flush()
+
+        with ThreadPoolExecutor(a.concurrency) as ex:
+            list(ex.map(lambda rk: job(*rk), [(rec, k) for rec in recs for k in range(a.samples)]))
     print(json.dumps(summary(rows)))
 
 
@@ -146,6 +153,7 @@ def main():
     r.add_argument("--max-tokens", type=int, default=4096)
     r.add_argument("--budget", type=int)
     r.add_argument("--no-think", action="store_true")
+    r.add_argument("--concurrency", type=int, default=1)
     s = sub.add_parser("score")
     s.add_argument("out")
     a = p.parse_args()
