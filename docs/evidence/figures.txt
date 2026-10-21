@@ -3,6 +3,8 @@ tokens per correct, fewer than uncapped:
   run A   5.2%
   run B   3.1%
   run A at lr 1e-3 6.3%
+  QLoRA at lr 1e-3 1.5%
+exact grid vs QLoRA at lr 1e-3: 4.9% fewer tokens per correct answer (916.2 vs 963.2)
 cap 256 saves 349.8 tokens per correct answer; at 5.00 tok/s that is 70.0 s
 2026-10-20-qatlora-e2b-3050oem: 234 steps, 7822 s = 2 h 10 min, 33.4 s per step, peak 4896 MiB
   4-bit weights changed: 238,829 of 1,835,532,288 = 0.013%
@@ -10,6 +12,8 @@ cap 256 saves 349.8 tokens per correct answer; at 5.00 tok/s that is 70.0 s
   4-bit weights changed: 757,918 of 1,835,532,288 = 0.041%
 2026-10-21-qatlora-lr1e-3-e2b-3050oem: 234 steps, 7826 s = 2 h 10 min, 33.4 s per step, peak 4896 MiB
   4-bit weights changed: 134,965,355 of 1,835,532,288 = 7.353%
+2026-10-21-qlora-nf4-e2b-3050oem: 234 steps, 4002 s = 1 h 6 min, 17.1 s per step, peak 6201 MiB
+  4-bit weights changed: 52,531,066 of 1,835,532,288 = 2.862%
 shortest right answer mean 757.2, all right answers mean 858.3: 11.8% shorter
 lr 1e-3 export moved 565x run A's export
 overfit moved 24,385,598 levels in 12 steps = 102x run A's export

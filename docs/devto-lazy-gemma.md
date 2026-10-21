@@ -125,7 +125,7 @@ token_embd.weight        exact=True mismatched=0/402653184
 
 Its next-token choice matches llama-server's on 510 of 512 tokens of a real reply.
 
-🔎 **Tip: the lazy route is a few hundred lines of PyTorch.** The usual recipe for a 4-bit fine-tune is QLoRA: transformers, PEFT and bitsandbytes. It trains against bitsandbytes' own 4-bit format, NF4, so the adapter learns weights that get rounded a second time on the way into a Q4_0 GGUF. llama.cpp's trainer reads the GGUF directly, and at the commit used here it stops on Gemma 4 with `unsupported unary op for backward pass: TANH`; its `llama-finetune` trains full weights only. Reading the weights out of the GGUF and writing the loop around them took `qat_lora.py` (216 lines) and `train.py` (179 lines), and the two checks above show the model it trains is the shipped file. The loop itself, AdamW with warmup, a cosine schedule and gradient clipping, is what TRL's trainer does in one call. The 4-bit grid is the part none of those libraries offered.
+🔎 **Tip: the lazy route is a few hundred lines of PyTorch.** The usual recipe for a 4-bit fine-tune is QLoRA: transformers, PEFT and bitsandbytes. It trains against bitsandbytes' own 4-bit format, NF4, so the adapter learns weights that get rounded a second time on the way into a Q4_0 GGUF. llama.cpp's trainer reads the GGUF directly, and at the commit used here it stops on Gemma 4 with `unsupported unary op for backward pass: TANH`; its `llama-finetune` trains full weights only. Reading the weights out of the GGUF and writing the loop around them took `qat_lora.py` (216 lines) and `train.py` (179 lines), and the two checks above show the model it trains is the shipped file. The loop itself, AdamW with warmup, a cosine schedule and gradient clipping, is what TRL's trainer does in one call. The 4-bit grid is the part none of those libraries offered. Step 8 runs the standard recipe on the same data and measures the difference.
 
 ---
 
@@ -205,9 +205,12 @@ run B, prompt budget 128   {"right": 221, "accuracy": 0.884, "mean_tokens": 801.
 run B, prompt budget 256   {"right": 224, "accuracy": 0.896, "mean_tokens": 809.3, "median_tokens": 740.5, "tokens_per_correct": 903.2}
 run B, prompt budget 512   {"right": 225, "accuracy": 0.9,   "mean_tokens": 822.3, "median_tokens": 755.0, "tokens_per_correct": 913.7}
 run A at lr 1e-3           {"right": 226, "accuracy": 0.904, "mean_tokens": 828.3, "median_tokens": 706.0, "tokens_per_correct": 916.2}
+QLoRA at lr 1e-3           {"right": 228, "accuracy": 0.912, "mean_tokens": 878.4, "median_tokens": 785.5, "tokens_per_correct": 963.2}
 ```
 
 Run A cuts tokens per correct answer by 5.2% and loses 7 right answers, so it fails the equal-accuracy rule. Run B's plain prompt cuts them by 3.1% with accuracy held. A budget written in the prompt moves tokens by less than 11 between 128 and 512. Run A at lr 1e-3 cuts them by 6.3% and gets 226 right, one fewer than the untrained model.
+
+The QLoRA row is the standard recipe: transformers' Trainer, PEFT and bitsandbytes' NF4 format, on run A's data and settings at lr 1e-3, exported by the same script. Two changes fit it in 8 GB: the per-layer table moves to the CPU, and the loss is computed in chunks. It trains in 1 h 6 min at 17.1 s per step, half the time of run A, and peaks at 6,201 MiB while loading. It gets 228 right and cuts tokens per correct answer by 1.5%. Run A at the same rate cuts them by 6.3%, or 4.9% fewer tokens than QLoRA: 916.2 against 963.2. Its export moved 52,531,066 of the 4-bit weights, 2.862%, against run A's 7.353%. An adapter trained on NF4 loses part of its correction when the weights are rounded into Q4_0.
 
 🔎 **Tip: count the 4-bit weights that moved.** Run A's export changed 238,829 of 1,835,532,288 weights, 0.013%; run B's changed 0.041%. A correction smaller than half a 4-bit step rounds away, so an adapter can train for hours and leave the shipped file nearly unchanged. At lr 1e-3 the same training moved 134,965,355, or 7.35%, 565 times as many as at lr 1e-4. Tokens per correct answer fell from 927.2 to 916.2. Once the weights move, the limit is the data: the shortest of four right answers is only 11.8% shorter than a typical right answer, so the model has little shorter thinking to learn from.
 
@@ -215,13 +218,13 @@ Run A cuts tokens per correct answer by 5.2% and loses 7 right answers, so it fa
 
 #### Compare and Contrast
 
-| | llama.cpp thinking cap 256 | Tuned A | Tuned B, plain prompt |
-| :--- | :--- | :--- | :--- |
-| Right of 250 | 🥈 228 | 220 | 🥇 229 |
-| Tokens per correct answer | 🥇 628.0 | 🥈 927.2 | 947.2 |
-| Training needed | 🟢 none | 2 h 10 min on the 3050 | 3 h 28 min on the 3050 |
-| Works with any client | ⚠️ needs the request field | 🟢 yes | 🟢 yes |
-| Fewer tokens at equal accuracy | 🟢 yes | ❌ no, accuracy fell | ⚠️ 3.1%, small |
+| | llama.cpp thinking cap 256 | Tuned A | Tuned A, lr 1e-3 | QLoRA, lr 1e-3 | Tuned B, plain prompt |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Right of 250 | 🥈 228 | 220 | 226 | 🥈 228 | 🥇 229 |
+| Tokens per correct answer | 🥇 628.0 | 927.2 | 🥈 916.2 | 963.2 | 947.2 |
+| Training needed | 🟢 none | 2 h 10 min on the 3050 | 2 h 10 min on the 3050 | 1 h 6 min on the 3050 | 3 h 28 min on the 3050 |
+| Works with any client | ⚠️ needs the request field | 🟢 yes | 🟢 yes | 🟢 yes | 🟢 yes |
+| Fewer tokens at equal accuracy | 🟢 yes | ❌ no, accuracy fell | ⚠️ 6.3%, one fewer right | ⚠️ 1.5%, small | ⚠️ 3.1%, small |
 
 ---
 
@@ -235,7 +238,7 @@ To make Gemma 4 E2B think less today, set `thinking_budget_tokens` to 256 on the
 
 - **GSM8K prompt and grader**: copied from `gen_eval.py` in my earlier Gemma 4 TPU work (`gemma4-dev/jev-tpu-v5e1`).
 - **The exact Q4_0 GGUF**: built by `gguf_exact.py` in my earlier Gemma 4 llama.cpp work (`gemma4-dev/local-llamacpp-1650ti-4b-q4_0`), published as `xbill9/gemma-4-E2B-it-qat-q4_0-exact-gguf`.
-- **Open source used**: [llama.cpp](https://github.com/ggml-org/llama.cpp) (MIT), [PyTorch](https://github.com/pytorch/pytorch), [transformers](https://github.com/huggingface/transformers), [gguf-py](https://github.com/ggml-org/llama.cpp/tree/master/gguf-py), Gemma 4 E2B (Gemma terms), [GSM8K](https://github.com/openai/grade-school-math).
+- **Open source used**: [llama.cpp](https://github.com/ggml-org/llama.cpp) (MIT), [PyTorch](https://github.com/pytorch/pytorch), [transformers](https://github.com/huggingface/transformers), [PEFT](https://github.com/huggingface/peft) and [bitsandbytes](https://github.com/bitsandbytes-foundation/bitsandbytes) (QLoRA comparison only), [gguf-py](https://github.com/ggml-org/llama.cpp/tree/master/gguf-py), Gemma 4 E2B (Gemma terms), [GSM8K](https://github.com/openai/grade-school-math).
 
 ---
 
@@ -272,6 +275,7 @@ The goal of this project was to fine-tune Gemma 4 E2B to think less, on a low-en
 - 🟢 The trained model is the served file with only its trained weights changed; a zero adapter writes back an identical file.
 - 🟢 llama.cpp's thinking cap of 256 tokens cuts tokens per correct answer by 35.8% at equal accuracy, with no training.
 - ⚠️ The best tuned run, lr 1e-3, cuts them by 6.3% with one fewer right answer. At lr 1e-4 only 0.013% to 0.041% of the 4-bit weights moved; at lr 1e-3, 7.35% moved and the tokens barely followed.
+- ⚠️ The standard QLoRA stack trains twice as fast, 17.1 s per step, and holds accuracy at 228, with a 1.5% cut in tokens per correct answer. Training through the shipped weights at the same rate cuts 6.3%.
 - ❌ Training on the shortest right answer at lr 1e-4 cost 7 right answers out of 250.
 - ❌ llama.cpp's own trainer stops on Gemma 4's output softcap.
 

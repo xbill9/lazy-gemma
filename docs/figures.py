@@ -32,16 +32,20 @@ def main():
     a = js("2026-10-20-qatlora-e2b-3050oem/think-greedy.summary.json")
     b = js("2026-10-20-qatlora-budgetprompt-e2b-3050oem/plain.summary.json")
     a3 = js("2026-10-21-qatlora-lr1e-3-e2b-3050oem/think-greedy.summary.json")
+    ql = js("2026-10-21-qlora-nf4-e2b-3050oem/think-greedy.summary.json")
     print("tokens per correct, fewer than uncapped:")
     print(f"  cap 256 {pct_fewer(cap['tokens_per_correct'], base['tokens_per_correct'])}")
     print(f"  run A   {pct_fewer(a['tokens_per_correct'], base['tokens_per_correct'])}")
     print(f"  run B   {pct_fewer(b['tokens_per_correct'], base['tokens_per_correct'])}")
     print(f"  run A at lr 1e-3 {pct_fewer(a3['tokens_per_correct'], base['tokens_per_correct'])}")
+    print(f"  QLoRA at lr 1e-3 {pct_fewer(ql['tokens_per_correct'], base['tokens_per_correct'])}")
+    print(f"exact grid vs QLoRA at lr 1e-3: {pct_fewer(a3['tokens_per_correct'], ql['tokens_per_correct'])} fewer "
+          f"tokens per correct answer ({a3['tokens_per_correct']} vs {ql['tokens_per_correct']})")
     saved = base["tokens_per_correct"] - cap["tokens_per_correct"]
     print(f"cap 256 saves {saved:.1f} tokens per correct answer; at 5.00 tok/s that is {saved / 5.00:.1f} s")
 
     for name in ("2026-10-20-qatlora-e2b-3050oem", "2026-10-20-qatlora-budgetprompt-e2b-3050oem",
-                 "2026-10-21-qatlora-lr1e-3-e2b-3050oem"):
+                 "2026-10-21-qatlora-lr1e-3-e2b-3050oem", "2026-10-21-qlora-nf4-e2b-3050oem"):
         log = jl(f"{name}/train.log.jsonl")
         s = log[-1]["elapsed_s"]
         print(f"{name}: {log[-1]['of']} steps, {s} s = {s // 3600} h {s % 3600 // 60} min, "
