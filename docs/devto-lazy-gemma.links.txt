@@ -1,1 +1,3 @@
 devto = https://dev.to/xbill/fine-tuning-gemma-4-on-an-8-gb-rtx-3050-slow-low-end-and-still-viable-291f
+medium = PENDING
+substack = PENDING
