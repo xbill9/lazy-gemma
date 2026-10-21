@@ -1,0 +1,2 @@
+{"step": 1, "of": 2, "epoch": 0, "loss": 0.1623, "gnorm": 0.172, "lr": 0.0, "elapsed_s": 18, "peak_mib": 6201}
+{"step": 2, "of": 2, "epoch": 0, "loss": 0.1901, "gnorm": 0.202, "lr": 9.090909090909092e-05, "elapsed_s": 33, "peak_mib": 6201}
