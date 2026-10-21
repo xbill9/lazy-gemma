@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fine-Tuning Gemma 4 on an 8 GB RTX 3050: Slow, Low End and Still Viable</title>
+  <meta name="description" content="An 8 GB RTX 3050 serves Gemma 4 E2B at 109 tokens per second, and that speed makes it a training card too. One card samples its own training data, fine-tunes the model to think less and grades it, in 6 h 44 min." />
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <style>
+    body{font-family:-apple-system,'Segoe UI',Roboto,'Liberation Sans',Arial,sans-serif;
+         font-size:18px;line-height:1.58;max-width:42em;color:#242424;}
+    h1,h2,h3,h4{font-weight:700;line-height:1.25;margin-top:1.8em;}
+    h4{font-size:1.25em;}
+    img{max-width:100%;height:auto;display:block;margin:1.6em 0;}
+    pre{background:#f7f7f7;border:1px solid #e6e6e6;border-radius:4px;
+        padding:12px 14px;overflow-x:auto;font-size:14px;line-height:1.45;}
+    code{font-family:'Liberation Mono',Menlo,Consolas,monospace;}
+    :not(pre)>code{background:#f2f2f2;padding:1px 5px;border-radius:3px;font-size:.9em;}
+    blockquote{border-left:3px solid #ddd;margin-left:0;padding-left:1em;color:#555;}
+    hr{border:0;border-top:1px solid #e6e6e6;margin:2.4em 0;}
+  </style>
+</head>
+<body>
+<p><em>This is a submission for the <a
+href="https://dev.to/challenges/hacktoberfest-week3-2026-10-19">Hacktoberfest
+Open-Source AI Challenge Week 3: Slow and Steady</a></em></p>
+<figure><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/medium/img/devto-cover.5597ecd9.jpg" alt="Fine-Tuning Gemma 4 on an 8 GB RTX 3050: Slow, Low End and Still Viable" /></figure>
+<p>This article provides a step by step guide to fine-tuning Gemma 4 E2B
+on an 8 GB NVIDIA RTX 3050, the low end of a desktop GPU, so that the
+model thinks less before it answers. Every log, script and number is
+committed.</p>
+<p><a
+href="https://github.com/xbill9/lazy-gemma">https://github.com/xbill9/lazy-gemma</a></p>
+<p><strong>The RTX 3050 is an 8 GB inference card: it serves Gemma 4 E2B
+at 109 tokens per second. That speed makes it a training card too,
+because cheap fine-tuning starts with inference. On one 3050 the whole
+loop runs in 6 h 44 min: the model writes its own training data, 3.7
+million tokens in 4 h 1 min; trains on it in 2 h 10 min at a 4,896 MiB
+peak, or 1 h 6 min with the standard QLoRA stack; and is graded on 250
+held-out problems in 32 min. The trained file drops straight back into
+llama.cpp, byte for byte the format it started in. The lazy model itself
+is not there yet: the best tuned run cuts tokens per correct answer by
+6.3% with one fewer right answer out of 250, while llama.cpp's built-in
+thinking cap of 256 tokens cuts them by 35.8% with no training at
+all.</strong></p>
+<hr />
+<h4 id="what-i-built">What I Built</h4>
+<p>Gemma 4 thinks before it answers. On grade-school maths problems the
+E2B model writes a median of 788 tokens per reply on the 3050, and most
+of that is thinking. On a fast GPU that costs a few seconds. On a slow
+device it is most of the wait.</p>
+<p>The lazy idea: teach the model to reach the same answer in fewer
+words. Ask it the same problem four times, keep the shortest answer that
+is right, and fine-tune it on those.</p>
+<p>The 3050 question: a used 8 GB card is good for inference, so can it
+fine-tune too, or does training need rented hardware? This kind of
+fine-tuning starts with inference: the model has to answer thousands of
+problems before there is anything to train on, and that took longer than
+the training itself. A card that serves 109 tokens per second already
+does that part. The answer here is that the same card runs the whole
+loop, overnight, and the trained model ships in the same 4-bit file it
+serves.</p>
+<p>What the project delivers:</p>
+<ul>
+<li>a trainer that runs on an 8 GB card and trains through the exact
+4-bit weights of the served model</li>
+<li>an exporter that writes the trained weights back into that file,
+with nothing else changed</li>
+<li>the standard QLoRA recipe (transformers, PEFT, bitsandbytes) fitted
+to the same card, as a comparison</li>
+<li>an evaluation on 250 held-out problems, graded by code, against the
+untrained model and against llama.cpp's thinking cap</li>
+</ul>
+<hr />
+<h4 id="demo">Demo</h4>
+<p>The baseline and each tuned model answer the same 250 held-out GSM8K
+problems, greedy, thinking on, through llama-server on the 3050:</p>
+<p><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/medium/img/devto-lazy-gemma-table-1.png"
+alt="Table: Model, Right, Tokens per correct answer" /></p>
+<p>Tokens include the thinking. A tuned model only counts as a win if it
+uses fewer tokens per correct answer at the same accuracy.</p>
+<hr />
+<h4 id="code">Code</h4>
+<p><a
+href="https://github.com/xbill9/lazy-gemma">https://github.com/xbill9/lazy-gemma</a></p>
+<p><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/medium/img/devto-lazy-gemma-table-2.png"
+alt="Table: Path, What" /></p>
+<hr />
+<h4 id="how-i-built-it">How I Built It</h4>
+<h4 id="at-this-point-you-should-have">At This Point You Should
+Have…</h4>
+<ul>
+<li>An NVIDIA GeForce RTX 3050 OEM, 8,192 MiB, driver 615.78.08, in a
+desktop with 46 GB of RAM</li>
+<li>llama.cpp built with CUDA, at <code>b11696-3-g7182ef71e</code></li>
+<li>The served model:
+<code>xbill9/gemma-4-E2B-it-qat-q4_0-exact-gguf</code>, Gemma 4 E2B with
+Google's quantization-aware weights written exactly as 4-bit Q4_0</li>
+<li><code>google/gemma-4-E2B-it-qat-q4_0-unquantized</code> from Hugging
+Face, for the model's layout and tokenizer</li>
+<li>The machine's own Python 3.14 with torch 2.14.1 (CUDA 13.0) and
+transformers 5.12.1; peft 0.21.2 and bitsandbytes 0.50.2 for the QLoRA
+comparison</li>
+<li>A clone:
+<code>git clone https://github.com/xbill9/lazy-gemma</code></li>
+</ul>
+<hr />
+<h4 id="step-1--fix-the-problems-before-anything-trains">Step 1 — Fix
+the Problems Before Anything Trains</h4>
+<p><code>make_splits.py</code> takes the 7,473 GSM8K training problems
+for training and draws 250 of the 1,319 test problems, by seed 0, for
+the held-out set. Both are written to <code>data/</code> with the source
+files' sha256 in <code>data/manifest.json</code>. The trainer never sees
+a held-out problem.</p>
+<p>Grading is code: the number after <code>Answer:</code> in the reply,
+compared with the reference. The prompt and grader come from my earlier
+GSM8K work (see Prior Work).</p>
+<hr />
+<h4 id="step-2--measure-the-baseline-and-the-free-fix">Step 2 — Measure
+the Baseline and the Free Fix</h4>
+<p>The untrained model first, then llama.cpp's own way to think less:
+<code>thinking_budget_tokens</code> on each request, which ends the
+thinking block at that many tokens.</p>
+<pre class="text"><code>uncapped    {&quot;n&quot;: 250, &quot;right&quot;: 227, &quot;accuracy&quot;: 0.908, &quot;truncated&quot;: 2, &quot;mean_tokens&quot;: 887.8, &quot;median_tokens&quot;: 788,   &quot;tokens_per_correct&quot;: 977.8, &quot;seconds_per_correct&quot;: 9.06}
+budget 256  {&quot;n&quot;: 250, &quot;right&quot;: 228, &quot;accuracy&quot;: 0.912, &quot;truncated&quot;: 0, &quot;mean_tokens&quot;: 572.8, &quot;median_tokens&quot;: 517.0, &quot;tokens_per_correct&quot;: 628.0, &quot;seconds_per_correct&quot;: 5.8}</code></pre>
+<p>The cap at 256 keeps accuracy and cuts tokens per correct answer by
+35.8%. That is the number a fine-tune has to beat.</p>
+<hr />
+<h4 id="step-3--train-through-the-weights-that-ship">Step 3 — Train
+Through the Weights That Ship</h4>
+<p>The deliverable is a 4-bit file for small cards. A model trained in
+16-bit and rounded to 4-bit afterwards ends up with weights it never
+trained on. So <code>qat_lora.py</code> trains through the 4-bit weights
+themselves:</p>
+<ul>
+<li>Every weight is read straight out of the served GGUF as a whole
+number from -8 to 7 plus a scale per group of 32.</li>
+<li>A small trainable adapter (LoRA, rank 16, 24.2M values) adds a
+correction to each weight, and the sum is rounded back onto the same
+4-bit grid on every forward pass.</li>
+<li>Gradients pass through the rounding as if it were not there, the
+standard trick for training through a step function.</li>
+</ul>
+<p>With the adapter at zero, the model's weights equal the file's:</p>
+<pre class="text"><code>blk.0.ffn_gate.weight    exact=True mismatched=0/9437184
+blk.20.attn_q.weight     exact=True mismatched=0/3145728
+blk.34.ffn_down.weight   exact=True mismatched=0/18874368
+blk.7.inp_gate.weight    exact=True mismatched=0/393216
+token_embd.weight        exact=True mismatched=0/402653184
+{&quot;top1_agree&quot;: 510, &quot;of&quot;: 512, &quot;rate&quot;: 0.9961}</code></pre>
+<p>Its next-token choice matches llama-server's on 510 of 512 tokens of
+a real reply.</p>
+<p>🔎 <strong>Tip: the lazy route is a few hundred lines of
+PyTorch.</strong> The usual recipe for a 4-bit fine-tune is QLoRA:
+transformers, PEFT and bitsandbytes. It trains against bitsandbytes' own
+4-bit format, NF4, so the adapter learns weights that get rounded a
+second time on the way into a Q4_0 GGUF. llama.cpp's trainer reads the
+GGUF directly, and at the commit used here it stops on Gemma 4 with
+<code>unsupported unary op for backward pass: TANH</code>; its
+<code>llama-finetune</code> trains full weights only. Reading the
+weights out of the GGUF and writing the loop around them took
+<code>qat_lora.py</code> (216 lines) and <code>train.py</code> (179
+lines), and the two checks above show the model it trains is the shipped
+file. The loop itself, AdamW with warmup, a cosine schedule and gradient
+clipping, is what TRL's trainer does in one call. The 4-bit grid is the
+part none of those libraries offered. Step 8 runs the standard recipe on
+the same data and measures the difference.</p>
+<hr />
+<h4 id="step-4--fit-it-in-8-gb">Step 4 — Fit It in 8 GB</h4>
+<p>Three choices make training fit on the 3050:</p>
+<ul>
+<li>The 4-bit weights stay 4-bit in memory, stored as int8 with fp16
+scales.</li>
+<li>Gemma 4's per-layer embedding table (2.24 GiB as int8) stays on the
+CPU. Only the rows a sequence uses are looked up.</li>
+<li>Gradient checkpointing, one sequence at a time, and the loss
+computed in chunks so the 262,144-word output layer never holds a whole
+sequence at once.</li>
+</ul>
+<p>One step of 8 sequences at 1,024 tokens:</p>
+<pre class="text"><code>{&quot;load_s&quot;: 26.5, &quot;load_peak_mib&quot;: 2434, &quot;unfilled&quot;: [], &quot;lora_params&quot;: 24158208}
+{&quot;step&quot;: 1, &quot;loss&quot;: 16.508, &quot;s_per_step&quot;: 35.68, &quot;peak_mib&quot;: 4725, &quot;reserved_mib&quot;: 5120}</code></pre>
+<p>That uses 4.7 GB of the card's 8 GB. Overfitting one reply at lr 1e-3
+brings the loss from 0.1831 to 0.0235 in 12 steps and moves 24,385,598
+of the 1,835,532,288 4-bit weights, so the gradients reach the grid.</p>
+<p>The standard QLoRA stack meets the same two limits on this card.
+Gemma 4's per-layer table is 4.7 GB in 16-bit, and Hugging Face's
+Trainer and accelerate place the whole model on the GPU, table included,
+so the first backward pass runs out of memory.
+<code>qlora_train.py</code> moves the table to the CPU, marks the model
+as split across CPU and GPU so neither library moves it back, and
+computes the loss in the same chunks. Then it fits:</p>
+<pre class="text"><code>{&quot;load_s&quot;: 3.9, &quot;load_peak_mib&quot;: 6201, &quot;lora_params&quot;: 24158208}
+{&quot;ple_device&quot;: &quot;cpu&quot;, &quot;gpu_mib&quot;: 1785}</code></pre>
+<p>The peak is the table passing through the GPU while loading; training
+starts from 1,785 MiB. Same adapter size, 24,158,208 values, at 17.1 s
+per step.</p>
+<hr />
+<h4 id="step-5--sample-four-answers-per-problem">Step 5 — Sample Four
+Answers per Problem</h4>
+<p><code>sample_train.py</code> asks the served model each of 1,000
+training problems four times, at temperature 1.0, on a 4-slot
+llama-server. It keeps the exact prompt and reply token ids, so the
+trainer sees what the server saw.</p>
+<pre class="text"><code>{&quot;samples&quot;: 4000, &quot;right&quot;: 3524, &quot;problems&quot;: 1000}</code></pre>
+<p>4,000 samples, 3,707,725 generated tokens, took 4 h 1 min on the
+3050: 256 tokens per second across the four slots. This is the longest
+step of the loop, and it is pure inference. 948 problems got at least
+one right answer. The shortest right answer averages 757.2 tokens
+against 858.3 for all right answers, so the targets are 12% shorter than
+the model's typical right answer.</p>
+<hr />
+<h4 id="step-6--train-on-the-shortest-right-answer">Step 6 — Train on
+the Shortest Right Answer</h4>
+<p><code>train.py</code> picks, in code, the shortest right answer per
+problem whose thinking finished, then trains two passes at lr 1e-4,
+batch 8:</p>
+<pre class="text"><code>{&quot;problems&quot;: 1000, &quot;with_right&quot;: 948, &quot;train_seqs&quot;: 931, &quot;mean_gen_len&quot;: 723.8}
+{&quot;step&quot;: 234, &quot;of&quot;: 234, &quot;epoch&quot;: 1, &quot;loss&quot;: 0.2107, &quot;gnorm&quot;: 1.525, &quot;lr&quot;: 0.0, &quot;elapsed_s&quot;: 7822, &quot;peak_mib&quot;: 4896}</code></pre>
+<p>234 steps in 2 h 10 min, 33.4 s per step, 4,896 MiB peak.</p>
+<p>A second run, B, writes a thinking budget into the prompt ("Think for
+at most 256 tokens") set to each answer's own length, and pairs each
+problem's shortest answer with a longer one at a bigger budget. 1,411
+sequences, 354 steps, 3 h 28 min, 4,899 MiB peak.</p>
+<hr />
+<h4 id="step-7--export-back-into-the-same-file">Step 7 — Export Back
+Into the Same File</h4>
+<p><code>export_gguf.py</code> copies the served GGUF and overwrites
+only the 4-bit weights of the trained layers, under the original scales.
+A zero adapter writes back the identical file:</p>
+<pre class="text"><code>levels changed 0 of 1835532288 in trained tensors -&gt; zero.gguf
+zero adapter: byte-identical</code></pre>
+<p>For run A:</p>
+<pre class="text"><code>levels changed 238829 of 1835532288 in trained tensors -&gt; gemma-4-E2B-it-lazy-q4_0.gguf</code></pre>
+<p>The result loads in the same llama-server with the same flags, at the
+same size, on any card that ran the original.</p>
+<hr />
+<h4 id="step-8--measure-the-tuned-models">Step 8 — Measure the Tuned
+Models</h4>
+<p>The same 250 problems, the same server flags, greedy:</p>
+<pre class="text"><code>run A                      {&quot;right&quot;: 220, &quot;accuracy&quot;: 0.88,  &quot;mean_tokens&quot;: 816.0, &quot;median_tokens&quot;: 707.0, &quot;tokens_per_correct&quot;: 927.2}
+run B, plain prompt        {&quot;right&quot;: 229, &quot;accuracy&quot;: 0.916, &quot;mean_tokens&quot;: 867.6, &quot;median_tokens&quot;: 780.0, &quot;tokens_per_correct&quot;: 947.2}
+run B, prompt budget 128   {&quot;right&quot;: 221, &quot;accuracy&quot;: 0.884, &quot;mean_tokens&quot;: 801.7, &quot;median_tokens&quot;: 721.0, &quot;tokens_per_correct&quot;: 906.9}
+run B, prompt budget 256   {&quot;right&quot;: 224, &quot;accuracy&quot;: 0.896, &quot;mean_tokens&quot;: 809.3, &quot;median_tokens&quot;: 740.5, &quot;tokens_per_correct&quot;: 903.2}
+run B, prompt budget 512   {&quot;right&quot;: 225, &quot;accuracy&quot;: 0.9,   &quot;mean_tokens&quot;: 822.3, &quot;median_tokens&quot;: 755.0, &quot;tokens_per_correct&quot;: 913.7}
+run A at lr 1e-3           {&quot;right&quot;: 226, &quot;accuracy&quot;: 0.904, &quot;mean_tokens&quot;: 828.3, &quot;median_tokens&quot;: 706.0, &quot;tokens_per_correct&quot;: 916.2}
+QLoRA at lr 1e-3           {&quot;right&quot;: 228, &quot;accuracy&quot;: 0.912, &quot;mean_tokens&quot;: 878.4, &quot;median_tokens&quot;: 785.5, &quot;tokens_per_correct&quot;: 963.2}</code></pre>
+<p>Run A cuts tokens per correct answer by 5.2% and loses 7 right
+answers, so it fails the equal-accuracy rule. Run B's plain prompt cuts
+them by 3.1% with accuracy held. A budget written in the prompt moves
+tokens by less than 11 between 128 and 512. Run A at lr 1e-3 cuts them
+by 6.3% and gets 226 right, one fewer than the untrained model.</p>
+<p>The QLoRA row is the standard recipe from Step 4: transformers'
+Trainer, PEFT and bitsandbytes' NF4 format, on run A's data and settings
+at lr 1e-3, exported by the same script. It trains in 1 h 6 min, half
+the time of run A, and gets 228 right and cuts tokens per correct answer
+by 1.5%. Run A at the same rate cuts them by 6.3%, or 4.9% fewer tokens
+than QLoRA: 916.2 against 963.2. Its export moved 52,531,066 of the
+4-bit weights, 2.862%, against run A's 7.353%. An adapter trained on NF4
+loses part of its correction when the weights are rounded into Q4_0.</p>
+<p>🔎 <strong>Tip: count the 4-bit weights that moved.</strong> Run A's
+export changed 238,829 of 1,835,532,288 weights, 0.013%; run B's changed
+0.041%. A correction smaller than half a 4-bit step rounds away, so an
+adapter can train for hours and leave the shipped file nearly unchanged.
+At lr 1e-3 the same training moved 134,965,355, or 7.35%, 565 times as
+many as at lr 1e-4. Tokens per correct answer fell from 927.2 to 916.2.
+Once the weights move, the limit is the data: the shortest of four right
+answers is only 11.8% shorter than a typical right answer, so the model
+has little shorter thinking to learn from.</p>
+<hr />
+<h4 id="compare-and-contrast">Compare and Contrast</h4>
+<p><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/medium/img/devto-lazy-gemma-table-3.png"
+alt="Table: llama.cpp thinking cap 256, Tuned A, Tuned A, lr 1e-3, QLoRA, lr 1e-3, Tuned B, plain prompt" /></p>
+<hr />
+<h4 id="so-which-one">So, Which One?</h4>
+<p>To make Gemma 4 E2B think less today, set
+<code>thinking_budget_tokens</code> to 256 on the request: it costs
+nothing and cuts tokens per correct answer by 35.8% on these problems.
+To fine-tune Gemma 4 E2B cheaply, the 8 GB card that serves it is
+enough: sample, train and grade on the 3050 in under 7 hours. For the
+training step, the standard QLoRA stack is the quick route, an hour for
+two passes, once the per-layer table goes to the CPU and the loss is
+chunked. Training through the shipped 4-bit weights takes twice as long,
+fits in under 5 GB, and here cut more tokens per correct answer.</p>
+<hr />
+<h4 id="prior-work">Prior Work</h4>
+<ul>
+<li><strong>GSM8K prompt and grader</strong>: copied from
+<code>gen_eval.py</code> in my earlier Gemma 4 TPU work
+(<code>gemma4-dev/jev-tpu-v5e1</code>).</li>
+<li><strong>The exact Q4_0 GGUF</strong>: built by
+<code>gguf_exact.py</code> in my earlier Gemma 4 llama.cpp work
+(<code>gemma4-dev/local-llamacpp-1650ti-4b-q4_0</code>), published as
+<code>xbill9/gemma-4-E2B-it-qat-q4_0-exact-gguf</code>.</li>
+<li><strong>Open source used</strong>: <a
+href="https://github.com/ggml-org/llama.cpp">llama.cpp</a> (MIT), <a
+href="https://github.com/pytorch/pytorch">PyTorch</a>, <a
+href="https://github.com/huggingface/transformers">transformers</a>, <a
+href="https://github.com/huggingface/peft">PEFT</a> and <a
+href="https://github.com/bitsandbytes-foundation/bitsandbytes">bitsandbytes</a>
+(QLoRA comparison only), <a
+href="https://github.com/ggml-org/llama.cpp/tree/master/gguf-py">gguf-py</a>,
+Gemma 4 E2B (Gemma terms), <a
+href="https://github.com/openai/grade-school-math">GSM8K</a>.</li>
+</ul>
+<hr />
+<h4 id="why-does-open-innovation-matter">Why Does Open Innovation
+Matter?</h4>
+<p>Every step of this project needs the weights on the desk.</p>
+<ul>
+<li><strong>Training through the shipped weights needs the shipped
+file.</strong> The trainer reads the 4-bit weights straight out of the
+GGUF that llama.cpp serves. A hosted fine-tuning API trains its own copy
+in its own format.</li>
+<li><strong>The trained model runs where the old one ran.</strong> The
+export writes into the same open file format, so the lazy model goes
+back onto the 3050, or a smaller card, with nothing to install.</li>
+<li><strong>Open source shows where the gaps are.</strong> llama.cpp's
+own trainer stops on Gemma 4 with
+<code>ggml_compute_backward: unsupported unary op for backward pass: TANH</code>,
+from the model's output softcap. Because the code is open, the line is
+findable (<code>src/models/gemma4.cpp:436</code>), and so is the
+workaround: train in PyTorch on the same weights.</li>
+<li><strong>No per-token bill.</strong> 4 hours of sampling and 5 hours
+of training cost the electricity of one desktop.</li>
+</ul>
+<hr />
+<h4 id="the-lazy-payoff">The Lazy Payoff</h4>
+<p>The payoff available today comes from llama.cpp, with no training:
+the 256-token thinking cap takes the 3050 from 9.06 s to 5.80 s per
+correct answer, and from 977.8 to 628.0 tokens.</p>
+<p>On a slow device the tokens matter more. The Snapdragon 850 laptop
+from my earlier work decodes E2B at 5.00 tokens per second (measured
+2026-10-11, <code>gemma4-dev/local-llamacpp-sdm850-2b-q4_0</code>). By
+arithmetic, 349.8 fewer tokens per correct answer is about 70 s less
+waiting per answer there. Not measured on that laptop in this
+project.</p>
+<hr />
+<h4 id="prize-categories">Prize Categories</h4>
+<p><strong>Gemma</strong>: Gemma 4 E2B, fine-tuned locally on an 8 GB
+RTX 3050 through its quantization-aware 4-bit weights and served with
+llama.cpp.</p>
+<hr />
+<h4 id="summary">Summary</h4>
+<p>The goal of this project was to show that a low-end 8 GB GPU that
+serves Gemma 4 E2B can also fine-tune it, by teaching the model to think
+less. The 3050's inference speed covers the sampling; keeping Gemma 4's
+large tables off the GPU makes the training fit, with either trainer.
+The results were:</p>
+<ul>
+<li>🟢 One RTX 3050 runs the whole loop in 6 h 44 min: sampling at 256
+tokens per second across four slots, training, and a 250-problem
+evaluation.</li>
+<li>🟢 Training fits on the RTX 3050: 4,896 MiB peak, 33.4 s per step, 2
+h 10 min for two passes over 931 examples.</li>
+<li>🟢 The standard QLoRA stack fits too, at 17.1 s per step, with the
+per-layer table on the CPU and the loss in chunks.</li>
+<li>🟢 The trained model is the served file with only its trained
+weights changed; a zero adapter writes back an identical file.</li>
+<li>🟢 llama.cpp's thinking cap of 256 tokens cuts tokens per correct
+answer by 35.8% at equal accuracy, with no training.</li>
+<li>⚠️ The best tuned run, lr 1e-3, cuts them by 6.3% with one fewer
+right answer. At lr 1e-4 only 0.013% to 0.041% of the 4-bit weights
+moved; at lr 1e-3, 7.35% moved and the tokens barely followed.</li>
+<li>⚠️ QLoRA holds accuracy at 228 with a 1.5% cut in tokens per correct
+answer. Training through the shipped weights at the same rate cuts
+6.3%.</li>
+<li>❌ Training on the shortest right answer at lr 1e-4 cost 7 right
+answers out of 250.</li>
+<li>❌ llama.cpp's own trainer stops on Gemma 4's output softcap.</li>
+</ul>
+<p>Scope: one RTX 3050 OEM, llama.cpp <code>b11696-3-g7182ef71e</code>,
+one greedy run of 250 held-out GSM8K problems per model, four samples
+per training problem on 1,000 problems. Seconds per correct answer on
+the 3050 are inflated for some early baseline rows, which ran beside a
+CPU-side export test; token counts are unaffected. The Snapdragon 850
+figure comes from another project and is not re-measured here.</p>
+<p>The strategy for fine-tuning Gemma 4 on a low-end 8 GB GPU was
+validated with an incremental step by step approach.</p>
+<hr />
+<h4 id="references">References</h4>
+<ul>
+<li><a
+href="https://dev.to/challenges/hacktoberfest-week3-2026-10-19">Hacktoberfest
+Open-Source AI Challenge, Week 3</a></li>
+<li><a href="https://github.com/xbill9/lazy-gemma">lazy-gemma on
+GitHub</a></li>
+<li><a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a></li>
+<li><a
+href="https://huggingface.co/xbill9/gemma-4-E2B-it-qat-q4_0-exact-gguf">Gemma
+4 E2B, exact Q4_0 GGUF used here</a></li>
+<li><a
+href="https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-unquantized">google/gemma-4-E2B-it-qat-q4_0-unquantized</a></li>
+<li><a href="https://github.com/openai/grade-school-math">GSM8K</a></li>
+</ul>
+</body>
+</html>
