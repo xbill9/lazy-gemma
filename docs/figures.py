@@ -60,6 +60,23 @@ def main():
     from importlib.metadata import version
     print("versions:", *[f"{m} {version(m)}" for m in ("torch", "transformers", "peft", "bitsandbytes")])
 
+    print("held-out runs, 250 problems each (right, share right, tokens per correct, median tokens, s per correct):")
+    for label, path in (("uncapped", "2026-10-20-baseline-e2b-3050oem/think-greedy.summary.json"),
+                        ("cap 128", "2026-10-20-budget-e2b-3050oem/budget-128.summary.json"),
+                        ("cap 256", "2026-10-20-budget-e2b-3050oem/budget-256.summary.json"),
+                        ("cap 512", "2026-10-20-budget-e2b-3050oem/budget-512.summary.json"),
+                        ("run A", "2026-10-20-qatlora-e2b-3050oem/think-greedy.summary.json"),
+                        ("run B plain", "2026-10-20-qatlora-budgetprompt-e2b-3050oem/plain.summary.json"),
+                        ("run B prompt 256", "2026-10-20-qatlora-budgetprompt-e2b-3050oem/prompt-256.summary.json"),
+                        ("run A lr 1e-3", "2026-10-21-qatlora-lr1e-3-e2b-3050oem/think-greedy.summary.json"),
+                        ("QLoRA lr 1e-3", "2026-10-21-qlora-nf4-e2b-3050oem/think-greedy.summary.json")):
+        r = js(path)
+        print(f"  {label:17s} {r['right']} {100 * r['right'] / r['n']:.1f}% {r['tokens_per_correct']} "
+              f"median {r['median_tokens']:.0f} tokens {r['seconds_per_correct']:.2f} s")
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "qat_smoke.py")) as f:
+        defaults = re.findall(r'"--(seq|batch)", type=int, default=(\d+)', f.read())
+    print("qat_smoke.py defaults (the log does not record arguments):", ", ".join(f"{k} {int(v):,}" for k, v in defaults))
+
     def server(name):
         """-> (median decode tokens/s per request, minutes from server start to last reply) from llama-server's log."""
         with open(os.path.join(R, name, "server.log")) as f:

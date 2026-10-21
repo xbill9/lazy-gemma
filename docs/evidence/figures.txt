@@ -17,6 +17,17 @@ cap 256 saves 349.8 tokens per correct answer; at 5.00 tok/s that is 70.0 s
 QLoRA setup: {"load_s": 3.9, "load_peak_mib": 6201, "lora_params": 24158208} {"ple_device": "cpu", "gpu_mib": 1785}
 per-layer table in 16-bit: 262,144 x 8,960 x 2 bytes = 4.7 GB
 versions: torch 2.14.1+cu130 transformers 5.12.1 peft 0.21.2 bitsandbytes 0.50.2
+held-out runs, 250 problems each (right, share right, tokens per correct, median tokens, s per correct):
+  uncapped          227 90.8% 977.8 median 788 tokens 9.06 s
+  cap 128           224 89.6% 548.8 median 411 tokens 5.08 s
+  cap 256           228 91.2% 628.0 median 517 tokens 5.80 s
+  cap 512           228 91.2% 856.8 median 753 tokens 7.92 s
+  run A             220 88.0% 927.2 median 707 tokens 8.57 s
+  run B plain       229 91.6% 947.2 median 780 tokens 8.73 s
+  run B prompt 256  224 89.6% 903.2 median 740 tokens 8.33 s
+  run A lr 1e-3     226 90.4% 916.2 median 706 tokens 8.49 s
+  QLoRA lr 1e-3     228 91.2% 963.2 median 786 tokens 8.90 s
+qat_smoke.py defaults (the log does not record arguments): seq 1,024, batch 8
 2026-10-20-baseline-e2b-3050oem: median decode 109.3 tok/s per request, 0 h 35 min to last reply
 2026-10-20-samples-e2b-3050oem: median decode 64.6 tok/s per request, 4 h 1 min to last reply
 2026-10-21-qatlora-lr1e-3-e2b-3050oem: median decode 109.2 tok/s per request, 0 h 32 min to last reply
