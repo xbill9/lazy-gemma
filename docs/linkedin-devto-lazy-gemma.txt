@@ -1,0 +1,15 @@
+Fine-Tuning Gemma 4 on an 8 GB RTX 3050: Slow, Low End and Still Viable
+
+An 8 GB RTX 3050 serves Gemma 4 E2B at 109 tokens per second, and that speed makes it a training card too. One card samples its own training data, fine-tunes the model to think less and grades it, in 6 h 44 min.
+
+What is in it:
+
+- 🟢 One RTX 3050 runs the whole loop in 6 h 44 min: sampling at 256 tokens per second across four slots, training, and a 250-problem evaluation.
+- 🟢 Training fits on the RTX 3050: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples.
+- 🟢 The standard QLoRA stack fits too, at 17.1 s per step, with the per-layer table on the CPU and the loss in chunks.
+- 🟢 The trained model is the served file with only its trained weights changed; a zero adapter writes back an identical file.
+
+dev.to: https://dev.to/xbill/fine-tuning-gemma-4-on-an-8-gb-rtx-3050-slow-low-end-and-still-viable-291f
+Medium: https://xbill999.medium.com/fine-tuning-gemma-4-on-an-8-gb-rtx-3050-slow-low-end-and-still-viable-a03df0b73a28
+Substack: https://xbill9.substack.com/p/fine-tuning-gemma-4-on-an-8-gb-rtx
+Source: https://github.com/xbill9/lazy-gemma
