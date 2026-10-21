@@ -125,6 +125,8 @@ token_embd.weight        exact=True mismatched=0/402653184
 
 Its next-token choice matches llama-server's on 510 of 512 tokens of a real reply.
 
+🔎 **Tip: the lazy route is a few hundred lines of PyTorch.** The usual recipe for a 4-bit fine-tune is QLoRA: transformers, PEFT and bitsandbytes. It trains against bitsandbytes' own 4-bit format, NF4, so the adapter learns weights that get rounded a second time on the way into a Q4_0 GGUF. llama.cpp's trainer reads the GGUF directly, and at the commit used here it stops on Gemma 4 with `unsupported unary op for backward pass: TANH`; its `llama-finetune` trains full weights only. Reading the weights out of the GGUF and writing the loop around them took `qat_lora.py` (216 lines) and `train.py` (179 lines), and the two checks above show the model it trains is the shipped file. The loop itself, AdamW with warmup, a cosine schedule and gradient clipping, is what TRL's trainer does in one call. The 4-bit grid is the part none of those libraries offered.
+
 ---
 
 #### Step 4 — Fit It in 8 GB

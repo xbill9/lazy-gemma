@@ -31,7 +31,9 @@ def main():
     ckpt, out = sys.argv[1], sys.argv[2]
     saved = torch.load(ckpt, map_location="cpu")
     model, _, _, _ = qat_lora.load(rank=saved["rank"], alpha=saved["alpha"], device="cpu")
-    model.load_state_dict(saved["lora"], strict=False)
+    res = model.load_state_dict(saved["lora"], strict=False)
+    assert not res.unexpected_keys, res.unexpected_keys[:5]
+    assert not [k for k in res.missing_keys if "lora_" in k], "adapter is missing LoRA tensors"
     shutil.copyfile(qat_lora.GGUF_PATH, out)
     r = qat_lora.gguf.GGUFReader(qat_lora.GGUF_PATH)
     changed = total = 0
