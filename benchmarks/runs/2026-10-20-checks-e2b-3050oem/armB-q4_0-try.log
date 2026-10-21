@@ -1,0 +1,24 @@
+0.00.139.858 I main: forcing load_mode = none to enable writable pointers to the weights
+0.00.139.862 I main: force changing k cache type to f32 due to a lack of f16 support for OUT_PROD
+0.00.139.862 I main: force changing v cache type to f32 due to a lack of f16 support for OUT_PROD
+0.01.802.547 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.803.277 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.846.679 W load: '</s>' is a normal token here, removing it from EOG list
+0.07.719.500 I cmn          init: llama threadpool init, n_threads = 6
+0.07.796.874 I 
+0.07.796.993 I system_info: n_threads = 6 (n_threads_batch = 6) / 12 | CUDA : ARCHS = 860 | USE_GRAPHS = 1 | FA_QUANTS = q4_0-q4_0,q8_0-q8_0,f16-f16,bf16-bf16 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.07.798.115 I -optimizer adamw -lr0 1e-05 -wd 0 -lr-min -1 -min-epochs -1 -epochs 1 -period 1 -val 0.05
+ggml_compute_backward: unsupported unary op for backward pass: TANH
+/home/xbill/llama.cpp/ggml/src/ggml.c:7218: fatal error
+/home/xbill/llama.cpp/build/bin/libggml-base.so.0(+0x15694) [0x7fc7a4557694]
+/home/xbill/llama.cpp/build/bin/libggml-base.so.0(+0x15b00) [0x7fc7a4557b00]
+/home/xbill/llama.cpp/build/bin/libggml-base.so.0(ggml_abort+0x11d) [0x7fc7a4557cad]
+/home/xbill/llama.cpp/build/bin/libggml-base.so.0(ggml_build_backward_expand+0x1bde) [0x7fc7a4569c6e]
+/home/xbill/llama.cpp/build/bin/libggml-base.so.0(+0x51dc7) [0x7fc7a4593dc7]
+/home/xbill/llama.cpp/build/bin/libggml-base.so.0(ggml_opt_alloc+0x100) [0x7fc7a4594fe0]
+/home/xbill/llama.cpp/build/bin/libllama.so.0(_ZN13llama_context14opt_epoch_iterEP16ggml_opt_datasetP15ggml_opt_resultRKSt6vectorIiSaIiEES8_R11llama_batchPFvbP16ggml_opt_contextS1_S3_lllEblll+0x3a3) [0x7fc7a3c156b3]
+/home/xbill/llama.cpp/build/bin/libllama.so.0(_ZN13llama_context9opt_epochEP16ggml_opt_datasetP15ggml_opt_resultS3_lPFvbP16ggml_opt_contextS1_S3_lllES7_+0x202) [0x7fc7a3c15e32]
+/home/xbill/llama.cpp/build/bin/llama-finetune(+0x3d05) [0x563d752a9d05]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x29fba) [0x7fc7a3433fba]
+/usr/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x87) [0x7fc7a34340d7]
+/home/xbill/llama.cpp/build/bin/llama-finetune(+0x4051) [0x563d752aa051]

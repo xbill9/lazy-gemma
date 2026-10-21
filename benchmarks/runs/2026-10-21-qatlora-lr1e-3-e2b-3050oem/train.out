@@ -1,0 +1,6 @@
+{"problems": 1000, "with_right": 948, "train_seqs": 931, "mean_gen_len": 723.8}
+{"step": 10, "of": 234, "epoch": 0, "loss": 0.1222, "gnorm": 0.451, "lr": 0.0009955005896229543, "elapsed_s": 335, "peak_mib": 4819}
+{"step": 20, "of": 234, "epoch": 0, "loss": 0.1523, "gnorm": 0.429, "lr": 0.0009820833372667813, "elapsed_s": 666, "peak_mib": 4831}
+{"step": 30, "of": 234, "epoch": 0, "loss": 0.1457, "gnorm": 0.528, "lr": 0.0009599897218294122, "elapsed_s": 1001, "peak_mib": 4882}
+{"step": 40, "of": 234, "epoch": 0, "loss": 0.1397, "gnorm": 1.003, "lr": 0.0009296173762811085, "elapsed_s": 1345, "peak_mib": 4882}
+{"step": 50, "of": 234, "epoch": 0, "loss": 0.1416, "gnorm": 0.355, "lr": 0.000891512931208811, "elapsed_s": 1692, "peak_mib": 4882}

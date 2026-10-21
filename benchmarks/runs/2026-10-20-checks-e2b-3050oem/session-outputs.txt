@@ -1,0 +1,24 @@
+# Outputs of SPEC checks 2 and 3 and the export test, copied verbatim from the Claude Code session
+# transcript (host gpu, 2026-10-20). The scripts were run inline; their source is in the transcript and
+# summarised here.
+
+## Check 2: frozen fake-quant vs the served GGUF's dequantized weights (no LoRA), 5 tensors
+blk.0.ffn_gate.weight    exact=True mismatched=0/9437184
+blk.20.attn_q.weight     exact=True mismatched=0/3145728
+blk.34.ffn_down.weight   exact=True mismatched=0/18874368
+blk.7.inp_gate.weight    exact=True mismatched=0/393216
+token_embd.weight        exact=True mismatched=0/402653184
+
+## Overfit one real reply (run/ref-greedy.json row 0), qat_lora.load(rank=16), AdamW lr 1e-3 constant
+step  0 loss 0.1831 |grad B| 1.79e+03 levels changed 19071/1835532288
+step  2 loss 0.1764 |grad B| 3.46e+03 levels changed 185387/1835532288
+step  4 loss 0.0749 |grad B| 3.95e+03 levels changed 1424283/1835532288
+step  6 loss 0.0742 |grad B| 4.19e+04 levels changed 5677839/1835532288
+step  8 loss 0.3120 |grad B| 3.89e+04 levels changed 11083945/1835532288
+step 10 loss 0.0603 |grad B| 1.35e+04 levels changed 19392030/1835532288
+step 11 loss 0.0235 |grad B| 4.16e+04 levels changed 24385598/1835532288
+
+## export_gguf.py with a zero rank-4 adapter, then a random one (lora_B ~ N(0, 0.01)), on CPU
+levels changed 0 of 1835532288 in trained tensors -> zero.gguf
+zero adapter: byte-identical        (cmp against gemma-4-E2B-it-q4_0-exact.gguf)
+levels changed 1431626 of 1835532288 in trained tensors -> rand.gguf

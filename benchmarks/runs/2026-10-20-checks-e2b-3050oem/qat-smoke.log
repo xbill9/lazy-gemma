@@ -1,0 +1,4 @@
+{"load_s": 26.5, "load_peak_mib": 2434, "unfilled": [], "lora_params": 24158208}
+{"top1_agree": 510, "of": 512, "rate": 0.9961}
+{"step": 0, "loss": 16.2083, "s_per_step": 35.69, "peak_mib": 4541, "reserved_mib": 5120}
+{"step": 1, "loss": 16.508, "s_per_step": 35.68, "peak_mib": 4725, "reserved_mib": 5120}
