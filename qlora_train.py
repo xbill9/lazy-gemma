@@ -43,10 +43,13 @@ def qat_name(peft_name):
 
 
 def ple_on_cpu(text_model):
-    """Move the per-layer embedding table to the CPU; lookups run there and the rows come back to the GPU."""
+    """Move the per-layer embedding table to the CPU; lookups run there and the rows come back to the GPU.
+
+    Call again after building the Trainer, which moves the whole model to the GPU."""
     ple = text_model.embed_tokens_per_layer.to("cpu")
-    ple.register_forward_pre_hook(lambda mod, args: (args[0].to("cpu"),))
-    ple.register_forward_hook(lambda mod, args, out: out.to("cuda"))
+    if not ple._forward_hooks:
+        ple.register_forward_pre_hook(lambda mod, args: (args[0].to(mod.weight.device),))
+        ple.register_forward_hook(lambda mod, args, out: out.to("cuda"))
     torch.cuda.empty_cache()
 
 
@@ -118,6 +121,8 @@ def main():
                                                bnb_4bit_use_double_quant=True,
                                                bnb_4bit_compute_dtype=torch.bfloat16))
     ple_on_cpu(model.model)
+    # A two-device map keeps Trainer and accelerate from moving the whole model, table included, back to the GPU.
+    model.hf_device_map = {"model": 0, "model.embed_tokens_per_layer": "cpu", "lm_head": 0}
     model.config.use_cache = False
     model = get_peft_model(model, LoraConfig(r=a.rank, lora_alpha=a.alpha, lora_dropout=0.0, bias="none",
                                              target_modules=list(qat_lora.TARGETS), task_type="CAUSAL_LM"))
@@ -140,6 +145,12 @@ def main():
     t0 = time.time()
 
     class Log(TrainerCallback):
+        def on_train_begin(self, args, state, control, **kw):
+            dev = text_model.embed_tokens_per_layer.weight.device
+            print(json.dumps({"ple_device": str(dev), "gpu_mib": round(torch.cuda.memory_allocated() / 2**20)}),
+                  flush=True)
+            assert dev.type == "cpu", "the per-layer table was moved to the GPU"
+
         def on_log(self, args, state, control, logs=None, **kw):
             if not logs or "loss" not in logs:
                 return
