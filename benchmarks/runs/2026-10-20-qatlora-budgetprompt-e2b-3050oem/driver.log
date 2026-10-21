@@ -1,0 +1,4 @@
+2026-10-21 01:10:30 prompt budget 128 {"n": 250, "right": 221, "accuracy": 0.884, "errors": 0, "truncated": 2, "mean_tokens": 801.7, "median_tokens": 721.0, "tokens_per_correct": 906.9, "seconds_per_correct": 8.37}
+2026-10-21 01:41:37 prompt budget 256 {"n": 250, "right": 224, "accuracy": 0.896, "errors": 0, "truncated": 1, "mean_tokens": 809.3, "median_tokens": 740.5, "tokens_per_correct": 903.2, "seconds_per_correct": 8.33}
+2026-10-21 02:13:14 prompt budget 512 {"n": 250, "right": 225, "accuracy": 0.9, "errors": 0, "truncated": 1, "mean_tokens": 822.3, "median_tokens": 755.0, "tokens_per_correct": 913.7, "seconds_per_correct": 8.43}
+2026-10-21 02:46:33 plain {"n": 250, "right": 229, "accuracy": 0.916, "errors": 0, "truncated": 2, "mean_tokens": 867.6, "median_tokens": 780.0, "tokens_per_correct": 947.2, "seconds_per_correct": 8.73}

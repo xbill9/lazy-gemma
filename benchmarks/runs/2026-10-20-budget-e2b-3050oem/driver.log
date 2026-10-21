@@ -1,0 +1,4 @@
+2026-10-20 13:30:13 budget 128 {"n": 250, "right": 224, "accuracy": 0.896, "errors": 0, "truncated": 1, "mean_tokens": 491.7, "median_tokens": 411.0, "tokens_per_correct": 548.8, "seconds_per_correct": 5.08}
+2026-10-20 13:52:16 budget 256 {"n": 250, "right": 228, "accuracy": 0.912, "errors": 0, "truncated": 0, "mean_tokens": 572.8, "median_tokens": 517.0, "tokens_per_correct": 628.0, "seconds_per_correct": 5.8}
+2026-10-20 14:22:22 budget 512 {"n": 250, "right": 228, "accuracy": 0.912, "errors": 0, "truncated": 0, "mean_tokens": 781.4, "median_tokens": 753.0, "tokens_per_correct": 856.8, "seconds_per_correct": 7.92}
+2026-10-20 18:23:26 samples {"samples": 4000, "right": 3524, "problems": 1000}
