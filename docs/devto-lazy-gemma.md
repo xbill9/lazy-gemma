@@ -12,7 +12,7 @@ This article provides a step by step guide to fine-tuning Gemma 4 E2B on an 8 GB
 
 https://github.com/xbill9/lazy-gemma
 
-**The 3050 trains Gemma 4 E2B through the same 4-bit weights it serves: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples. The trained file drops straight back into llama.cpp, byte for byte the format it started in. The lazy model itself is not there yet: the best tuned run cuts tokens per correct answer by 3.1% at the same accuracy, while llama.cpp's built-in thinking cap of 256 tokens cuts them by 35.8% with no training at all.**
+**The 3050 trains Gemma 4 E2B through the same 4-bit weights it serves: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples. The trained file drops straight back into llama.cpp, byte for byte the format it started in. The lazy model itself is not there yet: the best tuned run cuts tokens per correct answer by 6.3% with one fewer right answer out of 250, while llama.cpp's built-in thinking cap of 256 tokens cuts them by 35.8% with no training at all.**
 
 ---
 
@@ -45,7 +45,7 @@ The baseline and each tuned model answer the same 250 held-out GSM8K problems, g
 | Tuned A: shortest right answer, lr 1e-4 | 220 (88.0%) | 927.2 |
 | Tuned B: budget in the prompt, plain prompt | 229 (91.6%) | 947.2 |
 | Tuned B, prompt says "at most 256 tokens" | 224 (89.6%) | 903.2 |
-| Tuned A at lr 1e-3 | PENDING | PENDING |
+| Tuned A at lr 1e-3 | 226 (90.4%) | 916.2 |
 
 Tokens include the thinking. A tuned model only counts as a win if it uses fewer tokens per correct answer at the same accuracy.
 
@@ -204,11 +204,12 @@ run B, plain prompt        {"right": 229, "accuracy": 0.916, "mean_tokens": 867.
 run B, prompt budget 128   {"right": 221, "accuracy": 0.884, "mean_tokens": 801.7, "median_tokens": 721.0, "tokens_per_correct": 906.9}
 run B, prompt budget 256   {"right": 224, "accuracy": 0.896, "mean_tokens": 809.3, "median_tokens": 740.5, "tokens_per_correct": 903.2}
 run B, prompt budget 512   {"right": 225, "accuracy": 0.9,   "mean_tokens": 822.3, "median_tokens": 755.0, "tokens_per_correct": 913.7}
+run A at lr 1e-3           {"right": 226, "accuracy": 0.904, "mean_tokens": 828.3, "median_tokens": 706.0, "tokens_per_correct": 916.2}
 ```
 
-Run A cuts tokens per correct answer by 5.2% and loses 7 right answers, so it fails the equal-accuracy rule. Run B's plain prompt cuts them by 3.1% with accuracy held. A budget written in the prompt moves tokens by less than 11 between 128 and 512.
+Run A cuts tokens per correct answer by 5.2% and loses 7 right answers, so it fails the equal-accuracy rule. Run B's plain prompt cuts them by 3.1% with accuracy held. A budget written in the prompt moves tokens by less than 11 between 128 and 512. Run A at lr 1e-3 cuts them by 6.3% and gets 226 right, one fewer than the untrained model.
 
-🔎 **Tip: count the 4-bit weights that moved.** Run A's export changed 238,829 of 1,835,532,288 weights, 0.013%; run B's changed 0.041%. A correction smaller than half a 4-bit step rounds away, so an adapter can train for hours and leave the shipped file nearly unchanged. The overfit check in Step 4 moved 102 times as many in 12 steps at lr 1e-3, which is why the next run uses that rate.
+🔎 **Tip: count the 4-bit weights that moved.** Run A's export changed 238,829 of 1,835,532,288 weights, 0.013%; run B's changed 0.041%. A correction smaller than half a 4-bit step rounds away, so an adapter can train for hours and leave the shipped file nearly unchanged. At lr 1e-3 the same training moved 134,965,355, or 7.35%, 565 times as many as at lr 1e-4. Tokens per correct answer fell from 927.2 to 916.2. Once the weights move, the limit is the data: the shortest of four right answers is only 11.8% shorter than a typical right answer, so the model has little shorter thinking to learn from.
 
 ---
 
@@ -270,7 +271,7 @@ The goal of this project was to fine-tune Gemma 4 E2B to think less, on a low-en
 - 🟢 Training fits on the RTX 3050: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples.
 - 🟢 The trained model is the served file with only its trained weights changed; a zero adapter writes back an identical file.
 - 🟢 llama.cpp's thinking cap of 256 tokens cuts tokens per correct answer by 35.8% at equal accuracy, with no training.
-- ⚠️ The best tuned run cuts them by 3.1% at equal accuracy. Only 0.013% to 0.041% of the 4-bit weights moved.
+- ⚠️ The best tuned run, lr 1e-3, cuts them by 6.3% with one fewer right answer. At lr 1e-4 only 0.013% to 0.041% of the 4-bit weights moved; at lr 1e-3, 7.35% moved and the tokens barely followed.
 - ❌ Training on the shortest right answer at lr 1e-4 cost 7 right answers out of 250.
 - ❌ llama.cpp's own trainer stops on Gemma 4's output softcap.
 

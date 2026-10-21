@@ -1,0 +1,1 @@
+{"n": 250, "right": 226, "accuracy": 0.904, "errors": 0, "truncated": 1, "mean_tokens": 828.3, "median_tokens": 706.0, "tokens_per_correct": 916.2, "seconds_per_correct": 8.49}
