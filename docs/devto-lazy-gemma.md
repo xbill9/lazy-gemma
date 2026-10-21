@@ -3,7 +3,7 @@ title: "Fine-Tuning Gemma 4 on an 8 GB RTX 3050: Slow, Low End and Still Viable"
 published: false
 description: "An 8 GB RTX 3050 serves Gemma 4 E2B at 109 tokens per second, and that speed makes it a training card too. One card samples its own training data, fine-tunes the model to think less and grades it, in 6 h 44 min."
 tags: devchallenge, hf26challenge, gemma, llamacpp
-cover_image: https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/devto-cover.1c70acef.jpg
+cover_image: https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/devto-cover.5597ecd9.jpg
 ---
 
 *This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady](https://dev.to/challenges/hacktoberfest-week3-2026-10-19)*
