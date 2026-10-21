@@ -2,3 +2,4 @@ devto = https://dev.to/xbill/fine-tuning-gemma-4-on-an-8-gb-rtx-3050-slow-low-en
 medium = https://xbill999.medium.com/fine-tuning-gemma-4-on-an-8-gb-rtx-3050-slow-low-end-and-still-viable-a03df0b73a28
 substack = https://xbill9.substack.com/p/fine-tuning-gemma-4-on-an-8-gb-rtx
 repo = https://github.com/xbill9/lazy-gemma
+linkedin = https://www.linkedin.com/feed/update/urn:li:activity:7518746484725583872/
