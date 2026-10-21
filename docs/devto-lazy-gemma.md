@@ -12,7 +12,7 @@ This article provides a step by step guide to fine-tuning Gemma 4 E2B on an 8 GB
 
 https://github.com/xbill9/lazy-gemma
 
-**The 3050 trains Gemma 4 E2B through the same 4-bit weights it serves: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples. The trained file drops straight back into llama.cpp, byte for byte the format it started in. The lazy model itself is not there yet: the best tuned run cuts tokens per correct answer by 6.3% with one fewer right answer out of 250, while llama.cpp's built-in thinking cap of 256 tokens cuts them by 35.8% with no training at all.**
+**An 8 GB RTX 3050 fine-tunes Gemma 4 E2B two ways. Trained through the same 4-bit weights it serves: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples, and the trained file drops straight back into llama.cpp, byte for byte the format it started in. With the standard QLoRA stack: 17.1 s per step, 1 h 6 min, once Gemma 4's per-layer table moves to the CPU and the loss is computed in chunks. The lazy model itself is not there yet: the best tuned run cuts tokens per correct answer by 6.3% with one fewer right answer out of 250, while llama.cpp's built-in thinking cap of 256 tokens cuts them by 35.8% with no training at all.**
 
 ---
 
@@ -28,6 +28,7 @@ What the project delivers:
 
 - a trainer that runs on an 8 GB card and trains through the exact 4-bit weights of the served model
 - an exporter that writes the trained weights back into that file, with nothing else changed
+- the standard QLoRA recipe (transformers, PEFT, bitsandbytes) fitted to the same card, as a comparison
 - an evaluation on 250 held-out problems, graded by code, against the untrained model and against llama.cpp's thinking cap
 
 ---
@@ -46,6 +47,7 @@ The baseline and each tuned model answer the same 250 held-out GSM8K problems, g
 | Tuned B: budget in the prompt, plain prompt | 229 (91.6%) | 947.2 |
 | Tuned B, prompt says "at most 256 tokens" | 224 (89.6%) | 903.2 |
 | Tuned A at lr 1e-3 | 226 (90.4%) | 916.2 |
+| QLoRA at lr 1e-3 | 228 (91.2%) | 963.2 |
 
 Tokens include the thinking. A tuned model only counts as a win if it uses fewer tokens per correct answer at the same accuracy.
 
@@ -62,6 +64,7 @@ https://github.com/xbill9/lazy-gemma
 | `sample_train.py` | Four answers per training problem, with the exact token ids |
 | `qat_lora.py` | The model, built on the served 4-bit weights, with trainable adapters |
 | `train.py` | Picks the shortest right answer per problem and trains |
+| `qlora_train.py` | The same data and settings on the standard QLoRA stack |
 | `export_gguf.py` | Writes the trained weights back into a copy of the served file |
 | `benchmarks/runs/` | Every run: script, logs, per-problem rows, summaries |
 
@@ -75,7 +78,7 @@ https://github.com/xbill9/lazy-gemma
 - llama.cpp built with CUDA, at `b11696-3-g7182ef71e`
 - The served model: `xbill9/gemma-4-E2B-it-qat-q4_0-exact-gguf`, Gemma 4 E2B with Google's quantization-aware weights written exactly as 4-bit Q4_0
 - `google/gemma-4-E2B-it-qat-q4_0-unquantized` from Hugging Face, for the model's layout and tokenizer
-- The machine's own Python 3.14 with torch 2.14.1 (CUDA 13.0) and transformers 5.12.1
+- The machine's own Python 3.14 with torch 2.14.1 (CUDA 13.0) and transformers 5.12.1; peft 0.21.2 and bitsandbytes 0.50.2 for the QLoRA comparison
 - A clone: `git clone https://github.com/xbill9/lazy-gemma`
 
 ---
@@ -146,6 +149,15 @@ One step of 8 sequences at 1,024 tokens:
 
 That uses 4.7 GB of the card's 8 GB. Overfitting one reply at lr 1e-3 brings the loss from 0.1831 to 0.0235 in 12 steps and moves 24,385,598 of the 1,835,532,288 4-bit weights, so the gradients reach the grid.
 
+The standard QLoRA stack meets the same two limits on this card. Gemma 4's per-layer table is 4.7 GB in 16-bit, and Hugging Face's Trainer and accelerate place the whole model on the GPU, table included, so the first backward pass runs out of memory. `qlora_train.py` moves the table to the CPU, marks the model as split across CPU and GPU so neither library moves it back, and computes the loss in the same chunks. Then it fits:
+
+```text
+{"load_s": 3.9, "load_peak_mib": 6201, "lora_params": 24158208}
+{"ple_device": "cpu", "gpu_mib": 1785}
+```
+
+The peak is the table passing through the GPU while loading; training starts from 1,785 MiB. Same adapter size, 24,158,208 values, at 17.1 s per step.
+
 ---
 
 #### Step 5 — Sample Four Answers per Problem
@@ -210,7 +222,7 @@ QLoRA at lr 1e-3           {"right": 228, "accuracy": 0.912, "mean_tokens": 878.
 
 Run A cuts tokens per correct answer by 5.2% and loses 7 right answers, so it fails the equal-accuracy rule. Run B's plain prompt cuts them by 3.1% with accuracy held. A budget written in the prompt moves tokens by less than 11 between 128 and 512. Run A at lr 1e-3 cuts them by 6.3% and gets 226 right, one fewer than the untrained model.
 
-The QLoRA row is the standard recipe: transformers' Trainer, PEFT and bitsandbytes' NF4 format, on run A's data and settings at lr 1e-3, exported by the same script. Two changes fit it in 8 GB: the per-layer table moves to the CPU, and the loss is computed in chunks. It trains in 1 h 6 min at 17.1 s per step, half the time of run A, and peaks at 6,201 MiB while loading. It gets 228 right and cuts tokens per correct answer by 1.5%. Run A at the same rate cuts them by 6.3%, or 4.9% fewer tokens than QLoRA: 916.2 against 963.2. Its export moved 52,531,066 of the 4-bit weights, 2.862%, against run A's 7.353%. An adapter trained on NF4 loses part of its correction when the weights are rounded into Q4_0.
+The QLoRA row is the standard recipe from Step 4: transformers' Trainer, PEFT and bitsandbytes' NF4 format, on run A's data and settings at lr 1e-3, exported by the same script. It trains in 1 h 6 min, half the time of run A, and gets 228 right and cuts tokens per correct answer by 1.5%. Run A at the same rate cuts them by 6.3%, or 4.9% fewer tokens than QLoRA: 916.2 against 963.2. Its export moved 52,531,066 of the 4-bit weights, 2.862%, against run A's 7.353%. An adapter trained on NF4 loses part of its correction when the weights are rounded into Q4_0.
 
 🔎 **Tip: count the 4-bit weights that moved.** Run A's export changed 238,829 of 1,835,532,288 weights, 0.013%; run B's changed 0.041%. A correction smaller than half a 4-bit step rounds away, so an adapter can train for hours and leave the shipped file nearly unchanged. At lr 1e-3 the same training moved 134,965,355, or 7.35%, 565 times as many as at lr 1e-4. Tokens per correct answer fell from 927.2 to 916.2. Once the weights move, the limit is the data: the shortest of four right answers is only 11.8% shorter than a typical right answer, so the model has little shorter thinking to learn from.
 
@@ -230,7 +242,7 @@ The QLoRA row is the standard recipe: transformers' Trainer, PEFT and bitsandbyt
 
 #### So, Which One?
 
-To make Gemma 4 E2B think less today, set `thinking_budget_tokens` to 256 on the request: it costs nothing and cuts tokens per correct answer by 35.8% on these problems. To fine-tune Gemma 4 E2B, the 3050 is enough: a run fits in under 5 GB and finishes in an afternoon, and the trained weights are the 4-bit weights the card serves.
+To make Gemma 4 E2B think less today, set `thinking_budget_tokens` to 256 on the request: it costs nothing and cuts tokens per correct answer by 35.8% on these problems. To fine-tune Gemma 4 E2B, the 3050 is enough. The standard QLoRA stack is the quick route, an hour for two passes, once the per-layer table goes to the CPU and the loss is chunked. Training through the shipped 4-bit weights takes twice as long, fits in under 5 GB, and here cut more tokens per correct answer.
 
 ---
 
@@ -269,13 +281,14 @@ On a slow device the tokens matter more. The Snapdragon 850 laptop from my earli
 
 ## Summary
 
-The goal of this project was to fine-tune Gemma 4 E2B to think less, on a low-end 8 GB GPU. The key to the solution was training through the exact 4-bit weights the model ships in, with the large tables kept on the CPU. The results were:
+The goal of this project was to fine-tune Gemma 4 E2B to think less, on a low-end 8 GB GPU. The key to fitting it was keeping Gemma 4's large tables off the GPU, with either trainer; the hand-written one also trains through the exact 4-bit weights the model ships in. The results were:
 
 - 🟢 Training fits on the RTX 3050: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples.
+- 🟢 The standard QLoRA stack fits too, at 17.1 s per step, with the per-layer table on the CPU and the loss in chunks.
 - 🟢 The trained model is the served file with only its trained weights changed; a zero adapter writes back an identical file.
 - 🟢 llama.cpp's thinking cap of 256 tokens cuts tokens per correct answer by 35.8% at equal accuracy, with no training.
 - ⚠️ The best tuned run, lr 1e-3, cuts them by 6.3% with one fewer right answer. At lr 1e-4 only 0.013% to 0.041% of the 4-bit weights moved; at lr 1e-3, 7.35% moved and the tokens barely followed.
-- ⚠️ The standard QLoRA stack trains twice as fast, 17.1 s per step, and holds accuracy at 228, with a 1.5% cut in tokens per correct answer. Training through the shipped weights at the same rate cuts 6.3%.
+- ⚠️ QLoRA holds accuracy at 228 with a 1.5% cut in tokens per correct answer. Training through the shipped weights at the same rate cuts 6.3%.
 - ❌ Training on the shortest right answer at lr 1e-4 cost 7 right answers out of 250.
 - ❌ llama.cpp's own trainer stops on Gemma 4's output softcap.
 

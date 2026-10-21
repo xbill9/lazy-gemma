@@ -54,6 +54,12 @@ def main():
             n, tot = map(int, re.search(r"levels changed (\d+) of (\d+)", f.read()).groups())
         print(f"  4-bit weights changed: {n:,} of {tot:,} = {100 * n / tot:.3f}%")
 
+    with open(os.path.join(R, "2026-10-21-qlora-nf4-e2b-3050oem", "train.out")) as f:
+        print("QLoRA setup:", *[ln.strip() for ln in f if ln.startswith(('{"load_s"', '{"ple_device"'))])
+    print(f"per-layer table in 16-bit: 262,144 x 8,960 x 2 bytes = {262144 * 8960 * 2 / 1e9:.1f} GB")
+    from importlib.metadata import version
+    print("versions:", *[f"{m} {version(m)}" for m in ("torch", "transformers", "peft", "bitsandbytes")])
+
     sel = jl("2026-10-20-qatlora-e2b-3050oem/selection.jsonl")
     chosen = [r["chosen_len"] for r in sel if r["chosen_len"]]
     every = [n for r in sel for n in r["lens_right"]]

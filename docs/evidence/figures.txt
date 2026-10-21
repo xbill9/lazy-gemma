@@ -14,6 +14,9 @@ cap 256 saves 349.8 tokens per correct answer; at 5.00 tok/s that is 70.0 s
   4-bit weights changed: 134,965,355 of 1,835,532,288 = 7.353%
 2026-10-21-qlora-nf4-e2b-3050oem: 234 steps, 4002 s = 1 h 6 min, 17.1 s per step, peak 6201 MiB
   4-bit weights changed: 52,531,066 of 1,835,532,288 = 2.862%
+QLoRA setup: {"load_s": 3.9, "load_peak_mib": 6201, "lora_params": 24158208} {"ple_device": "cpu", "gpu_mib": 1785}
+per-layer table in 16-bit: 262,144 x 8,960 x 2 bytes = 4.7 GB
+versions: torch 2.14.1+cu130 transformers 5.12.1 peft 0.21.2 bitsandbytes 0.50.2
 shortest right answer mean 757.2, all right answers mean 858.3: 11.8% shorter
 lr 1e-3 export moved 565x run A's export
 overfit moved 24,385,598 levels in 12 steps = 102x run A's export
