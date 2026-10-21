@@ -60,6 +60,27 @@ def main():
     from importlib.metadata import version
     print("versions:", *[f"{m} {version(m)}" for m in ("torch", "transformers", "peft", "bitsandbytes")])
 
+    def server(name):
+        """-> (median decode tokens/s per request, minutes from server start to last reply) from llama-server's log."""
+        with open(os.path.join(R, name, "server.log")) as f:
+            text = f.read()
+        tps = [float(x) for x in re.findall(r"\|\s+eval time =.*?([\d.]+) tokens per second", text)]
+        last = [ln.split()[0] for ln in text.splitlines() if "print_timing" in ln][-1]  # min.sec.ms.us since start
+        m, sec, ms, _ = (int(x) for x in last.split("."))
+        return statistics.median(tps), m + (sec + ms / 1000) / 60
+
+    for name in ("2026-10-20-baseline-e2b-3050oem", "2026-10-20-samples-e2b-3050oem",
+                 "2026-10-21-qatlora-lr1e-3-e2b-3050oem", "2026-10-21-qlora-nf4-e2b-3050oem"):
+        tps, mins = server(name)
+        print(f"{name}: median decode {tps:.1f} tok/s per request, {mins // 60:.0f} h {mins % 60:.0f} min to last reply")
+    gen = sum(r["n_gen"] for r in jl("2026-10-20-samples-e2b-3050oem/samples.jsonl"))
+    _, smin = server("2026-10-20-samples-e2b-3050oem")
+    print(f"sampling: {gen:,} generated tokens in {smin:.0f} min = {gen / (smin * 60):.0f} tok/s across 4 slots")
+    tmin = jl("2026-10-21-qatlora-lr1e-3-e2b-3050oem/train.log.jsonl")[-1]["elapsed_s"] / 60
+    _, emin = server("2026-10-21-qatlora-lr1e-3-e2b-3050oem")
+    loop = smin + tmin + emin
+    print(f"loop, sample + train + eval: {smin:.0f} + {tmin:.0f} + {emin:.0f} min = {loop // 60:.0f} h {loop % 60:.0f} min")
+
     sel = jl("2026-10-20-qatlora-e2b-3050oem/selection.jsonl")
     chosen = [r["chosen_len"] for r in sel if r["chosen_len"]]
     every = [n for r in sel for n in r["lens_right"]]

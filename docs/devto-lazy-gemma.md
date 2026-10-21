@@ -1,7 +1,7 @@
 ---
 title: "Fine-Tuning Gemma 4 on an 8 GB RTX 3050: Slow, Low End and Still Viable"
 published: false
-description: "Gemma 4 E2B trained on an 8 GB RTX 3050, through the exact 4-bit weights it ships with, to think less before it answers. Training fits in 4.9 GB and runs at 33.4 s a step. The result is measured on 250 held-out problems against llama.cpp's one-flag thinking cap."
+description: "An 8 GB RTX 3050 serves Gemma 4 E2B at 109 tokens per second, and that speed makes it a training card too. One card samples its own training data, fine-tunes the model to think less and grades it, in 6 h 44 min."
 tags: devchallenge, hf26challenge, gemma, llamacpp
 cover_image: https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/devto-cover.1c70acef.jpg
 ---
@@ -12,7 +12,7 @@ This article provides a step by step guide to fine-tuning Gemma 4 E2B on an 8 GB
 
 https://github.com/xbill9/lazy-gemma
 
-**An 8 GB RTX 3050 fine-tunes Gemma 4 E2B two ways. Trained through the same 4-bit weights it serves: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples, and the trained file drops straight back into llama.cpp, byte for byte the format it started in. With the standard QLoRA stack: 17.1 s per step, 1 h 6 min, once Gemma 4's per-layer table moves to the CPU and the loss is computed in chunks. The lazy model itself is not there yet: the best tuned run cuts tokens per correct answer by 6.3% with one fewer right answer out of 250, while llama.cpp's built-in thinking cap of 256 tokens cuts them by 35.8% with no training at all.**
+**The RTX 3050 is an 8 GB inference card: it serves Gemma 4 E2B at 109 tokens per second. That speed makes it a training card too, because cheap fine-tuning starts with inference. On one 3050 the whole loop runs in 6 h 44 min: the model writes its own training data, 3.7 million tokens in 4 h 1 min; trains on it in 2 h 10 min at a 4,896 MiB peak, or 1 h 6 min with the standard QLoRA stack; and is graded on 250 held-out problems in 32 min. The trained file drops straight back into llama.cpp, byte for byte the format it started in. The lazy model itself is not there yet: the best tuned run cuts tokens per correct answer by 6.3% with one fewer right answer out of 250, while llama.cpp's built-in thinking cap of 256 tokens cuts them by 35.8% with no training at all.**
 
 ---
 
@@ -22,7 +22,7 @@ Gemma 4 thinks before it answers. On grade-school maths problems the E2B model w
 
 The lazy idea: teach the model to reach the same answer in fewer words. Ask it the same problem four times, keep the shortest answer that is right, and fine-tune it on those.
 
-The 3050 question: can a used 8 GB card do the fine-tuning, or does training need rented hardware? The answer here is that the card does it, slowly, and the trained model ships in the same 4-bit file a small card serves.
+The 3050 question: a used 8 GB card is good for inference, so can it fine-tune too, or does training need rented hardware? This kind of fine-tuning starts with inference: the model has to answer thousands of problems before there is anything to train on, and that took longer than the training itself. A card that serves 109 tokens per second already does that part. The answer here is that the same card runs the whole loop, overnight, and the trained model ships in the same 4-bit file it serves.
 
 What the project delivers:
 
@@ -168,7 +168,7 @@ The peak is the table passing through the GPU while loading; training starts fro
 {"samples": 4000, "right": 3524, "problems": 1000}
 ```
 
-4,000 samples took 4 h 1 min on the 3050. 948 problems got at least one right answer. The shortest right answer averages 757.2 tokens against 858.3 for all right answers, so the targets are 12% shorter than the model's typical right answer.
+4,000 samples, 3,707,725 generated tokens, took 4 h 1 min on the 3050: 256 tokens per second across the four slots. This is the longest step of the loop, and it is pure inference. 948 problems got at least one right answer. The shortest right answer averages 757.2 tokens against 858.3 for all right answers, so the targets are 12% shorter than the model's typical right answer.
 
 ---
 
@@ -242,7 +242,7 @@ The QLoRA row is the standard recipe from Step 4: transformers' Trainer, PEFT an
 
 #### So, Which One?
 
-To make Gemma 4 E2B think less today, set `thinking_budget_tokens` to 256 on the request: it costs nothing and cuts tokens per correct answer by 35.8% on these problems. To fine-tune Gemma 4 E2B, the 3050 is enough. The standard QLoRA stack is the quick route, an hour for two passes, once the per-layer table goes to the CPU and the loss is chunked. Training through the shipped 4-bit weights takes twice as long, fits in under 5 GB, and here cut more tokens per correct answer.
+To make Gemma 4 E2B think less today, set `thinking_budget_tokens` to 256 on the request: it costs nothing and cuts tokens per correct answer by 35.8% on these problems. To fine-tune Gemma 4 E2B cheaply, the 8 GB card that serves it is enough: sample, train and grade on the 3050 in under 7 hours. For the training step, the standard QLoRA stack is the quick route, an hour for two passes, once the per-layer table goes to the CPU and the loss is chunked. Training through the shipped 4-bit weights takes twice as long, fits in under 5 GB, and here cut more tokens per correct answer.
 
 ---
 
@@ -281,8 +281,9 @@ On a slow device the tokens matter more. The Snapdragon 850 laptop from my earli
 
 ## Summary
 
-The goal of this project was to fine-tune Gemma 4 E2B to think less, on a low-end 8 GB GPU. The key to fitting it was keeping Gemma 4's large tables off the GPU, with either trainer; the hand-written one also trains through the exact 4-bit weights the model ships in. The results were:
+The goal of this project was to show that a low-end 8 GB GPU that serves Gemma 4 E2B can also fine-tune it, by teaching the model to think less. The 3050's inference speed covers the sampling; keeping Gemma 4's large tables off the GPU makes the training fit, with either trainer. The results were:
 
+- 🟢 One RTX 3050 runs the whole loop in 6 h 44 min: sampling at 256 tokens per second across four slots, training, and a 250-problem evaluation.
 - 🟢 Training fits on the RTX 3050: 4,896 MiB peak, 33.4 s per step, 2 h 10 min for two passes over 931 examples.
 - 🟢 The standard QLoRA stack fits too, at 17.1 s per step, with the per-layer table on the CPU and the loss in chunks.
 - 🟢 The trained model is the served file with only its trained weights changed; a zero adapter writes back an identical file.
