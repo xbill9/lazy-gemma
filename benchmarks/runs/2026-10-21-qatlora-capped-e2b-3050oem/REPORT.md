@@ -30,3 +30,5 @@ on its own.
 
 Sampler check (2026-10-21, base server, 4 held-out problems, greedy): `/completion` with the reasoning budget
 fields and the chat endpoint with `thinking_budget_tokens` 256 both close thinking after 255 tokens.
+
+Published: https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf (2026-10-22, SHA-256 matches `gguf.sha256`).

@@ -24,6 +24,9 @@ back into a copy of that file, so the result serves with the same llama-server f
 | Tuned A at lr 1e-3, with the 256 cap | 224 | 634.2 | `benchmarks/runs/2026-10-21-qatlora-lr1e-3-budget256-e2b-3050oem` |
 | Tuned on 256-capped samples, lr 1e-3 | 222 | 602.6 | `benchmarks/runs/2026-10-21-qatlora-capped-e2b-3050oem` |
 
+The capped-samples model is on Hugging Face:
+[`xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf).
+
 Training: 4,896 MiB peak, 33.4 s per step of 8 sequences. Derived figures: `docs/figures.py`
 (output in `docs/evidence/figures.txt`). Check outputs: `benchmarks/runs/2026-10-20-checks-e2b-3050oem`.
 
