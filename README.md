@@ -20,6 +20,7 @@ back into a copy of that file, so the result serves with the same llama-server f
 | Tuned A, shortest right of 4, lr 1e-4 | 220 | 927.2 | `benchmarks/runs/2026-10-20-qatlora-e2b-3050oem` |
 | Tuned B, budget in the prompt, plain prompt | 229 | 947.2 | `benchmarks/runs/2026-10-20-qatlora-budgetprompt-e2b-3050oem` |
 | Tuned A at lr 1e-3 | 226 | 916.2 | `benchmarks/runs/2026-10-21-qatlora-lr1e-3-e2b-3050oem` |
+| Tuned A data, standard QLoRA (NF4), lr 1e-3 | 228 | 963.2 | `benchmarks/runs/2026-10-21-qlora-nf4-e2b-3050oem` |
 
 Training: 4,896 MiB peak, 33.4 s per step of 8 sequences. Derived figures: `docs/figures.py`
 (output in `docs/evidence/figures.txt`). Check outputs: `benchmarks/runs/2026-10-20-checks-e2b-3050oem`.

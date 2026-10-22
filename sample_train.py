@@ -2,12 +2,16 @@
 """sample_train.py -- K sampled answers per training problem, token ids kept, graded in code.
 
   sample_train.py <upstream> <out.jsonl> [--problems N] [--samples K] [--seed S] [--concurrency C]
-                  [--temperature T] [--top-p P] [--top-k K] [--max-tokens M]
+                  [--temperature T] [--top-p P] [--top-k K] [--max-tokens M] [--budget B]
 
 Draws N problems from data/train.jsonl by seed S. Each sample goes through /apply-template (thinking
 on) and /completion with return_tokens, so the row holds the exact prompt and generated token ids the
 trainer will see. The answer is the text after the thinking block's closing <channel|>, graded with
 lazy_eval.right. Rows: id, sample, prompt_ids, gen_ids, n_gen, finish, right, extracted.
+
+--budget caps thinking at B tokens with llama.cpp's reasoning budget sampler, the same cap the eval's
+thinking_budget_tokens applies on the chat endpoint. /completion gets no chat session, so the tags the
+chat endpoint would pass are given here; the forced <channel|> lands in gen_ids like a sampled one.
 """
 
 import argparse
@@ -20,6 +24,7 @@ from concurrent.futures import ThreadPoolExecutor
 import lazy_eval
 
 END_THINK = "<channel|>"
+START_THINK = "<|channel>thought"
 BOS = 2
 
 
@@ -40,10 +45,14 @@ def one(a, rec, k):
     # add_special: /completion takes token ids as given, and the chat endpoint the eval uses starts with <bos>
     ids = post(a.upstream, "/tokenize", {"content": prompt, "add_special": True, "parse_special": True})["tokens"]
     assert ids[0] == BOS and ids[1] != BOS, ids[:3]
-    r = post(a.upstream, "/completion", {
+    body = {
         "prompt": ids, "n_predict": a.max_tokens, "temperature": a.temperature, "top_p": a.top_p, "top_k": a.top_k,
         "min_p": 0.0, "seed": a.seed * 1000 + k, "cache_prompt": False, "return_tokens": True,
-    })
+    }
+    if a.budget is not None:
+        body.update(reasoning_budget_tokens=a.budget, reasoning_budget_start_tag=START_THINK,
+                    reasoning_budget_end_tags=[END_THINK], reasoning_budget_message="")
+    r = post(a.upstream, "/completion", body)
     text = answer_text(r["content"])
     return {"id": rec["id"], "sample": k, "answer": rec["answer"], "prompt_ids": ids, "gen_ids": r["tokens"],
             "n_gen": len(r["tokens"]), "finish": "length" if r.get("stop_type") == "limit" else r.get("stop_type"),
@@ -63,6 +72,7 @@ def main():
     p.add_argument("--top-p", type=float, default=0.95)
     p.add_argument("--top-k", type=int, default=64)
     p.add_argument("--max-tokens", type=int, default=4096)
+    p.add_argument("--budget", type=int, help="cap thinking at this many tokens")
     a = p.parse_args()
 
     recs = lazy_eval.load("data/train.jsonl")
