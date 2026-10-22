@@ -1,0 +1,2 @@
+2026-10-22 10:50:22 benchmarks/runs/2026-10-22-rest-e2b-3050oem/base-budget-256 {"n": 1069, "right": 943, "accuracy": 0.8821, "errors": 0, "truncated": 0, "mean_tokens": 576.9, "median_tokens": 536, "tokens_per_correct": 654.0, "seconds_per_correct": 6.03}
+2026-10-22 12:19:41 benchmarks/runs/2026-10-22-rest-e2b-3050oem/capped256-think {"n": 1069, "right": 948, "accuracy": 0.8868, "errors": 0, "truncated": 0, "mean_tokens": 542.7, "median_tokens": 503, "tokens_per_correct": 612.0, "seconds_per_correct": 5.65}
