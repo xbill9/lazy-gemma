@@ -26,7 +26,9 @@ back into a copy of that file, so the result serves with the same llama-server f
 
 On all 1,319 GSM8K test problems (`benchmarks/runs/2026-10-22-rest-e2b-3050oem`), the model tuned on 256-capped
 samples gets 1,170 right at 610.2 tokens per correct answer, uncapped; the base model with the 256 cap gets
-1,171 right at 648.9. Equal accuracy (McNemar p = 1.000), 6.0% fewer tokens per correct answer.
+1,171 right at 648.9. Equal accuracy (McNemar p = 1.000), 6.0% fewer tokens per correct answer. At a 128 cap the
+tuned model gets 1,161 right at 492.2 against the capped base's 1,166 at 544.2: 9.6% fewer tokens, 5 fewer right
+(McNemar p = 0.727).
 
 The capped-samples model is on Hugging Face:
 [`xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf).

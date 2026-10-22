@@ -1,2 +1,4 @@
-rest 1,069 (1069): right base+cap 943, capped-data 948; only capped-data right 45, only base+cap right 40, McNemar p=0.665; tokens per correct 654.0 vs 612.0; 903 both right: 548.5 vs 516.5 mean tokens
-all 1,319 (1319): right base+cap 1171, capped-data 1170; only capped-data right 51, only base+cap right 52, McNemar p=1.000; tokens per correct 648.9 vs 610.2; 1119 both right: 549.7 vs 515.1 mean tokens
+cap 256, rest 1,069 (1069): right base+cap 943, capped-data 948; only capped-data right 45, only base+cap right 40, McNemar p=0.665; tokens per correct 654.0 vs 612.0; 903 both right: 548.5 vs 516.5 mean tokens
+cap 256, all 1,319 (1319): right base+cap 1171, capped-data 1170; only capped-data right 51, only base+cap right 52, McNemar p=1.000; tokens per correct 648.9 vs 610.2; 1119 both right: 549.7 vs 515.1 mean tokens
+cap 128, rest 1,069 (1069): right base+cap 942, capped-data 943; only capped-data right 55, only base+cap right 54, McNemar p=1.000; tokens per correct 543.1 vs 486.7; 888 both right: 435.4 vs 399.5 mean tokens
+cap 128, all 1,319 (1319): right base+cap 1166, capped-data 1161; only capped-data right 63, only base+cap right 68, McNemar p=0.727; tokens per correct 544.2 vs 492.2; 1098 both right: 437.5 vs 399.9 mean tokens

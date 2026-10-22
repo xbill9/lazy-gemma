@@ -1,2 +1,7 @@
 2026-10-22 10:50:22 benchmarks/runs/2026-10-22-rest-e2b-3050oem/base-budget-256 {"n": 1069, "right": 943, "accuracy": 0.8821, "errors": 0, "truncated": 0, "mean_tokens": 576.9, "median_tokens": 536, "tokens_per_correct": 654.0, "seconds_per_correct": 6.03}
 2026-10-22 12:19:41 benchmarks/runs/2026-10-22-rest-e2b-3050oem/capped256-think {"n": 1069, "right": 948, "accuracy": 0.8868, "errors": 0, "truncated": 0, "mean_tokens": 542.7, "median_tokens": 503, "tokens_per_correct": 612.0, "seconds_per_correct": 5.65}
+2026-10-22 14:31:45 samples 128 {"samples": 4000, "right": 3484, "problems": 1000}
+2026-10-22 15:50:39 benchmarks/runs/2026-10-22-rest-e2b-3050oem/base-budget-128 {"n": 1069, "right": 942, "accuracy": 0.8812, "errors": 0, "truncated": 1, "mean_tokens": 478.5, "median_tokens": 415, "tokens_per_correct": 543.1, "seconds_per_correct": 5.02}
+2026-10-22 17:36:51 trained 128 {"problems": 1000, "with_right": 939, "train_seqs": 936, "mean_gen_len": 404.2}
+2026-10-22 17:55:16 benchmarks/runs/2026-10-22-qatlora-capped128-e2b-3050oem/think-greedy {"n": 250, "right": 218, "accuracy": 0.872, "errors": 0, "truncated": 0, "mean_tokens": 450.3, "median_tokens": 395.5, "tokens_per_correct": 516.4, "seconds_per_correct": 4.78}
+2026-10-22 19:06:08 benchmarks/runs/2026-10-22-rest-e2b-3050oem/capped128-think {"n": 1069, "right": 943, "accuracy": 0.8821, "errors": 0, "truncated": 1, "mean_tokens": 429.3, "median_tokens": 383, "tokens_per_correct": 486.7, "seconds_per_correct": 4.51}

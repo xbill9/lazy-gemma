@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Paired comparison, 256-capped-samples model (uncapped) vs the base GGUF with the 256 cap: on the 1,069
-rest problems, and on all 1,319 test problems (rest plus the 250 held-out set). Problems only one side got
+"""Paired comparison, each capped-samples model (uncapped) vs the base GGUF with the same cap: on the 1,069
+rest problems, and on all 1,319 test problems (rest plus the 250 held-out set). Caps with no finished eval
+are skipped. Problems only one side got
 right, exact two-sided McNemar p, tokens per correct answer, mean tokens on problems both got right."""
 import json
 import math
@@ -13,11 +14,19 @@ def load(p):
     return {r["id"]: r for r in map(json.loads, open(os.path.join(RUNS, p)))}
 
 
-base = load("2026-10-22-rest-e2b-3050oem/base-budget-256.jsonl")
-new = load("2026-10-22-rest-e2b-3050oem/capped256-think.jsonl")
-sets = {"rest 1,069": (base, new),
-        "all 1,319": ({**base, **load("2026-10-20-budget-e2b-3050oem/budget-256.jsonl")},
-                      {**new, **load("2026-10-21-qatlora-capped-e2b-3050oem/think-greedy.jsonl")})}
+TRAINED_250 = {256: "2026-10-21-qatlora-capped-e2b-3050oem", 128: "2026-10-22-qatlora-capped128-e2b-3050oem",
+               512: "2026-10-22-qatlora-capped512-e2b-3050oem"}
+sets = {}
+for cap, run in TRAINED_250.items():
+    paths = [f"2026-10-22-rest-e2b-3050oem/base-budget-{cap}.jsonl", f"2026-10-22-rest-e2b-3050oem/capped{cap}-think.jsonl",
+             f"2026-10-20-budget-e2b-3050oem/budget-{cap}.jsonl", f"{run}/think-greedy.jsonl"]
+    if not all(os.path.exists(os.path.join(RUNS, p)) for p in paths):
+        continue
+    base, new, base250, new250 = map(load, paths)
+    if len(new) < 1069:
+        continue
+    sets[f"cap {cap}, rest 1,069"] = (base, new)
+    sets[f"cap {cap}, all 1,319"] = ({**base, **base250}, {**new, **new250})
 for name, (old, cur) in sets.items():
     assert old.keys() == cur.keys()
     ids = list(old)
