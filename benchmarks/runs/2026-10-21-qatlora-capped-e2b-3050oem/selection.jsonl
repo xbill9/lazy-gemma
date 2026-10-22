@@ -1,0 +1,1000 @@
+{"id": "train-0", "candidates": 4, "right": 4, "chosen_len": 382, "lens_right": [382, 389, 440, 442]}
+{"id": "train-1", "candidates": 4, "right": 4, "chosen_len": 430, "lens_right": [430, 455, 514, 552]}
+{"id": "train-1009", "candidates": 4, "right": 3, "chosen_len": 660, "lens_right": [660, 760, 1088]}
+{"id": "train-101", "candidates": 4, "right": 4, "chosen_len": 417, "lens_right": [417, 437, 438, 447]}
+{"id": "train-1014", "candidates": 4, "right": 4, "chosen_len": 415, "lens_right": [415, 419, 448, 487]}
+{"id": "train-1018", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1019", "candidates": 4, "right": 3, "chosen_len": 502, "lens_right": [502, 511, 630]}
+{"id": "train-1022", "candidates": 4, "right": 4, "chosen_len": 596, "lens_right": [596, 648, 657, 672]}
+{"id": "train-1025", "candidates": 4, "right": 4, "chosen_len": 494, "lens_right": [494, 546, 551, 632]}
+{"id": "train-1041", "candidates": 4, "right": 4, "chosen_len": 500, "lens_right": [500, 519, 520, 528]}
+{"id": "train-1043", "candidates": 4, "right": 4, "chosen_len": 456, "lens_right": [456, 503, 517, 560]}
+{"id": "train-1062", "candidates": 4, "right": 4, "chosen_len": 530, "lens_right": [530, 654, 684, 790]}
+{"id": "train-1066", "candidates": 4, "right": 4, "chosen_len": 536, "lens_right": [536, 723, 753, 769]}
+{"id": "train-1069", "candidates": 4, "right": 4, "chosen_len": 485, "lens_right": [485, 487, 493, 541]}
+{"id": "train-108", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1081", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1083", "candidates": 4, "right": 4, "chosen_len": 620, "lens_right": [620, 623, 681, 753]}
+{"id": "train-1084", "candidates": 4, "right": 3, "chosen_len": 476, "lens_right": [476, 479, 495]}
+{"id": "train-1087", "candidates": 4, "right": 4, "chosen_len": 498, "lens_right": [498, 570, 607, 1139]}
+{"id": "train-1092", "candidates": 4, "right": 4, "chosen_len": 390, "lens_right": [390, 409, 419, 429]}
+{"id": "train-1104", "candidates": 4, "right": 3, "chosen_len": 753, "lens_right": [753, 853, 1350]}
+{"id": "train-1134", "candidates": 4, "right": 2, "chosen_len": 1224, "lens_right": [1224, 3443]}
+{"id": "train-1140", "candidates": 4, "right": 4, "chosen_len": 570, "lens_right": [570, 602, 645, 685]}
+{"id": "train-1144", "candidates": 4, "right": 2, "chosen_len": 723, "lens_right": [723, 784]}
+{"id": "train-115", "candidates": 4, "right": 4, "chosen_len": 647, "lens_right": [647, 647, 669, 843]}
+{"id": "train-1154", "candidates": 4, "right": 2, "chosen_len": 656, "lens_right": [656, 701]}
+{"id": "train-1162", "candidates": 4, "right": 4, "chosen_len": 365, "lens_right": [365, 409, 439, 454]}
+{"id": "train-1165", "candidates": 4, "right": 4, "chosen_len": 545, "lens_right": [545, 567, 595, 601]}
+{"id": "train-1167", "candidates": 4, "right": 4, "chosen_len": 368, "lens_right": [368, 402, 411, 430]}
+{"id": "train-117", "candidates": 4, "right": 4, "chosen_len": 587, "lens_right": [587, 656, 682, 956]}
+{"id": "train-1173", "candidates": 4, "right": 1, "chosen_len": 632, "lens_right": [632]}
+{"id": "train-1193", "candidates": 4, "right": 4, "chosen_len": 604, "lens_right": [604, 619, 697, 719]}
+{"id": "train-1198", "candidates": 4, "right": 4, "chosen_len": 432, "lens_right": [432, 460, 514, 520]}
+{"id": "train-12", "candidates": 4, "right": 4, "chosen_len": 385, "lens_right": [385, 413, 461, 481]}
+{"id": "train-120", "candidates": 4, "right": 4, "chosen_len": 511, "lens_right": [511, 512, 571, 686]}
+{"id": "train-1203", "candidates": 4, "right": 4, "chosen_len": 414, "lens_right": [414, 455, 473, 498]}
+{"id": "train-1215", "candidates": 4, "right": 4, "chosen_len": 637, "lens_right": [637, 649, 659, 747]}
+{"id": "train-1219", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 508, 558, 571]}
+{"id": "train-1224", "candidates": 4, "right": 4, "chosen_len": 457, "lens_right": [457, 488, 510, 602]}
+{"id": "train-1225", "candidates": 4, "right": 4, "chosen_len": 586, "lens_right": [586, 915, 1046, 1573]}
+{"id": "train-1237", "candidates": 4, "right": 4, "chosen_len": 599, "lens_right": [599, 620, 715, 791]}
+{"id": "train-1239", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 509, 517, 564]}
+{"id": "train-1240", "candidates": 4, "right": 3, "chosen_len": 526, "lens_right": [526, 557, 564]}
+{"id": "train-125", "candidates": 4, "right": 4, "chosen_len": 387, "lens_right": [387, 410, 428, 445]}
+{"id": "train-1256", "candidates": 4, "right": 4, "chosen_len": 389, "lens_right": [389, 395, 407, 468]}
+{"id": "train-1260", "candidates": 4, "right": 4, "chosen_len": 345, "lens_right": [345, 392, 398, 403]}
+{"id": "train-1265", "candidates": 4, "right": 4, "chosen_len": 510, "lens_right": [510, 518, 529, 566]}
+{"id": "train-1275", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 423, 489, 704]}
+{"id": "train-1277", "candidates": 4, "right": 4, "chosen_len": 442, "lens_right": [442, 452, 458, 514]}
+{"id": "train-1279", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1281", "candidates": 4, "right": 4, "chosen_len": 413, "lens_right": [413, 466, 475, 564]}
+{"id": "train-1291", "candidates": 4, "right": 4, "chosen_len": 446, "lens_right": [446, 471, 514, 539]}
+{"id": "train-1296", "candidates": 4, "right": 4, "chosen_len": 462, "lens_right": [462, 476, 502, 510]}
+{"id": "train-1311", "candidates": 4, "right": 4, "chosen_len": 458, "lens_right": [458, 470, 506, 802]}
+{"id": "train-1316", "candidates": 4, "right": 4, "chosen_len": 391, "lens_right": [391, 396, 411, 487]}
+{"id": "train-132", "candidates": 4, "right": 4, "chosen_len": 403, "lens_right": [403, 418, 470, 524]}
+{"id": "train-1326", "candidates": 4, "right": 4, "chosen_len": 479, "lens_right": [479, 481, 517, 581]}
+{"id": "train-1341", "candidates": 4, "right": 4, "chosen_len": 387, "lens_right": [387, 399, 422, 434]}
+{"id": "train-1342", "candidates": 4, "right": 2, "chosen_len": 667, "lens_right": [667, 686]}
+{"id": "train-1357", "candidates": 4, "right": 4, "chosen_len": 354, "lens_right": [354, 403, 414, 416]}
+{"id": "train-1364", "candidates": 4, "right": 3, "chosen_len": 478, "lens_right": [478, 481, 534]}
+{"id": "train-1387", "candidates": 4, "right": 4, "chosen_len": 409, "lens_right": [409, 431, 432, 435]}
+{"id": "train-1396", "candidates": 4, "right": 4, "chosen_len": 577, "lens_right": [577, 590, 611, 677]}
+{"id": "train-1431", "candidates": 4, "right": 4, "chosen_len": 458, "lens_right": [458, 481, 523, 529]}
+{"id": "train-1432", "candidates": 4, "right": 4, "chosen_len": 544, "lens_right": [544, 615, 645, 703]}
+{"id": "train-1457", "candidates": 4, "right": 4, "chosen_len": 505, "lens_right": [505, 513, 525, 535]}
+{"id": "train-1460", "candidates": 4, "right": 4, "chosen_len": 613, "lens_right": [613, 626, 654, 684]}
+{"id": "train-1471", "candidates": 4, "right": 4, "chosen_len": 572, "lens_right": [572, 599, 640, 723]}
+{"id": "train-1477", "candidates": 4, "right": 3, "chosen_len": 569, "lens_right": [569, 599, 609]}
+{"id": "train-1490", "candidates": 4, "right": 4, "chosen_len": 454, "lens_right": [454, 457, 485, 527]}
+{"id": "train-1492", "candidates": 4, "right": 4, "chosen_len": 371, "lens_right": [371, 385, 393, 396]}
+{"id": "train-15", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1506", "candidates": 4, "right": 1, "chosen_len": 564, "lens_right": [564]}
+{"id": "train-1507", "candidates": 4, "right": 4, "chosen_len": 493, "lens_right": [493, 511, 563, 581]}
+{"id": "train-1515", "candidates": 4, "right": 4, "chosen_len": 458, "lens_right": [458, 467, 473, 539]}
+{"id": "train-1518", "candidates": 4, "right": 4, "chosen_len": 534, "lens_right": [534, 744, 788, 1140]}
+{"id": "train-1519", "candidates": 4, "right": 4, "chosen_len": 393, "lens_right": [393, 400, 539, 560]}
+{"id": "train-152", "candidates": 4, "right": 4, "chosen_len": 394, "lens_right": [394, 429, 481, 502]}
+{"id": "train-1529", "candidates": 4, "right": 4, "chosen_len": 382, "lens_right": [382, 431, 451, 456]}
+{"id": "train-1531", "candidates": 4, "right": 4, "chosen_len": 741, "lens_right": [741, 796, 842, 907]}
+{"id": "train-1540", "candidates": 4, "right": 2, "chosen_len": 748, "lens_right": [748, 911]}
+{"id": "train-1544", "candidates": 4, "right": 4, "chosen_len": 595, "lens_right": [595, 828, 889, 982]}
+{"id": "train-1549", "candidates": 4, "right": 3, "chosen_len": 721, "lens_right": [721, 763, 891]}
+{"id": "train-1551", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1559", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1560", "candidates": 4, "right": 4, "chosen_len": 494, "lens_right": [494, 582, 591, 599]}
+{"id": "train-1565", "candidates": 4, "right": 4, "chosen_len": 429, "lens_right": [429, 432, 451, 458]}
+{"id": "train-1572", "candidates": 4, "right": 4, "chosen_len": 477, "lens_right": [477, 511, 529, 564]}
+{"id": "train-1575", "candidates": 4, "right": 4, "chosen_len": 484, "lens_right": [484, 506, 506, 536]}
+{"id": "train-1594", "candidates": 4, "right": 4, "chosen_len": 417, "lens_right": [417, 433, 437, 480]}
+{"id": "train-1597", "candidates": 4, "right": 2, "chosen_len": 470, "lens_right": [470, 504]}
+{"id": "train-1621", "candidates": 4, "right": 4, "chosen_len": 421, "lens_right": [421, 446, 469, 486]}
+{"id": "train-1622", "candidates": 4, "right": 4, "chosen_len": 431, "lens_right": [431, 457, 484, 484]}
+{"id": "train-1626", "candidates": 4, "right": 4, "chosen_len": 311, "lens_right": [311, 384, 388, 428]}
+{"id": "train-1633", "candidates": 4, "right": 4, "chosen_len": 505, "lens_right": [505, 507, 535, 535]}
+{"id": "train-165", "candidates": 4, "right": 4, "chosen_len": 545, "lens_right": [545, 579, 603, 684]}
+{"id": "train-1652", "candidates": 4, "right": 4, "chosen_len": 443, "lens_right": [443, 446, 477, 492]}
+{"id": "train-1654", "candidates": 4, "right": 4, "chosen_len": 527, "lens_right": [527, 537, 552, 605]}
+{"id": "train-1664", "candidates": 4, "right": 4, "chosen_len": 460, "lens_right": [460, 462, 471, 508]}
+{"id": "train-1666", "candidates": 4, "right": 4, "chosen_len": 413, "lens_right": [413, 446, 472, 488]}
+{"id": "train-1668", "candidates": 4, "right": 4, "chosen_len": 472, "lens_right": [472, 501, 521, 529]}
+{"id": "train-167", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1671", "candidates": 4, "right": 4, "chosen_len": 679, "lens_right": [679, 706, 707, 738]}
+{"id": "train-1675", "candidates": 4, "right": 4, "chosen_len": 361, "lens_right": [361, 420, 425, 426]}
+{"id": "train-1677", "candidates": 4, "right": 4, "chosen_len": 540, "lens_right": [540, 562, 568, 576]}
+{"id": "train-168", "candidates": 4, "right": 4, "chosen_len": 620, "lens_right": [620, 646, 680, 690]}
+{"id": "train-1685", "candidates": 4, "right": 4, "chosen_len": 348, "lens_right": [348, 381, 428, 430]}
+{"id": "train-1688", "candidates": 4, "right": 4, "chosen_len": 391, "lens_right": [391, 425, 434, 447]}
+{"id": "train-1697", "candidates": 4, "right": 4, "chosen_len": 401, "lens_right": [401, 441, 450, 450]}
+{"id": "train-1702", "candidates": 4, "right": 4, "chosen_len": 412, "lens_right": [412, 456, 506, 516]}
+{"id": "train-1703", "candidates": 4, "right": 4, "chosen_len": 453, "lens_right": [453, 473, 504, 572]}
+{"id": "train-1704", "candidates": 4, "right": 4, "chosen_len": 466, "lens_right": [466, 477, 487, 500]}
+{"id": "train-1725", "candidates": 4, "right": 4, "chosen_len": 466, "lens_right": [466, 522, 535, 563]}
+{"id": "train-1749", "candidates": 4, "right": 4, "chosen_len": 517, "lens_right": [517, 545, 550, 562]}
+{"id": "train-1762", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1768", "candidates": 4, "right": 4, "chosen_len": 391, "lens_right": [391, 417, 421, 470]}
+{"id": "train-1769", "candidates": 4, "right": 4, "chosen_len": 473, "lens_right": [473, 520, 547, 579]}
+{"id": "train-177", "candidates": 4, "right": 2, "chosen_len": 531, "lens_right": [531, 538]}
+{"id": "train-1779", "candidates": 4, "right": 4, "chosen_len": 476, "lens_right": [476, 479, 504, 542]}
+{"id": "train-178", "candidates": 4, "right": 4, "chosen_len": 641, "lens_right": [641, 651, 664, 693]}
+{"id": "train-1789", "candidates": 4, "right": 4, "chosen_len": 467, "lens_right": [467, 629, 689, 1623]}
+{"id": "train-1791", "candidates": 4, "right": 4, "chosen_len": 513, "lens_right": [513, 529, 584, 630]}
+{"id": "train-1792", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1803", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1806", "candidates": 4, "right": 4, "chosen_len": 447, "lens_right": [447, 460, 466, 467]}
+{"id": "train-1809", "candidates": 4, "right": 4, "chosen_len": 404, "lens_right": [404, 437, 457, 483]}
+{"id": "train-1810", "candidates": 4, "right": 4, "chosen_len": 561, "lens_right": [561, 625, 664, 930]}
+{"id": "train-1816", "candidates": 4, "right": 4, "chosen_len": 414, "lens_right": [414, 414, 418, 420]}
+{"id": "train-1825", "candidates": 4, "right": 1, "chosen_len": 1104, "lens_right": [1104]}
+{"id": "train-1827", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 534, 592, 599]}
+{"id": "train-1843", "candidates": 4, "right": 4, "chosen_len": 416, "lens_right": [416, 465, 478, 479]}
+{"id": "train-186", "candidates": 4, "right": 4, "chosen_len": 479, "lens_right": [479, 501, 519, 530]}
+{"id": "train-1881", "candidates": 4, "right": 4, "chosen_len": 402, "lens_right": [402, 424, 496, 524]}
+{"id": "train-1888", "candidates": 4, "right": 4, "chosen_len": 410, "lens_right": [410, 413, 431, 432]}
+{"id": "train-19", "candidates": 4, "right": 3, "chosen_len": 499, "lens_right": [499, 517, 548]}
+{"id": "train-1903", "candidates": 4, "right": 4, "chosen_len": 598, "lens_right": [598, 633, 656, 669]}
+{"id": "train-1907", "candidates": 4, "right": 4, "chosen_len": 421, "lens_right": [421, 428, 457, 460]}
+{"id": "train-1913", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1929", "candidates": 4, "right": 4, "chosen_len": 405, "lens_right": [405, 432, 464, 508]}
+{"id": "train-1938", "candidates": 4, "right": 4, "chosen_len": 530, "lens_right": [530, 532, 545, 587]}
+{"id": "train-1954", "candidates": 4, "right": 4, "chosen_len": 328, "lens_right": [328, 387, 398, 411]}
+{"id": "train-1957", "candidates": 4, "right": 4, "chosen_len": 585, "lens_right": [585, 607, 634, 651]}
+{"id": "train-1961", "candidates": 4, "right": 4, "chosen_len": 440, "lens_right": [440, 476, 483, 570]}
+{"id": "train-1963", "candidates": 4, "right": 4, "chosen_len": 450, "lens_right": [450, 465, 467, 522]}
+{"id": "train-1967", "candidates": 4, "right": 4, "chosen_len": 426, "lens_right": [426, 459, 460, 536]}
+{"id": "train-1983", "candidates": 4, "right": 4, "chosen_len": 589, "lens_right": [589, 648, 657, 662]}
+{"id": "train-1989", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-1990", "candidates": 4, "right": 4, "chosen_len": 445, "lens_right": [445, 460, 465, 516]}
+{"id": "train-1998", "candidates": 4, "right": 4, "chosen_len": 363, "lens_right": [363, 363, 382, 410]}
+{"id": "train-201", "candidates": 4, "right": 3, "chosen_len": 591, "lens_right": [591, 628, 991]}
+{"id": "train-2031", "candidates": 4, "right": 4, "chosen_len": 473, "lens_right": [473, 476, 496, 505]}
+{"id": "train-2032", "candidates": 4, "right": 4, "chosen_len": 418, "lens_right": [418, 427, 439, 440]}
+{"id": "train-2052", "candidates": 4, "right": 4, "chosen_len": 497, "lens_right": [497, 533, 571, 580]}
+{"id": "train-2053", "candidates": 4, "right": 1, "chosen_len": 435, "lens_right": [435]}
+{"id": "train-2055", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 435, 447, 541]}
+{"id": "train-2069", "candidates": 4, "right": 4, "chosen_len": 437, "lens_right": [437, 438, 448, 461]}
+{"id": "train-2084", "candidates": 4, "right": 2, "chosen_len": 551, "lens_right": [551, 687]}
+{"id": "train-2092", "candidates": 4, "right": 4, "chosen_len": 270, "lens_right": [270, 342, 387, 410]}
+{"id": "train-2101", "candidates": 4, "right": 4, "chosen_len": 404, "lens_right": [404, 426, 433, 481]}
+{"id": "train-2104", "candidates": 4, "right": 3, "chosen_len": 587, "lens_right": [587, 616, 643]}
+{"id": "train-2115", "candidates": 4, "right": 4, "chosen_len": 440, "lens_right": [440, 441, 453, 453]}
+{"id": "train-2121", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2123", "candidates": 4, "right": 4, "chosen_len": 539, "lens_right": [539, 553, 558, 588]}
+{"id": "train-2127", "candidates": 4, "right": 4, "chosen_len": 546, "lens_right": [546, 585, 590, 704]}
+{"id": "train-2129", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2130", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 491, 491, 511]}
+{"id": "train-2131", "candidates": 4, "right": 3, "chosen_len": 1116, "lens_right": [1116, 1154, 1303]}
+{"id": "train-2133", "candidates": 4, "right": 4, "chosen_len": 543, "lens_right": [543, 652, 667, 690]}
+{"id": "train-2137", "candidates": 4, "right": 3, "chosen_len": 576, "lens_right": [576, 651, 816]}
+{"id": "train-2146", "candidates": 4, "right": 4, "chosen_len": 404, "lens_right": [404, 405, 416, 425]}
+{"id": "train-218", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2208", "candidates": 4, "right": 4, "chosen_len": 432, "lens_right": [432, 434, 438, 445]}
+{"id": "train-2220", "candidates": 4, "right": 2, "chosen_len": 616, "lens_right": [616, 714]}
+{"id": "train-2223", "candidates": 4, "right": 4, "chosen_len": 401, "lens_right": [401, 413, 440, 569]}
+{"id": "train-2250", "candidates": 4, "right": 4, "chosen_len": 535, "lens_right": [535, 544, 549, 747]}
+{"id": "train-2254", "candidates": 4, "right": 4, "chosen_len": 367, "lens_right": [367, 427, 435, 459]}
+{"id": "train-2257", "candidates": 4, "right": 4, "chosen_len": 449, "lens_right": [449, 493, 495, 523]}
+{"id": "train-226", "candidates": 4, "right": 4, "chosen_len": 578, "lens_right": [578, 610, 670, 682]}
+{"id": "train-2268", "candidates": 4, "right": 4, "chosen_len": 570, "lens_right": [570, 576, 654, 810]}
+{"id": "train-228", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2280", "candidates": 4, "right": 4, "chosen_len": 489, "lens_right": [489, 541, 542, 553]}
+{"id": "train-2293", "candidates": 4, "right": 4, "chosen_len": 586, "lens_right": [586, 643, 699, 762]}
+{"id": "train-2294", "candidates": 4, "right": 4, "chosen_len": 489, "lens_right": [489, 520, 526, 1061]}
+{"id": "train-2300", "candidates": 4, "right": 4, "chosen_len": 603, "lens_right": [603, 691, 726, 768]}
+{"id": "train-2308", "candidates": 4, "right": 4, "chosen_len": 429, "lens_right": [429, 440, 447, 465]}
+{"id": "train-2351", "candidates": 4, "right": 4, "chosen_len": 394, "lens_right": [394, 452, 509, 533]}
+{"id": "train-2356", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2358", "candidates": 4, "right": 4, "chosen_len": 479, "lens_right": [479, 490, 497, 530]}
+{"id": "train-2371", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2372", "candidates": 4, "right": 1, "chosen_len": 702, "lens_right": [702]}
+{"id": "train-2374", "candidates": 4, "right": 4, "chosen_len": 741, "lens_right": [741, 882, 913, 933]}
+{"id": "train-2378", "candidates": 4, "right": 4, "chosen_len": 493, "lens_right": [493, 515, 534, 555]}
+{"id": "train-2384", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 468, 512, 604]}
+{"id": "train-2397", "candidates": 4, "right": 4, "chosen_len": 457, "lens_right": [457, 473, 501, 517]}
+{"id": "train-240", "candidates": 4, "right": 4, "chosen_len": 430, "lens_right": [430, 442, 453, 503]}
+{"id": "train-2402", "candidates": 4, "right": 4, "chosen_len": 425, "lens_right": [425, 429, 458, 458]}
+{"id": "train-2403", "candidates": 4, "right": 4, "chosen_len": 489, "lens_right": [489, 586, 592, 605]}
+{"id": "train-2406", "candidates": 4, "right": 4, "chosen_len": 581, "lens_right": [581, 611, 613, 641]}
+{"id": "train-2411", "candidates": 4, "right": 4, "chosen_len": 491, "lens_right": [491, 515, 565, 599]}
+{"id": "train-2414", "candidates": 4, "right": 4, "chosen_len": 390, "lens_right": [390, 428, 501, 531]}
+{"id": "train-2427", "candidates": 4, "right": 4, "chosen_len": 453, "lens_right": [453, 499, 508, 532]}
+{"id": "train-2441", "candidates": 4, "right": 4, "chosen_len": 328, "lens_right": [328, 384, 387, 399]}
+{"id": "train-2445", "candidates": 4, "right": 2, "chosen_len": 535, "lens_right": [535, 1030]}
+{"id": "train-2451", "candidates": 4, "right": 4, "chosen_len": 443, "lens_right": [443, 465, 487, 503]}
+{"id": "train-2452", "candidates": 4, "right": 4, "chosen_len": 503, "lens_right": [503, 508, 512, 568]}
+{"id": "train-246", "candidates": 4, "right": 4, "chosen_len": 576, "lens_right": [576, 600, 676, 739]}
+{"id": "train-2461", "candidates": 4, "right": 4, "chosen_len": 365, "lens_right": [365, 422, 422, 425]}
+{"id": "train-2466", "candidates": 4, "right": 4, "chosen_len": 355, "lens_right": [355, 371, 378, 386]}
+{"id": "train-2467", "candidates": 4, "right": 4, "chosen_len": 399, "lens_right": [399, 422, 427, 431]}
+{"id": "train-2469", "candidates": 4, "right": 4, "chosen_len": 478, "lens_right": [478, 480, 487, 533]}
+{"id": "train-2473", "candidates": 4, "right": 4, "chosen_len": 445, "lens_right": [445, 468, 482, 509]}
+{"id": "train-2477", "candidates": 4, "right": 4, "chosen_len": 426, "lens_right": [426, 443, 467, 478]}
+{"id": "train-2479", "candidates": 4, "right": 4, "chosen_len": 476, "lens_right": [476, 490, 579, 580]}
+{"id": "train-2480", "candidates": 4, "right": 4, "chosen_len": 367, "lens_right": [367, 369, 387, 413]}
+{"id": "train-2484", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 516, 535, 576]}
+{"id": "train-2501", "candidates": 4, "right": 4, "chosen_len": 477, "lens_right": [477, 481, 521, 523]}
+{"id": "train-251", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2521", "candidates": 4, "right": 4, "chosen_len": 518, "lens_right": [518, 584, 602, 651]}
+{"id": "train-2522", "candidates": 4, "right": 4, "chosen_len": 524, "lens_right": [524, 577, 581, 942]}
+{"id": "train-2540", "candidates": 4, "right": 4, "chosen_len": 440, "lens_right": [440, 446, 477, 549]}
+{"id": "train-2541", "candidates": 4, "right": 4, "chosen_len": 742, "lens_right": [742, 889, 1012, 1193]}
+{"id": "train-2551", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2556", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 531, 543, 570]}
+{"id": "train-2578", "candidates": 4, "right": 4, "chosen_len": 385, "lens_right": [385, 387, 389, 618]}
+{"id": "train-258", "candidates": 4, "right": 4, "chosen_len": 486, "lens_right": [486, 505, 523, 540]}
+{"id": "train-2587", "candidates": 4, "right": 4, "chosen_len": 416, "lens_right": [416, 452, 479, 484]}
+{"id": "train-2590", "candidates": 4, "right": 2, "chosen_len": 786, "lens_right": [786, 825]}
+{"id": "train-2597", "candidates": 4, "right": 4, "chosen_len": 645, "lens_right": [645, 707, 719, 872]}
+{"id": "train-26", "candidates": 4, "right": 4, "chosen_len": 475, "lens_right": [475, 494, 501, 506]}
+{"id": "train-2607", "candidates": 4, "right": 4, "chosen_len": 490, "lens_right": [490, 505, 506, 517]}
+{"id": "train-2621", "candidates": 4, "right": 2, "chosen_len": 405, "lens_right": [405, 466]}
+{"id": "train-2626", "candidates": 4, "right": 2, "chosen_len": 524, "lens_right": [524, 546]}
+{"id": "train-2636", "candidates": 4, "right": 4, "chosen_len": 469, "lens_right": [469, 513, 539, 759]}
+{"id": "train-2641", "candidates": 4, "right": 4, "chosen_len": 628, "lens_right": [628, 692, 792, 868]}
+{"id": "train-265", "candidates": 4, "right": 3, "chosen_len": 485, "lens_right": [485, 493, 508]}
+{"id": "train-2653", "candidates": 4, "right": 4, "chosen_len": 501, "lens_right": [501, 566, 593, 601]}
+{"id": "train-2656", "candidates": 4, "right": 3, "chosen_len": 532, "lens_right": [532, 547, 748]}
+{"id": "train-2658", "candidates": 4, "right": 2, "chosen_len": 531, "lens_right": [531, 542]}
+{"id": "train-2664", "candidates": 4, "right": 4, "chosen_len": 295, "lens_right": [295, 366, 387, 396]}
+{"id": "train-2670", "candidates": 4, "right": 4, "chosen_len": 505, "lens_right": [505, 509, 522, 537]}
+{"id": "train-2678", "candidates": 4, "right": 1, "chosen_len": 592, "lens_right": [592]}
+{"id": "train-2691", "candidates": 4, "right": 4, "chosen_len": 417, "lens_right": [417, 550, 573, 586]}
+{"id": "train-27", "candidates": 4, "right": 3, "chosen_len": 627, "lens_right": [627, 643, 675]}
+{"id": "train-270", "candidates": 4, "right": 4, "chosen_len": 474, "lens_right": [474, 576, 581, 653]}
+{"id": "train-2704", "candidates": 4, "right": 4, "chosen_len": 414, "lens_right": [414, 416, 417, 435]}
+{"id": "train-2708", "candidates": 4, "right": 4, "chosen_len": 390, "lens_right": [390, 429, 445, 495]}
+{"id": "train-2724", "candidates": 4, "right": 1, "chosen_len": 617, "lens_right": [617]}
+{"id": "train-2725", "candidates": 4, "right": 4, "chosen_len": 508, "lens_right": [508, 516, 547, 555]}
+{"id": "train-2729", "candidates": 4, "right": 4, "chosen_len": 508, "lens_right": [508, 510, 553, 593]}
+{"id": "train-2731", "candidates": 4, "right": 4, "chosen_len": 401, "lens_right": [401, 432, 452, 454]}
+{"id": "train-2736", "candidates": 4, "right": 2, "chosen_len": 584, "lens_right": [584, 1101]}
+{"id": "train-2739", "candidates": 4, "right": 3, "chosen_len": 442, "lens_right": [442, 894, 974]}
+{"id": "train-2744", "candidates": 4, "right": 4, "chosen_len": 491, "lens_right": [491, 498, 527, 569]}
+{"id": "train-2746", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 522, 664, 721]}
+{"id": "train-275", "candidates": 4, "right": 4, "chosen_len": 554, "lens_right": [554, 565, 579, 653]}
+{"id": "train-2751", "candidates": 4, "right": 4, "chosen_len": 434, "lens_right": [434, 440, 477, 479]}
+{"id": "train-2761", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 492, 503, 544]}
+{"id": "train-2764", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 514, 536, 567]}
+{"id": "train-2767", "candidates": 4, "right": 4, "chosen_len": 630, "lens_right": [630, 644, 675, 752]}
+{"id": "train-2770", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-2787", "candidates": 4, "right": 1, "chosen_len": 680, "lens_right": [680]}
+{"id": "train-2788", "candidates": 4, "right": 4, "chosen_len": 565, "lens_right": [565, 581, 583, 628]}
+{"id": "train-2804", "candidates": 4, "right": 4, "chosen_len": 476, "lens_right": [476, 477, 502, 614]}
+{"id": "train-2815", "candidates": 4, "right": 4, "chosen_len": 532, "lens_right": [532, 556, 618, 620]}
+{"id": "train-2821", "candidates": 4, "right": 4, "chosen_len": 398, "lens_right": [398, 419, 445, 533]}
+{"id": "train-2829", "candidates": 4, "right": 4, "chosen_len": 557, "lens_right": [557, 611, 630, 877]}
+{"id": "train-2839", "candidates": 4, "right": 1, "chosen_len": 1083, "lens_right": [1083]}
+{"id": "train-2843", "candidates": 4, "right": 4, "chosen_len": 404, "lens_right": [404, 419, 449, 467]}
+{"id": "train-2849", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 442, 459, 492]}
+{"id": "train-2869", "candidates": 4, "right": 4, "chosen_len": 473, "lens_right": [473, 494, 500, 516]}
+{"id": "train-288", "candidates": 4, "right": 4, "chosen_len": 598, "lens_right": [598, 638, 678, 779]}
+{"id": "train-2885", "candidates": 4, "right": 4, "chosen_len": 407, "lens_right": [407, 419, 444, 485]}
+{"id": "train-2887", "candidates": 4, "right": 4, "chosen_len": 427, "lens_right": [427, 434, 561, 730]}
+{"id": "train-2889", "candidates": 4, "right": 4, "chosen_len": 552, "lens_right": [552, 557, 567, 574]}
+{"id": "train-2898", "candidates": 4, "right": 4, "chosen_len": 646, "lens_right": [646, 661, 682, 695]}
+{"id": "train-290", "candidates": 4, "right": 4, "chosen_len": 639, "lens_right": [639, 705, 718, 736]}
+{"id": "train-2904", "candidates": 4, "right": 4, "chosen_len": 542, "lens_right": [542, 551, 556, 586]}
+{"id": "train-2911", "candidates": 4, "right": 4, "chosen_len": 458, "lens_right": [458, 463, 464, 477]}
+{"id": "train-292", "candidates": 4, "right": 3, "chosen_len": 398, "lens_right": [398, 423, 446]}
+{"id": "train-2920", "candidates": 4, "right": 4, "chosen_len": 632, "lens_right": [632, 681, 715, 724]}
+{"id": "train-2925", "candidates": 4, "right": 4, "chosen_len": 403, "lens_right": [403, 413, 415, 441]}
+{"id": "train-2927", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 518, 523, 527]}
+{"id": "train-2933", "candidates": 4, "right": 4, "chosen_len": 424, "lens_right": [424, 437, 442, 482]}
+{"id": "train-2936", "candidates": 4, "right": 4, "chosen_len": 511, "lens_right": [511, 516, 528, 564]}
+{"id": "train-2937", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-294", "candidates": 4, "right": 4, "chosen_len": 397, "lens_right": [397, 405, 408, 433]}
+{"id": "train-2942", "candidates": 4, "right": 4, "chosen_len": 418, "lens_right": [418, 430, 442, 445]}
+{"id": "train-2943", "candidates": 4, "right": 4, "chosen_len": 432, "lens_right": [432, 513, 556, 618]}
+{"id": "train-2956", "candidates": 4, "right": 4, "chosen_len": 406, "lens_right": [406, 452, 471, 515]}
+{"id": "train-2962", "candidates": 4, "right": 3, "chosen_len": 522, "lens_right": [522, 571, 707]}
+{"id": "train-2967", "candidates": 4, "right": 4, "chosen_len": 483, "lens_right": [483, 489, 497, 511]}
+{"id": "train-298", "candidates": 4, "right": 4, "chosen_len": 613, "lens_right": [613, 682, 722, 812]}
+{"id": "train-2996", "candidates": 4, "right": 4, "chosen_len": 443, "lens_right": [443, 487, 493, 494]}
+{"id": "train-3005", "candidates": 4, "right": 3, "chosen_len": 486, "lens_right": [486, 520, 610]}
+{"id": "train-3008", "candidates": 4, "right": 4, "chosen_len": 441, "lens_right": [441, 445, 467, 473]}
+{"id": "train-3017", "candidates": 4, "right": 4, "chosen_len": 391, "lens_right": [391, 416, 438, 454]}
+{"id": "train-3023", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3024", "candidates": 4, "right": 4, "chosen_len": 309, "lens_right": [309, 358, 414, 429]}
+{"id": "train-3032", "candidates": 4, "right": 4, "chosen_len": 552, "lens_right": [552, 557, 562, 745]}
+{"id": "train-3041", "candidates": 4, "right": 4, "chosen_len": 467, "lens_right": [467, 477, 521, 572]}
+{"id": "train-3043", "candidates": 4, "right": 4, "chosen_len": 431, "lens_right": [431, 453, 468, 504]}
+{"id": "train-3044", "candidates": 4, "right": 4, "chosen_len": 458, "lens_right": [458, 463, 480, 538]}
+{"id": "train-3047", "candidates": 4, "right": 4, "chosen_len": 439, "lens_right": [439, 455, 471, 536]}
+{"id": "train-3051", "candidates": 4, "right": 4, "chosen_len": 452, "lens_right": [452, 516, 547, 648]}
+{"id": "train-3076", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3083", "candidates": 4, "right": 4, "chosen_len": 647, "lens_right": [647, 679, 738, 785]}
+{"id": "train-3085", "candidates": 4, "right": 4, "chosen_len": 650, "lens_right": [650, 756, 783, 830]}
+{"id": "train-309", "candidates": 4, "right": 4, "chosen_len": 493, "lens_right": [493, 523, 541, 543]}
+{"id": "train-3096", "candidates": 4, "right": 4, "chosen_len": 502, "lens_right": [502, 513, 515, 531]}
+{"id": "train-3101", "candidates": 4, "right": 4, "chosen_len": 433, "lens_right": [433, 467, 469, 504]}
+{"id": "train-3104", "candidates": 4, "right": 3, "chosen_len": 395, "lens_right": [395, 429, 448]}
+{"id": "train-312", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3131", "candidates": 4, "right": 4, "chosen_len": 299, "lens_right": [299, 344, 367, 381]}
+{"id": "train-3140", "candidates": 4, "right": 3, "chosen_len": 753, "lens_right": [753, 754, 1039]}
+{"id": "train-3143", "candidates": 4, "right": 4, "chosen_len": 500, "lens_right": [500, 502, 529, 532]}
+{"id": "train-3147", "candidates": 4, "right": 4, "chosen_len": 572, "lens_right": [572, 584, 620, 679]}
+{"id": "train-3152", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3153", "candidates": 4, "right": 3, "chosen_len": 544, "lens_right": [544, 563, 646]}
+{"id": "train-3155", "candidates": 4, "right": 2, "chosen_len": 570, "lens_right": [570, 582]}
+{"id": "train-316", "candidates": 4, "right": 4, "chosen_len": 540, "lens_right": [540, 553, 554, 610]}
+{"id": "train-3167", "candidates": 4, "right": 4, "chosen_len": 442, "lens_right": [442, 447, 456, 480]}
+{"id": "train-3175", "candidates": 4, "right": 4, "chosen_len": 607, "lens_right": [607, 638, 645, 652]}
+{"id": "train-3178", "candidates": 4, "right": 4, "chosen_len": 487, "lens_right": [487, 550, 634, 1212]}
+{"id": "train-318", "candidates": 4, "right": 4, "chosen_len": 605, "lens_right": [605, 606, 1110, 1493]}
+{"id": "train-3183", "candidates": 4, "right": 4, "chosen_len": 503, "lens_right": [503, 512, 519, 540]}
+{"id": "train-3204", "candidates": 4, "right": 4, "chosen_len": 369, "lens_right": [369, 437, 438, 459]}
+{"id": "train-3205", "candidates": 4, "right": 4, "chosen_len": 735, "lens_right": [735, 774, 846, 879]}
+{"id": "train-3211", "candidates": 4, "right": 4, "chosen_len": 529, "lens_right": [529, 560, 575, 614]}
+{"id": "train-322", "candidates": 4, "right": 4, "chosen_len": 504, "lens_right": [504, 547, 553, 587]}
+{"id": "train-3226", "candidates": 4, "right": 4, "chosen_len": 475, "lens_right": [475, 499, 532, 568]}
+{"id": "train-3234", "candidates": 4, "right": 4, "chosen_len": 458, "lens_right": [458, 472, 505, 524]}
+{"id": "train-3249", "candidates": 4, "right": 4, "chosen_len": 499, "lens_right": [499, 512, 600, 605]}
+{"id": "train-3260", "candidates": 4, "right": 4, "chosen_len": 551, "lens_right": [551, 566, 603, 606]}
+{"id": "train-3266", "candidates": 4, "right": 4, "chosen_len": 410, "lens_right": [410, 449, 501, 531]}
+{"id": "train-3267", "candidates": 4, "right": 4, "chosen_len": 421, "lens_right": [421, 450, 468, 695]}
+{"id": "train-327", "candidates": 4, "right": 1, "chosen_len": 608, "lens_right": [608]}
+{"id": "train-3291", "candidates": 4, "right": 4, "chosen_len": 811, "lens_right": [811, 1117, 1227, 2025]}
+{"id": "train-3295", "candidates": 4, "right": 4, "chosen_len": 471, "lens_right": [471, 496, 544, 616]}
+{"id": "train-3302", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-331", "candidates": 4, "right": 4, "chosen_len": 790, "lens_right": [790, 794, 1038, 1935]}
+{"id": "train-3317", "candidates": 4, "right": 4, "chosen_len": 421, "lens_right": [421, 436, 467, 495]}
+{"id": "train-332", "candidates": 4, "right": 4, "chosen_len": 428, "lens_right": [428, 447, 468, 592]}
+{"id": "train-3320", "candidates": 4, "right": 4, "chosen_len": 497, "lens_right": [497, 506, 560, 562]}
+{"id": "train-3325", "candidates": 4, "right": 4, "chosen_len": 382, "lens_right": [382, 390, 395, 424]}
+{"id": "train-333", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3342", "candidates": 4, "right": 4, "chosen_len": 399, "lens_right": [399, 402, 423, 558]}
+{"id": "train-3347", "candidates": 4, "right": 4, "chosen_len": 447, "lens_right": [447, 479, 522, 747]}
+{"id": "train-3357", "candidates": 4, "right": 4, "chosen_len": 425, "lens_right": [425, 449, 452, 475]}
+{"id": "train-3368", "candidates": 4, "right": 4, "chosen_len": 465, "lens_right": [465, 472, 478, 525]}
+{"id": "train-337", "candidates": 4, "right": 4, "chosen_len": 488, "lens_right": [488, 500, 557, 1472]}
+{"id": "train-3394", "candidates": 4, "right": 4, "chosen_len": 551, "lens_right": [551, 556, 643, 688]}
+{"id": "train-3397", "candidates": 4, "right": 3, "chosen_len": 695, "lens_right": [695, 733, 1027]}
+{"id": "train-3400", "candidates": 4, "right": 4, "chosen_len": 914, "lens_right": [914, 953, 1193, 1607]}
+{"id": "train-3401", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 436, 443, 450]}
+{"id": "train-3404", "candidates": 4, "right": 2, "chosen_len": 396, "lens_right": [396, 414]}
+{"id": "train-3414", "candidates": 4, "right": 4, "chosen_len": 414, "lens_right": [414, 439, 452, 468]}
+{"id": "train-3416", "candidates": 4, "right": 4, "chosen_len": 561, "lens_right": [561, 565, 574, 654]}
+{"id": "train-3417", "candidates": 4, "right": 4, "chosen_len": 560, "lens_right": [560, 578, 607, 631]}
+{"id": "train-3420", "candidates": 4, "right": 4, "chosen_len": 466, "lens_right": [466, 485, 542, 543]}
+{"id": "train-3422", "candidates": 4, "right": 4, "chosen_len": 457, "lens_right": [457, 496, 573, 633]}
+{"id": "train-3423", "candidates": 4, "right": 2, "chosen_len": 915, "lens_right": [915, 1673]}
+{"id": "train-3426", "candidates": 4, "right": 1, "chosen_len": 784, "lens_right": [784]}
+{"id": "train-3435", "candidates": 4, "right": 4, "chosen_len": 541, "lens_right": [541, 549, 550, 567]}
+{"id": "train-3438", "candidates": 4, "right": 4, "chosen_len": 592, "lens_right": [592, 658, 726, 807]}
+{"id": "train-344", "candidates": 4, "right": 4, "chosen_len": 587, "lens_right": [587, 618, 715, 900]}
+{"id": "train-3441", "candidates": 4, "right": 3, "chosen_len": 458, "lens_right": [458, 479, 515]}
+{"id": "train-3442", "candidates": 4, "right": 4, "chosen_len": 624, "lens_right": [624, 634, 670, 795]}
+{"id": "train-3445", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3454", "candidates": 4, "right": 2, "chosen_len": 651, "lens_right": [651, 669]}
+{"id": "train-3457", "candidates": 4, "right": 4, "chosen_len": 549, "lens_right": [549, 566, 578, 613]}
+{"id": "train-3458", "candidates": 4, "right": 4, "chosen_len": 515, "lens_right": [515, 534, 574, 614]}
+{"id": "train-346", "candidates": 4, "right": 4, "chosen_len": 568, "lens_right": [568, 600, 721, 724]}
+{"id": "train-3465", "candidates": 4, "right": 4, "chosen_len": 449, "lens_right": [449, 455, 463, 470]}
+{"id": "train-3467", "candidates": 4, "right": 2, "chosen_len": 525, "lens_right": [525, 598]}
+{"id": "train-3475", "candidates": 4, "right": 4, "chosen_len": 386, "lens_right": [386, 410, 420, 433]}
+{"id": "train-3486", "candidates": 4, "right": 4, "chosen_len": 547, "lens_right": [547, 583, 594, 600]}
+{"id": "train-3489", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3490", "candidates": 4, "right": 4, "chosen_len": 447, "lens_right": [447, 460, 502, 521]}
+{"id": "train-3492", "candidates": 4, "right": 4, "chosen_len": 602, "lens_right": [602, 822, 825, 1087]}
+{"id": "train-3494", "candidates": 4, "right": 4, "chosen_len": 428, "lens_right": [428, 462, 484, 655]}
+{"id": "train-3531", "candidates": 4, "right": 2, "chosen_len": 608, "lens_right": [608, 2056]}
+{"id": "train-3532", "candidates": 4, "right": 2, "chosen_len": 441, "lens_right": [441, 552]}
+{"id": "train-3536", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 427, 440, 453]}
+{"id": "train-3556", "candidates": 4, "right": 4, "chosen_len": 452, "lens_right": [452, 458, 481, 539]}
+{"id": "train-3567", "candidates": 4, "right": 4, "chosen_len": 511, "lens_right": [511, 542, 596, 608]}
+{"id": "train-3572", "candidates": 4, "right": 4, "chosen_len": 537, "lens_right": [537, 572, 617, 622]}
+{"id": "train-3615", "candidates": 4, "right": 2, "chosen_len": 722, "lens_right": [722, 816]}
+{"id": "train-3623", "candidates": 4, "right": 4, "chosen_len": 585, "lens_right": [585, 637, 665, 777]}
+{"id": "train-3626", "candidates": 4, "right": 4, "chosen_len": 541, "lens_right": [541, 547, 563, 565]}
+{"id": "train-3641", "candidates": 4, "right": 4, "chosen_len": 367, "lens_right": [367, 384, 390, 415]}
+{"id": "train-3643", "candidates": 4, "right": 4, "chosen_len": 431, "lens_right": [431, 441, 468, 477]}
+{"id": "train-3645", "candidates": 4, "right": 1, "chosen_len": 762, "lens_right": [762]}
+{"id": "train-3648", "candidates": 4, "right": 4, "chosen_len": 560, "lens_right": [560, 589, 593, 682]}
+{"id": "train-365", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3654", "candidates": 4, "right": 4, "chosen_len": 466, "lens_right": [466, 478, 479, 517]}
+{"id": "train-3656", "candidates": 4, "right": 4, "chosen_len": 592, "lens_right": [592, 642, 662, 772]}
+{"id": "train-3659", "candidates": 4, "right": 4, "chosen_len": 459, "lens_right": [459, 461, 469, 477]}
+{"id": "train-3669", "candidates": 4, "right": 4, "chosen_len": 535, "lens_right": [535, 616, 666, 691]}
+{"id": "train-3671", "candidates": 4, "right": 4, "chosen_len": 478, "lens_right": [478, 480, 497, 526]}
+{"id": "train-3674", "candidates": 4, "right": 4, "chosen_len": 623, "lens_right": [623, 630, 643, 657]}
+{"id": "train-3678", "candidates": 4, "right": 3, "chosen_len": 434, "lens_right": [434, 486, 559]}
+{"id": "train-3691", "candidates": 4, "right": 4, "chosen_len": 612, "lens_right": [612, 646, 682, 733]}
+{"id": "train-3699", "candidates": 4, "right": 4, "chosen_len": 625, "lens_right": [625, 628, 669, 677]}
+{"id": "train-370", "candidates": 4, "right": 4, "chosen_len": 611, "lens_right": [611, 622, 638, 700]}
+{"id": "train-3710", "candidates": 4, "right": 4, "chosen_len": 593, "lens_right": [593, 674, 727, 834]}
+{"id": "train-3714", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3719", "candidates": 4, "right": 4, "chosen_len": 478, "lens_right": [478, 492, 528, 586]}
+{"id": "train-3731", "candidates": 4, "right": 4, "chosen_len": 573, "lens_right": [573, 598, 616, 734]}
+{"id": "train-374", "candidates": 4, "right": 4, "chosen_len": 588, "lens_right": [588, 595, 664, 1213]}
+{"id": "train-3751", "candidates": 4, "right": 4, "chosen_len": 473, "lens_right": [473, 480, 505, 515]}
+{"id": "train-3755", "candidates": 4, "right": 4, "chosen_len": 747, "lens_right": [747, 762, 817, 1328]}
+{"id": "train-3757", "candidates": 4, "right": 4, "chosen_len": 547, "lens_right": [547, 563, 575, 626]}
+{"id": "train-3759", "candidates": 4, "right": 4, "chosen_len": 520, "lens_right": [520, 561, 583, 682]}
+{"id": "train-3774", "candidates": 4, "right": 4, "chosen_len": 343, "lens_right": [343, 435, 446, 446]}
+{"id": "train-378", "candidates": 4, "right": 4, "chosen_len": 540, "lens_right": [540, 554, 576, 586]}
+{"id": "train-3784", "candidates": 4, "right": 4, "chosen_len": 543, "lens_right": [543, 545, 552, 558]}
+{"id": "train-3788", "candidates": 4, "right": 4, "chosen_len": 477, "lens_right": [477, 488, 493, 652]}
+{"id": "train-3819", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3824", "candidates": 4, "right": 2, "chosen_len": 620, "lens_right": [620, 633]}
+{"id": "train-3826", "candidates": 4, "right": 4, "chosen_len": 592, "lens_right": [592, 600, 663, 790]}
+{"id": "train-3827", "candidates": 4, "right": 3, "chosen_len": 514, "lens_right": [514, 519, 540]}
+{"id": "train-383", "candidates": 4, "right": 4, "chosen_len": 824, "lens_right": [824, 848, 1035, 1828]}
+{"id": "train-385", "candidates": 4, "right": 2, "chosen_len": 627, "lens_right": [627, 889]}
+{"id": "train-3852", "candidates": 4, "right": 4, "chosen_len": 652, "lens_right": [652, 678, 680, 775]}
+{"id": "train-3853", "candidates": 4, "right": 4, "chosen_len": 415, "lens_right": [415, 422, 453, 455]}
+{"id": "train-3857", "candidates": 4, "right": 4, "chosen_len": 426, "lens_right": [426, 469, 583, 630]}
+{"id": "train-3861", "candidates": 4, "right": 4, "chosen_len": 390, "lens_right": [390, 425, 453, 454]}
+{"id": "train-3863", "candidates": 4, "right": 4, "chosen_len": 509, "lens_right": [509, 521, 542, 546]}
+{"id": "train-3867", "candidates": 4, "right": 1, "chosen_len": 527, "lens_right": [527]}
+{"id": "train-3877", "candidates": 4, "right": 4, "chosen_len": 474, "lens_right": [474, 498, 503, 574]}
+{"id": "train-3883", "candidates": 4, "right": 4, "chosen_len": 384, "lens_right": [384, 407, 414, 416]}
+{"id": "train-3896", "candidates": 4, "right": 4, "chosen_len": 461, "lens_right": [461, 490, 507, 520]}
+{"id": "train-3903", "candidates": 4, "right": 4, "chosen_len": 556, "lens_right": [556, 570, 595, 602]}
+{"id": "train-3904", "candidates": 4, "right": 4, "chosen_len": 561, "lens_right": [561, 633, 636, 670]}
+{"id": "train-3905", "candidates": 4, "right": 4, "chosen_len": 393, "lens_right": [393, 419, 421, 478]}
+{"id": "train-3907", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3916", "candidates": 4, "right": 3, "chosen_len": 688, "lens_right": [688, 742, 913]}
+{"id": "train-3924", "candidates": 4, "right": 4, "chosen_len": 468, "lens_right": [468, 519, 522, 525]}
+{"id": "train-3925", "candidates": 4, "right": 4, "chosen_len": 392, "lens_right": [392, 402, 454, 460]}
+{"id": "train-3941", "candidates": 4, "right": 4, "chosen_len": 483, "lens_right": [483, 531, 534, 595]}
+{"id": "train-3943", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-3947", "candidates": 4, "right": 4, "chosen_len": 464, "lens_right": [464, 522, 523, 528]}
+{"id": "train-395", "candidates": 4, "right": 4, "chosen_len": 678, "lens_right": [678, 702, 710, 728]}
+{"id": "train-3950", "candidates": 4, "right": 3, "chosen_len": 677, "lens_right": [677, 924, 1262]}
+{"id": "train-3959", "candidates": 4, "right": 4, "chosen_len": 489, "lens_right": [489, 519, 527, 822]}
+{"id": "train-3980", "candidates": 4, "right": 4, "chosen_len": 525, "lens_right": [525, 541, 556, 591]}
+{"id": "train-3982", "candidates": 4, "right": 4, "chosen_len": 493, "lens_right": [493, 506, 516, 561]}
+{"id": "train-3984", "candidates": 4, "right": 4, "chosen_len": 485, "lens_right": [485, 506, 528, 530]}
+{"id": "train-3991", "candidates": 4, "right": 4, "chosen_len": 413, "lens_right": [413, 419, 457, 467]}
+{"id": "train-3996", "candidates": 4, "right": 4, "chosen_len": 498, "lens_right": [498, 500, 524, 554]}
+{"id": "train-4002", "candidates": 4, "right": 4, "chosen_len": 520, "lens_right": [520, 608, 621, 711]}
+{"id": "train-4008", "candidates": 4, "right": 3, "chosen_len": 433, "lens_right": [433, 469, 503]}
+{"id": "train-4016", "candidates": 4, "right": 4, "chosen_len": 403, "lens_right": [403, 526, 683, 1045]}
+{"id": "train-4029", "candidates": 4, "right": 3, "chosen_len": 583, "lens_right": [583, 618, 1011]}
+{"id": "train-4035", "candidates": 4, "right": 4, "chosen_len": 437, "lens_right": [437, 437, 438, 449]}
+{"id": "train-4042", "candidates": 4, "right": 1, "chosen_len": 473, "lens_right": [473]}
+{"id": "train-4043", "candidates": 4, "right": 4, "chosen_len": 518, "lens_right": [518, 531, 573, 625]}
+{"id": "train-4050", "candidates": 4, "right": 4, "chosen_len": 562, "lens_right": [562, 575, 598, 687]}
+{"id": "train-4051", "candidates": 4, "right": 4, "chosen_len": 479, "lens_right": [479, 523, 532, 544]}
+{"id": "train-4058", "candidates": 4, "right": 4, "chosen_len": 586, "lens_right": [586, 616, 629, 650]}
+{"id": "train-4068", "candidates": 4, "right": 4, "chosen_len": 491, "lens_right": [491, 521, 733, 744]}
+{"id": "train-4072", "candidates": 4, "right": 4, "chosen_len": 419, "lens_right": [419, 453, 456, 506]}
+{"id": "train-4076", "candidates": 4, "right": 4, "chosen_len": 500, "lens_right": [500, 605, 649, 682]}
+{"id": "train-4077", "candidates": 4, "right": 4, "chosen_len": 598, "lens_right": [598, 603, 624, 689]}
+{"id": "train-408", "candidates": 4, "right": 4, "chosen_len": 524, "lens_right": [524, 529, 564, 575]}
+{"id": "train-4083", "candidates": 4, "right": 2, "chosen_len": 596, "lens_right": [596, 792]}
+{"id": "train-4084", "candidates": 4, "right": 4, "chosen_len": 460, "lens_right": [460, 486, 489, 549]}
+{"id": "train-4115", "candidates": 4, "right": 4, "chosen_len": 529, "lens_right": [529, 644, 673, 765]}
+{"id": "train-4125", "candidates": 4, "right": 4, "chosen_len": 578, "lens_right": [578, 593, 643, 663]}
+{"id": "train-4134", "candidates": 4, "right": 4, "chosen_len": 478, "lens_right": [478, 487, 501, 532]}
+{"id": "train-4136", "candidates": 4, "right": 4, "chosen_len": 449, "lens_right": [449, 506, 517, 534]}
+{"id": "train-4152", "candidates": 4, "right": 4, "chosen_len": 576, "lens_right": [576, 601, 922, 974]}
+{"id": "train-4154", "candidates": 4, "right": 4, "chosen_len": 496, "lens_right": [496, 498, 584, 594]}
+{"id": "train-4161", "candidates": 4, "right": 4, "chosen_len": 508, "lens_right": [508, 555, 557, 611]}
+{"id": "train-4164", "candidates": 4, "right": 4, "chosen_len": 515, "lens_right": [515, 521, 523, 567]}
+{"id": "train-4166", "candidates": 4, "right": 4, "chosen_len": 487, "lens_right": [487, 499, 504, 516]}
+{"id": "train-4188", "candidates": 4, "right": 4, "chosen_len": 438, "lens_right": [438, 471, 477, 490]}
+{"id": "train-4231", "candidates": 4, "right": 4, "chosen_len": 492, "lens_right": [492, 517, 607, 619]}
+{"id": "train-4243", "candidates": 4, "right": 3, "chosen_len": 439, "lens_right": [439, 446, 459]}
+{"id": "train-4251", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 554, 555, 570]}
+{"id": "train-4260", "candidates": 4, "right": 4, "chosen_len": 548, "lens_right": [548, 567, 567, 643]}
+{"id": "train-4266", "candidates": 4, "right": 4, "chosen_len": 551, "lens_right": [551, 556, 673, 856]}
+{"id": "train-4269", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-4270", "candidates": 4, "right": 4, "chosen_len": 456, "lens_right": [456, 466, 470, 507]}
+{"id": "train-4274", "candidates": 4, "right": 4, "chosen_len": 623, "lens_right": [623, 648, 701, 832]}
+{"id": "train-4284", "candidates": 4, "right": 4, "chosen_len": 539, "lens_right": [539, 577, 605, 605]}
+{"id": "train-4287", "candidates": 4, "right": 4, "chosen_len": 527, "lens_right": [527, 541, 580, 620]}
+{"id": "train-4290", "candidates": 4, "right": 4, "chosen_len": 459, "lens_right": [459, 465, 467, 506]}
+{"id": "train-4297", "candidates": 4, "right": 4, "chosen_len": 502, "lens_right": [502, 528, 538, 588]}
+{"id": "train-4301", "candidates": 4, "right": 2, "chosen_len": 395, "lens_right": [395, 456]}
+{"id": "train-4307", "candidates": 4, "right": 2, "chosen_len": 494, "lens_right": [494, 587]}
+{"id": "train-4321", "candidates": 4, "right": 4, "chosen_len": 436, "lens_right": [436, 524, 551, 584]}
+{"id": "train-4328", "candidates": 4, "right": 4, "chosen_len": 397, "lens_right": [397, 414, 442, 454]}
+{"id": "train-4335", "candidates": 4, "right": 4, "chosen_len": 325, "lens_right": [325, 411, 415, 433]}
+{"id": "train-4337", "candidates": 4, "right": 4, "chosen_len": 459, "lens_right": [459, 473, 479, 508]}
+{"id": "train-4340", "candidates": 4, "right": 4, "chosen_len": 477, "lens_right": [477, 500, 519, 534]}
+{"id": "train-4362", "candidates": 4, "right": 4, "chosen_len": 452, "lens_right": [452, 466, 479, 482]}
+{"id": "train-4368", "candidates": 4, "right": 4, "chosen_len": 543, "lens_right": [543, 545, 549, 559]}
+{"id": "train-4376", "candidates": 4, "right": 4, "chosen_len": 429, "lens_right": [429, 441, 475, 507]}
+{"id": "train-4386", "candidates": 4, "right": 4, "chosen_len": 378, "lens_right": [378, 391, 401, 422]}
+{"id": "train-4406", "candidates": 4, "right": 4, "chosen_len": 430, "lens_right": [430, 451, 459, 463]}
+{"id": "train-4426", "candidates": 4, "right": 4, "chosen_len": 626, "lens_right": [626, 657, 660, 718]}
+{"id": "train-4428", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-4446", "candidates": 4, "right": 4, "chosen_len": 486, "lens_right": [486, 493, 500, 523]}
+{"id": "train-4448", "candidates": 4, "right": 1, "chosen_len": 739, "lens_right": [739]}
+{"id": "train-4454", "candidates": 4, "right": 4, "chosen_len": 515, "lens_right": [515, 544, 584, 623]}
+{"id": "train-4458", "candidates": 4, "right": 4, "chosen_len": 517, "lens_right": [517, 520, 525, 552]}
+{"id": "train-4459", "candidates": 4, "right": 4, "chosen_len": 562, "lens_right": [562, 572, 575, 582]}
+{"id": "train-4466", "candidates": 4, "right": 4, "chosen_len": 496, "lens_right": [496, 507, 520, 572]}
+{"id": "train-4476", "candidates": 4, "right": 4, "chosen_len": 411, "lens_right": [411, 453, 492, 597]}
+{"id": "train-4482", "candidates": 4, "right": 3, "chosen_len": 525, "lens_right": [525, 576, 611]}
+{"id": "train-4484", "candidates": 4, "right": 4, "chosen_len": 418, "lens_right": [418, 423, 423, 426]}
+{"id": "train-4493", "candidates": 4, "right": 4, "chosen_len": 484, "lens_right": [484, 542, 574, 594]}
+{"id": "train-4494", "candidates": 4, "right": 2, "chosen_len": 662, "lens_right": [662, 682]}
+{"id": "train-4498", "candidates": 4, "right": 1, "chosen_len": 783, "lens_right": [783]}
+{"id": "train-4511", "candidates": 4, "right": 4, "chosen_len": 506, "lens_right": [506, 528, 577, 597]}
+{"id": "train-4515", "candidates": 4, "right": 4, "chosen_len": 495, "lens_right": [495, 521, 524, 541]}
+{"id": "train-4526", "candidates": 4, "right": 4, "chosen_len": 543, "lens_right": [543, 543, 619, 623]}
+{"id": "train-4531", "candidates": 4, "right": 4, "chosen_len": 361, "lens_right": [361, 405, 458, 461]}
+{"id": "train-454", "candidates": 4, "right": 4, "chosen_len": 408, "lens_right": [408, 421, 474, 477]}
+{"id": "train-4558", "candidates": 4, "right": 4, "chosen_len": 508, "lens_right": [508, 527, 551, 572]}
+{"id": "train-4572", "candidates": 4, "right": 4, "chosen_len": 610, "lens_right": [610, 634, 649, 741]}
+{"id": "train-4574", "candidates": 4, "right": 4, "chosen_len": 208, "lens_right": [208, 300, 307, 378]}
+{"id": "train-4585", "candidates": 4, "right": 4, "chosen_len": 477, "lens_right": [477, 485, 498, 557]}
+{"id": "train-4592", "candidates": 4, "right": 4, "chosen_len": 562, "lens_right": [562, 592, 592, 605]}
+{"id": "train-4594", "candidates": 4, "right": 4, "chosen_len": 568, "lens_right": [568, 632, 650, 665]}
+{"id": "train-4599", "candidates": 4, "right": 4, "chosen_len": 267, "lens_right": [267, 454, 482, 536]}
+{"id": "train-4619", "candidates": 4, "right": 4, "chosen_len": 362, "lens_right": [362, 368, 400, 449]}
+{"id": "train-4624", "candidates": 4, "right": 3, "chosen_len": 776, "lens_right": [776, 782, 782]}
+{"id": "train-4636", "candidates": 4, "right": 4, "chosen_len": 262, "lens_right": [262, 405, 411, 471]}
+{"id": "train-4648", "candidates": 4, "right": 4, "chosen_len": 482, "lens_right": [482, 505, 508, 665]}
+{"id": "train-4649", "candidates": 4, "right": 4, "chosen_len": 677, "lens_right": [677, 716, 809, 863]}
+{"id": "train-4654", "candidates": 4, "right": 4, "chosen_len": 659, "lens_right": [659, 683, 743, 870]}
+{"id": "train-4662", "candidates": 4, "right": 3, "chosen_len": 497, "lens_right": [497, 552, 690]}
+{"id": "train-4663", "candidates": 4, "right": 4, "chosen_len": 498, "lens_right": [498, 531, 534, 567]}
+{"id": "train-4667", "candidates": 4, "right": 4, "chosen_len": 685, "lens_right": [685, 685, 759, 1424]}
+{"id": "train-4671", "candidates": 4, "right": 4, "chosen_len": 539, "lens_right": [539, 570, 601, 647]}
+{"id": "train-4684", "candidates": 4, "right": 4, "chosen_len": 503, "lens_right": [503, 572, 707, 809]}
+{"id": "train-4701", "candidates": 4, "right": 4, "chosen_len": 443, "lens_right": [443, 454, 483, 509]}
+{"id": "train-4715", "candidates": 4, "right": 4, "chosen_len": 498, "lens_right": [498, 528, 539, 571]}
+{"id": "train-4718", "candidates": 4, "right": 4, "chosen_len": 528, "lens_right": [528, 544, 573, 653]}
+{"id": "train-473", "candidates": 4, "right": 4, "chosen_len": 555, "lens_right": [555, 624, 665, 668]}
+{"id": "train-4748", "candidates": 4, "right": 4, "chosen_len": 479, "lens_right": [479, 484, 493, 505]}
+{"id": "train-475", "candidates": 4, "right": 4, "chosen_len": 451, "lens_right": [451, 534, 637, 670]}
+{"id": "train-4758", "candidates": 4, "right": 2, "chosen_len": 793, "lens_right": [793, 876]}
+{"id": "train-4775", "candidates": 4, "right": 4, "chosen_len": 510, "lens_right": [510, 524, 552, 624]}
+{"id": "train-4779", "candidates": 4, "right": 2, "chosen_len": 485, "lens_right": [485, 548]}
+{"id": "train-4791", "candidates": 4, "right": 4, "chosen_len": 445, "lens_right": [445, 473, 488, 508]}
+{"id": "train-4794", "candidates": 4, "right": 4, "chosen_len": 593, "lens_right": [593, 595, 640, 680]}
+{"id": "train-4803", "candidates": 4, "right": 3, "chosen_len": 490, "lens_right": [490, 504, 577]}
+{"id": "train-4809", "candidates": 4, "right": 3, "chosen_len": 529, "lens_right": [529, 535, 564]}
+{"id": "train-4813", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 457, 514, 608]}
+{"id": "train-4831", "candidates": 4, "right": 4, "chosen_len": 376, "lens_right": [376, 447, 459, 474]}
+{"id": "train-4835", "candidates": 4, "right": 4, "chosen_len": 496, "lens_right": [496, 507, 512, 556]}
+{"id": "train-4842", "candidates": 4, "right": 4, "chosen_len": 591, "lens_right": [591, 595, 627, 717]}
+{"id": "train-4858", "candidates": 4, "right": 4, "chosen_len": 565, "lens_right": [565, 621, 645, 654]}
+{"id": "train-4870", "candidates": 4, "right": 4, "chosen_len": 453, "lens_right": [453, 481, 491, 505]}
+{"id": "train-4884", "candidates": 4, "right": 4, "chosen_len": 402, "lens_right": [402, 415, 438, 446]}
+{"id": "train-4886", "candidates": 4, "right": 4, "chosen_len": 469, "lens_right": [469, 483, 501, 521]}
+{"id": "train-4887", "candidates": 4, "right": 4, "chosen_len": 479, "lens_right": [479, 528, 539, 556]}
+{"id": "train-4888", "candidates": 4, "right": 4, "chosen_len": 280, "lens_right": [280, 386, 388, 408]}
+{"id": "train-4901", "candidates": 4, "right": 4, "chosen_len": 464, "lens_right": [464, 662, 682, 1011]}
+{"id": "train-4903", "candidates": 4, "right": 4, "chosen_len": 323, "lens_right": [323, 399, 400, 412]}
+{"id": "train-4916", "candidates": 4, "right": 4, "chosen_len": 577, "lens_right": [577, 589, 639, 659]}
+{"id": "train-492", "candidates": 4, "right": 4, "chosen_len": 526, "lens_right": [526, 526, 559, 641]}
+{"id": "train-4925", "candidates": 4, "right": 4, "chosen_len": 496, "lens_right": [496, 520, 525, 550]}
+{"id": "train-4930", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-4931", "candidates": 4, "right": 4, "chosen_len": 561, "lens_right": [561, 563, 735, 843]}
+{"id": "train-4932", "candidates": 4, "right": 4, "chosen_len": 583, "lens_right": [583, 588, 680, 690]}
+{"id": "train-4936", "candidates": 4, "right": 4, "chosen_len": 568, "lens_right": [568, 572, 603, 630]}
+{"id": "train-4941", "candidates": 4, "right": 4, "chosen_len": 475, "lens_right": [475, 498, 530, 533]}
+{"id": "train-4947", "candidates": 4, "right": 4, "chosen_len": 426, "lens_right": [426, 427, 438, 440]}
+{"id": "train-4954", "candidates": 4, "right": 4, "chosen_len": 494, "lens_right": [494, 507, 515, 522]}
+{"id": "train-4960", "candidates": 4, "right": 4, "chosen_len": 366, "lens_right": [366, 384, 391, 396]}
+{"id": "train-4967", "candidates": 4, "right": 4, "chosen_len": 740, "lens_right": [740, 742, 775, 826]}
+{"id": "train-4976", "candidates": 4, "right": 4, "chosen_len": 515, "lens_right": [515, 533, 565, 652]}
+{"id": "train-4977", "candidates": 4, "right": 4, "chosen_len": 412, "lens_right": [412, 432, 462, 466]}
+{"id": "train-4983", "candidates": 4, "right": 4, "chosen_len": 533, "lens_right": [533, 533, 545, 571]}
+{"id": "train-4990", "candidates": 4, "right": 4, "chosen_len": 647, "lens_right": [647, 661, 723, 1343]}
+{"id": "train-4995", "candidates": 4, "right": 4, "chosen_len": 467, "lens_right": [467, 573, 589, 606]}
+{"id": "train-4998", "candidates": 4, "right": 4, "chosen_len": 951, "lens_right": [951, 1308, 1318, 1678]}
+{"id": "train-500", "candidates": 4, "right": 4, "chosen_len": 466, "lens_right": [466, 479, 521, 849]}
+{"id": "train-5004", "candidates": 4, "right": 4, "chosen_len": 375, "lens_right": [375, 400, 405, 469]}
+{"id": "train-5011", "candidates": 4, "right": 4, "chosen_len": 490, "lens_right": [490, 490, 492, 530]}
+{"id": "train-5012", "candidates": 4, "right": 4, "chosen_len": 472, "lens_right": [472, 478, 484, 489]}
+{"id": "train-5014", "candidates": 4, "right": 4, "chosen_len": 578, "lens_right": [578, 601, 607, 616]}
+{"id": "train-5019", "candidates": 4, "right": 2, "chosen_len": 909, "lens_right": [909, 1089]}
+{"id": "train-5032", "candidates": 4, "right": 3, "chosen_len": 448, "lens_right": [448, 502, 587]}
+{"id": "train-5057", "candidates": 4, "right": 4, "chosen_len": 308, "lens_right": [308, 409, 417, 519]}
+{"id": "train-5065", "candidates": 4, "right": 4, "chosen_len": 516, "lens_right": [516, 531, 587, 617]}
+{"id": "train-5068", "candidates": 4, "right": 1, "chosen_len": 618, "lens_right": [618]}
+{"id": "train-5083", "candidates": 4, "right": 3, "chosen_len": 670, "lens_right": [670, 1161, 1720]}
+{"id": "train-5087", "candidates": 4, "right": 4, "chosen_len": 641, "lens_right": [641, 803, 881, 1397]}
+{"id": "train-509", "candidates": 4, "right": 4, "chosen_len": 439, "lens_right": [439, 528, 1212, 1578]}
+{"id": "train-5095", "candidates": 4, "right": 4, "chosen_len": 488, "lens_right": [488, 511, 559, 566]}
+{"id": "train-510", "candidates": 4, "right": 4, "chosen_len": 397, "lens_right": [397, 398, 426, 444]}
+{"id": "train-5107", "candidates": 4, "right": 4, "chosen_len": 542, "lens_right": [542, 574, 574, 703]}
+{"id": "train-5122", "candidates": 4, "right": 4, "chosen_len": 427, "lens_right": [427, 450, 457, 528]}
+{"id": "train-5134", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-5139", "candidates": 4, "right": 2, "chosen_len": 476, "lens_right": [476, 577]}
+{"id": "train-5141", "candidates": 4, "right": 4, "chosen_len": 503, "lens_right": [503, 524, 527, 579]}
+{"id": "train-515", "candidates": 4, "right": 1, "chosen_len": 747, "lens_right": [747]}
+{"id": "train-5152", "candidates": 4, "right": 4, "chosen_len": 638, "lens_right": [638, 722, 781, 903]}
+{"id": "train-5160", "candidates": 4, "right": 4, "chosen_len": 432, "lens_right": [432, 526, 527, 573]}
+{"id": "train-5162", "candidates": 4, "right": 4, "chosen_len": 453, "lens_right": [453, 460, 461, 486]}
+{"id": "train-5173", "candidates": 4, "right": 4, "chosen_len": 360, "lens_right": [360, 368, 378, 484]}
+{"id": "train-5177", "candidates": 4, "right": 4, "chosen_len": 481, "lens_right": [481, 489, 551, 559]}
+{"id": "train-5179", "candidates": 4, "right": 4, "chosen_len": 487, "lens_right": [487, 516, 521, 558]}
+{"id": "train-5183", "candidates": 4, "right": 4, "chosen_len": 503, "lens_right": [503, 520, 545, 581]}
+{"id": "train-5186", "candidates": 4, "right": 2, "chosen_len": 706, "lens_right": [706, 1037]}
+{"id": "train-5191", "candidates": 4, "right": 4, "chosen_len": 429, "lens_right": [429, 482, 517, 532]}
+{"id": "train-5195", "candidates": 4, "right": 4, "chosen_len": 472, "lens_right": [472, 477, 481, 507]}
+{"id": "train-5201", "candidates": 4, "right": 3, "chosen_len": 545, "lens_right": [545, 560, 570]}
+{"id": "train-5202", "candidates": 4, "right": 4, "chosen_len": 413, "lens_right": [413, 458, 477, 482]}
+{"id": "train-5209", "candidates": 4, "right": 3, "chosen_len": 1070, "lens_right": [1070, 1220, 1314]}
+{"id": "train-5218", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-5220", "candidates": 4, "right": 4, "chosen_len": 609, "lens_right": [609, 665, 672, 812]}
+{"id": "train-5221", "candidates": 4, "right": 4, "chosen_len": 393, "lens_right": [393, 400, 402, 419]}
+{"id": "train-5229", "candidates": 4, "right": 4, "chosen_len": 424, "lens_right": [424, 428, 485, 519]}
+{"id": "train-523", "candidates": 4, "right": 4, "chosen_len": 488, "lens_right": [488, 548, 557, 598]}
+{"id": "train-5233", "candidates": 4, "right": 4, "chosen_len": 497, "lens_right": [497, 512, 518, 525]}
+{"id": "train-5244", "candidates": 4, "right": 1, "chosen_len": 482, "lens_right": [482]}
+{"id": "train-5246", "candidates": 4, "right": 2, "chosen_len": 707, "lens_right": [707, 1122]}
+{"id": "train-5250", "candidates": 4, "right": 4, "chosen_len": 489, "lens_right": [489, 537, 1151, 1783]}
+{"id": "train-5251", "candidates": 4, "right": 4, "chosen_len": 695, "lens_right": [695, 778, 1053, 1280]}
+{"id": "train-5252", "candidates": 4, "right": 2, "chosen_len": 742, "lens_right": [742, 1015]}
+{"id": "train-5276", "candidates": 4, "right": 4, "chosen_len": 508, "lens_right": [508, 512, 663, 715]}
+{"id": "train-5283", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 491, 491, 502]}
+{"id": "train-5299", "candidates": 4, "right": 4, "chosen_len": 540, "lens_right": [540, 592, 665, 798]}
+{"id": "train-5316", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-5318", "candidates": 4, "right": 4, "chosen_len": 501, "lens_right": [501, 506, 507, 510]}
+{"id": "train-5328", "candidates": 4, "right": 1, "chosen_len": 1321, "lens_right": [1321]}
+{"id": "train-5331", "candidates": 4, "right": 4, "chosen_len": 345, "lens_right": [345, 387, 392, 405]}
+{"id": "train-5354", "candidates": 4, "right": 4, "chosen_len": 443, "lens_right": [443, 519, 538, 610]}
+{"id": "train-5368", "candidates": 4, "right": 4, "chosen_len": 482, "lens_right": [482, 503, 543, 552]}
+{"id": "train-537", "candidates": 4, "right": 3, "chosen_len": 588, "lens_right": [588, 666, 779]}
+{"id": "train-5374", "candidates": 4, "right": 4, "chosen_len": 811, "lens_right": [811, 831, 863, 888]}
+{"id": "train-5379", "candidates": 4, "right": 4, "chosen_len": 493, "lens_right": [493, 515, 562, 625]}
+{"id": "train-5382", "candidates": 4, "right": 4, "chosen_len": 676, "lens_right": [676, 707, 716, 760]}
+{"id": "train-5387", "candidates": 4, "right": 4, "chosen_len": 578, "lens_right": [578, 582, 654, 682]}
+{"id": "train-539", "candidates": 4, "right": 4, "chosen_len": 456, "lens_right": [456, 470, 496, 802]}
+{"id": "train-5398", "candidates": 4, "right": 4, "chosen_len": 416, "lens_right": [416, 431, 433, 472]}
+{"id": "train-5408", "candidates": 4, "right": 4, "chosen_len": 551, "lens_right": [551, 591, 673, 778]}
+{"id": "train-5424", "candidates": 4, "right": 4, "chosen_len": 352, "lens_right": [352, 352, 393, 466]}
+{"id": "train-543", "candidates": 4, "right": 4, "chosen_len": 477, "lens_right": [477, 479, 510, 531]}
+{"id": "train-5432", "candidates": 4, "right": 4, "chosen_len": 626, "lens_right": [626, 735, 941, 1169]}
+{"id": "train-5452", "candidates": 4, "right": 2, "chosen_len": 1108, "lens_right": [1108, 1371]}
+{"id": "train-5460", "candidates": 4, "right": 1, "chosen_len": 618, "lens_right": [618]}
+{"id": "train-5473", "candidates": 4, "right": 4, "chosen_len": 553, "lens_right": [553, 573, 574, 686]}
+{"id": "train-5489", "candidates": 4, "right": 4, "chosen_len": 430, "lens_right": [430, 468, 477, 506]}
+{"id": "train-5510", "candidates": 4, "right": 4, "chosen_len": 456, "lens_right": [456, 461, 466, 488]}
+{"id": "train-5516", "candidates": 4, "right": 4, "chosen_len": 280, "lens_right": [280, 391, 414, 420]}
+{"id": "train-5517", "candidates": 4, "right": 4, "chosen_len": 517, "lens_right": [517, 550, 608, 638]}
+{"id": "train-5519", "candidates": 4, "right": 2, "chosen_len": 498, "lens_right": [498, 714]}
+{"id": "train-5535", "candidates": 4, "right": 4, "chosen_len": 491, "lens_right": [491, 548, 588, 650]}
+{"id": "train-5539", "candidates": 4, "right": 4, "chosen_len": 509, "lens_right": [509, 530, 556, 565]}
+{"id": "train-5545", "candidates": 4, "right": 4, "chosen_len": 491, "lens_right": [491, 508, 524, 582]}
+{"id": "train-5555", "candidates": 4, "right": 4, "chosen_len": 396, "lens_right": [396, 414, 422, 442]}
+{"id": "train-5558", "candidates": 4, "right": 4, "chosen_len": 472, "lens_right": [472, 476, 542, 590]}
+{"id": "train-5560", "candidates": 4, "right": 4, "chosen_len": 478, "lens_right": [478, 523, 527, 553]}
+{"id": "train-5564", "candidates": 4, "right": 4, "chosen_len": 786, "lens_right": [786, 820, 847, 902]}
+{"id": "train-5565", "candidates": 4, "right": 4, "chosen_len": 397, "lens_right": [397, 420, 448, 480]}
+{"id": "train-5566", "candidates": 4, "right": 3, "chosen_len": 491, "lens_right": [491, 538, 552]}
+{"id": "train-5569", "candidates": 4, "right": 4, "chosen_len": 753, "lens_right": [753, 817, 976, 1449]}
+{"id": "train-5575", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 566, 628, 630]}
+{"id": "train-5578", "candidates": 4, "right": 4, "chosen_len": 319, "lens_right": [319, 409, 424, 470]}
+{"id": "train-5581", "candidates": 4, "right": 4, "chosen_len": 605, "lens_right": [605, 700, 1141, 1422]}
+{"id": "train-5591", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-5599", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-5603", "candidates": 4, "right": 4, "chosen_len": 424, "lens_right": [424, 470, 471, 529]}
+{"id": "train-5623", "candidates": 4, "right": 3, "chosen_len": 656, "lens_right": [656, 695, 735]}
+{"id": "train-5628", "candidates": 4, "right": 4, "chosen_len": 439, "lens_right": [439, 469, 469, 492]}
+{"id": "train-5637", "candidates": 4, "right": 4, "chosen_len": 404, "lens_right": [404, 409, 423, 478]}
+{"id": "train-5640", "candidates": 4, "right": 4, "chosen_len": 527, "lens_right": [527, 531, 538, 551]}
+{"id": "train-5648", "candidates": 4, "right": 4, "chosen_len": 540, "lens_right": [540, 543, 675, 720]}
+{"id": "train-565", "candidates": 4, "right": 4, "chosen_len": 701, "lens_right": [701, 793, 904, 921]}
+{"id": "train-5659", "candidates": 4, "right": 3, "chosen_len": 465, "lens_right": [465, 538, 540]}
+{"id": "train-5667", "candidates": 4, "right": 4, "chosen_len": 449, "lens_right": [449, 450, 468, 468]}
+{"id": "train-5715", "candidates": 4, "right": 4, "chosen_len": 384, "lens_right": [384, 390, 452, 460]}
+{"id": "train-5722", "candidates": 4, "right": 4, "chosen_len": 431, "lens_right": [431, 437, 446, 447]}
+{"id": "train-5723", "candidates": 4, "right": 3, "chosen_len": 377, "lens_right": [377, 385, 394]}
+{"id": "train-5726", "candidates": 4, "right": 4, "chosen_len": 670, "lens_right": [670, 751, 804, 834]}
+{"id": "train-5728", "candidates": 4, "right": 4, "chosen_len": 580, "lens_right": [580, 587, 595, 596]}
+{"id": "train-573", "candidates": 4, "right": 4, "chosen_len": 457, "lens_right": [457, 458, 490, 504]}
+{"id": "train-5731", "candidates": 4, "right": 4, "chosen_len": 483, "lens_right": [483, 487, 510, 550]}
+{"id": "train-5735", "candidates": 4, "right": 4, "chosen_len": 629, "lens_right": [629, 652, 702, 712]}
+{"id": "train-5736", "candidates": 4, "right": 4, "chosen_len": 348, "lens_right": [348, 373, 378, 381]}
+{"id": "train-5741", "candidates": 4, "right": 4, "chosen_len": 455, "lens_right": [455, 463, 482, 575]}
+{"id": "train-5745", "candidates": 4, "right": 4, "chosen_len": 522, "lens_right": [522, 561, 567, 1372]}
+{"id": "train-5746", "candidates": 4, "right": 4, "chosen_len": 405, "lens_right": [405, 422, 445, 448]}
+{"id": "train-5749", "candidates": 4, "right": 4, "chosen_len": 371, "lens_right": [371, 416, 430, 447]}
+{"id": "train-5750", "candidates": 4, "right": 4, "chosen_len": 418, "lens_right": [418, 439, 457, 480]}
+{"id": "train-5752", "candidates": 4, "right": 4, "chosen_len": 554, "lens_right": [554, 555, 567, 587]}
+{"id": "train-5755", "candidates": 4, "right": 4, "chosen_len": 531, "lens_right": [531, 544, 562, 613]}
+{"id": "train-576", "candidates": 4, "right": 4, "chosen_len": 410, "lens_right": [410, 427, 429, 438]}
+{"id": "train-5764", "candidates": 4, "right": 4, "chosen_len": 387, "lens_right": [387, 412, 445, 462]}
+{"id": "train-577", "candidates": 4, "right": 4, "chosen_len": 452, "lens_right": [452, 469, 471, 521]}
+{"id": "train-5776", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-5777", "candidates": 4, "right": 3, "chosen_len": 489, "lens_right": [489, 524, 568]}
+{"id": "train-5778", "candidates": 4, "right": 3, "chosen_len": 473, "lens_right": [473, 482, 496]}
+{"id": "train-5780", "candidates": 4, "right": 4, "chosen_len": 469, "lens_right": [469, 474, 475, 493]}
+{"id": "train-5785", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 546, 547, 557]}
+{"id": "train-5786", "candidates": 4, "right": 4, "chosen_len": 438, "lens_right": [438, 508, 520, 521]}
+{"id": "train-5788", "candidates": 4, "right": 4, "chosen_len": 597, "lens_right": [597, 632, 729, 1045]}
+{"id": "train-5795", "candidates": 4, "right": 4, "chosen_len": 462, "lens_right": [462, 481, 503, 505]}
+{"id": "train-58", "candidates": 4, "right": 4, "chosen_len": 605, "lens_right": [605, 632, 635, 671]}
+{"id": "train-580", "candidates": 4, "right": 4, "chosen_len": 513, "lens_right": [513, 526, 556, 577]}
+{"id": "train-5808", "candidates": 4, "right": 4, "chosen_len": 519, "lens_right": [519, 532, 547, 560]}
+{"id": "train-5818", "candidates": 4, "right": 4, "chosen_len": 556, "lens_right": [556, 560, 589, 666]}
+{"id": "train-5819", "candidates": 4, "right": 4, "chosen_len": 627, "lens_right": [627, 628, 637, 644]}
+{"id": "train-5835", "candidates": 4, "right": 4, "chosen_len": 532, "lens_right": [532, 646, 688, 759]}
+{"id": "train-5845", "candidates": 4, "right": 3, "chosen_len": 598, "lens_right": [598, 611, 619]}
+{"id": "train-5852", "candidates": 4, "right": 4, "chosen_len": 279, "lens_right": [279, 386, 397, 458]}
+{"id": "train-5862", "candidates": 4, "right": 4, "chosen_len": 604, "lens_right": [604, 652, 658, 697]}
+{"id": "train-5875", "candidates": 4, "right": 4, "chosen_len": 371, "lens_right": [371, 375, 401, 412]}
+{"id": "train-5876", "candidates": 4, "right": 4, "chosen_len": 564, "lens_right": [564, 623, 652, 666]}
+{"id": "train-5882", "candidates": 4, "right": 4, "chosen_len": 546, "lens_right": [546, 589, 597, 620]}
+{"id": "train-5885", "candidates": 4, "right": 4, "chosen_len": 511, "lens_right": [511, 519, 521, 545]}
+{"id": "train-589", "candidates": 4, "right": 4, "chosen_len": 503, "lens_right": [503, 514, 544, 723]}
+{"id": "train-5895", "candidates": 4, "right": 4, "chosen_len": 464, "lens_right": [464, 466, 526, 602]}
+{"id": "train-5919", "candidates": 4, "right": 1, "chosen_len": 444, "lens_right": [444]}
+{"id": "train-5943", "candidates": 4, "right": 4, "chosen_len": 455, "lens_right": [455, 456, 480, 511]}
+{"id": "train-5956", "candidates": 4, "right": 4, "chosen_len": 606, "lens_right": [606, 638, 646, 672]}
+{"id": "train-5965", "candidates": 4, "right": 4, "chosen_len": 643, "lens_right": [643, 654, 659, 666]}
+{"id": "train-5969", "candidates": 4, "right": 4, "chosen_len": 481, "lens_right": [481, 495, 571, 644]}
+{"id": "train-5975", "candidates": 4, "right": 4, "chosen_len": 599, "lens_right": [599, 607, 635, 647]}
+{"id": "train-5978", "candidates": 4, "right": 4, "chosen_len": 694, "lens_right": [694, 809, 952, 1279]}
+{"id": "train-5982", "candidates": 4, "right": 4, "chosen_len": 394, "lens_right": [394, 456, 461, 497]}
+{"id": "train-5984", "candidates": 4, "right": 4, "chosen_len": 601, "lens_right": [601, 610, 696, 696]}
+{"id": "train-599", "candidates": 4, "right": 4, "chosen_len": 452, "lens_right": [452, 499, 510, 573]}
+{"id": "train-5992", "candidates": 4, "right": 3, "chosen_len": 503, "lens_right": [503, 583, 583]}
+{"id": "train-5993", "candidates": 4, "right": 4, "chosen_len": 503, "lens_right": [503, 525, 537, 584]}
+{"id": "train-5997", "candidates": 4, "right": 4, "chosen_len": 638, "lens_right": [638, 680, 692, 705]}
+{"id": "train-6015", "candidates": 4, "right": 3, "chosen_len": 533, "lens_right": [533, 554, 559]}
+{"id": "train-6019", "candidates": 4, "right": 4, "chosen_len": 268, "lens_right": [268, 364, 446, 450]}
+{"id": "train-604", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6054", "candidates": 4, "right": 4, "chosen_len": 425, "lens_right": [425, 446, 454, 456]}
+{"id": "train-606", "candidates": 4, "right": 4, "chosen_len": 703, "lens_right": [703, 765, 810, 1661]}
+{"id": "train-6068", "candidates": 4, "right": 4, "chosen_len": 484, "lens_right": [484, 505, 509, 530]}
+{"id": "train-6069", "candidates": 4, "right": 4, "chosen_len": 496, "lens_right": [496, 531, 534, 582]}
+{"id": "train-6074", "candidates": 4, "right": 4, "chosen_len": 438, "lens_right": [438, 438, 453, 459]}
+{"id": "train-6109", "candidates": 4, "right": 4, "chosen_len": 377, "lens_right": [377, 383, 412, 418]}
+{"id": "train-6119", "candidates": 4, "right": 4, "chosen_len": 553, "lens_right": [553, 576, 598, 623]}
+{"id": "train-6127", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 537, 555, 858]}
+{"id": "train-6131", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6136", "candidates": 4, "right": 4, "chosen_len": 389, "lens_right": [389, 396, 404, 453]}
+{"id": "train-6142", "candidates": 4, "right": 4, "chosen_len": 541, "lens_right": [541, 542, 565, 675]}
+{"id": "train-6155", "candidates": 4, "right": 2, "chosen_len": 725, "lens_right": [725, 728]}
+{"id": "train-6163", "candidates": 4, "right": 4, "chosen_len": 625, "lens_right": [625, 627, 630, 891]}
+{"id": "train-617", "candidates": 4, "right": 4, "chosen_len": 586, "lens_right": [586, 592, 602, 622]}
+{"id": "train-6181", "candidates": 4, "right": 1, "chosen_len": 693, "lens_right": [693]}
+{"id": "train-6182", "candidates": 4, "right": 4, "chosen_len": 429, "lens_right": [429, 435, 446, 458]}
+{"id": "train-6183", "candidates": 4, "right": 4, "chosen_len": 410, "lens_right": [410, 411, 422, 437]}
+{"id": "train-6185", "candidates": 4, "right": 4, "chosen_len": 525, "lens_right": [525, 597, 637, 664]}
+{"id": "train-6188", "candidates": 4, "right": 4, "chosen_len": 504, "lens_right": [504, 536, 548, 578]}
+{"id": "train-6191", "candidates": 4, "right": 4, "chosen_len": 418, "lens_right": [418, 467, 534, 545]}
+{"id": "train-6198", "candidates": 4, "right": 4, "chosen_len": 428, "lens_right": [428, 439, 447, 458]}
+{"id": "train-6206", "candidates": 4, "right": 4, "chosen_len": 621, "lens_right": [621, 627, 628, 687]}
+{"id": "train-6208", "candidates": 4, "right": 4, "chosen_len": 444, "lens_right": [444, 459, 461, 466]}
+{"id": "train-6209", "candidates": 4, "right": 4, "chosen_len": 494, "lens_right": [494, 498, 503, 535]}
+{"id": "train-6216", "candidates": 4, "right": 4, "chosen_len": 522, "lens_right": [522, 527, 572, 582]}
+{"id": "train-6226", "candidates": 4, "right": 4, "chosen_len": 577, "lens_right": [577, 588, 673, 797]}
+{"id": "train-6242", "candidates": 4, "right": 3, "chosen_len": 542, "lens_right": [542, 560, 690]}
+{"id": "train-6243", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 451, 464, 468]}
+{"id": "train-625", "candidates": 4, "right": 4, "chosen_len": 411, "lens_right": [411, 437, 444, 455]}
+{"id": "train-6286", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6288", "candidates": 4, "right": 3, "chosen_len": 466, "lens_right": [466, 479, 514]}
+{"id": "train-6296", "candidates": 4, "right": 4, "chosen_len": 548, "lens_right": [548, 586, 591, 605]}
+{"id": "train-63", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6325", "candidates": 4, "right": 4, "chosen_len": 449, "lens_right": [449, 458, 474, 481]}
+{"id": "train-6328", "candidates": 4, "right": 4, "chosen_len": 461, "lens_right": [461, 463, 476, 498]}
+{"id": "train-6339", "candidates": 4, "right": 2, "chosen_len": 523, "lens_right": [523, 633]}
+{"id": "train-6359", "candidates": 4, "right": 4, "chosen_len": 433, "lens_right": [433, 464, 467, 476]}
+{"id": "train-6360", "candidates": 4, "right": 4, "chosen_len": 487, "lens_right": [487, 567, 570, 601]}
+{"id": "train-6366", "candidates": 4, "right": 4, "chosen_len": 429, "lens_right": [429, 472, 516, 531]}
+{"id": "train-6368", "candidates": 4, "right": 4, "chosen_len": 973, "lens_right": [973, 1029, 1071, 1094]}
+{"id": "train-6374", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-638", "candidates": 4, "right": 2, "chosen_len": 676, "lens_right": [676, 766]}
+{"id": "train-6384", "candidates": 4, "right": 4, "chosen_len": 645, "lens_right": [645, 650, 689, 759]}
+{"id": "train-64", "candidates": 4, "right": 4, "chosen_len": 550, "lens_right": [550, 593, 633, 654]}
+{"id": "train-6407", "candidates": 4, "right": 4, "chosen_len": 597, "lens_right": [597, 603, 645, 655]}
+{"id": "train-6415", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6417", "candidates": 4, "right": 4, "chosen_len": 603, "lens_right": [603, 616, 617, 641]}
+{"id": "train-6420", "candidates": 4, "right": 2, "chosen_len": 617, "lens_right": [617, 641]}
+{"id": "train-6423", "candidates": 4, "right": 4, "chosen_len": 568, "lens_right": [568, 623, 840, 971]}
+{"id": "train-643", "candidates": 4, "right": 4, "chosen_len": 610, "lens_right": [610, 638, 655, 657]}
+{"id": "train-6431", "candidates": 4, "right": 2, "chosen_len": 518, "lens_right": [518, 523]}
+{"id": "train-6434", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 472, 473, 486]}
+{"id": "train-6457", "candidates": 4, "right": 4, "chosen_len": 583, "lens_right": [583, 671, 706, 715]}
+{"id": "train-6459", "candidates": 4, "right": 4, "chosen_len": 471, "lens_right": [471, 486, 521, 528]}
+{"id": "train-6460", "candidates": 4, "right": 3, "chosen_len": 1790, "lens_right": [1790, 2628, 3412]}
+{"id": "train-6468", "candidates": 4, "right": 4, "chosen_len": 417, "lens_right": [417, 421, 435, 447]}
+{"id": "train-647", "candidates": 4, "right": 4, "chosen_len": 486, "lens_right": [486, 527, 541, 583]}
+{"id": "train-6480", "candidates": 4, "right": 4, "chosen_len": 589, "lens_right": [589, 636, 657, 795]}
+{"id": "train-6482", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6490", "candidates": 4, "right": 4, "chosen_len": 203, "lens_right": [203, 287, 344, 388]}
+{"id": "train-6498", "candidates": 4, "right": 3, "chosen_len": 566, "lens_right": [566, 587, 614]}
+{"id": "train-6505", "candidates": 4, "right": 4, "chosen_len": 580, "lens_right": [580, 583, 589, 615]}
+{"id": "train-6509", "candidates": 4, "right": 4, "chosen_len": 517, "lens_right": [517, 587, 600, 605]}
+{"id": "train-6518", "candidates": 4, "right": 3, "chosen_len": 422, "lens_right": [422, 480, 482]}
+{"id": "train-6525", "candidates": 4, "right": 4, "chosen_len": 430, "lens_right": [430, 436, 440, 452]}
+{"id": "train-6532", "candidates": 4, "right": 4, "chosen_len": 457, "lens_right": [457, 470, 472, 515]}
+{"id": "train-6536", "candidates": 4, "right": 4, "chosen_len": 567, "lens_right": [567, 639, 694, 725]}
+{"id": "train-6537", "candidates": 4, "right": 4, "chosen_len": 582, "lens_right": [582, 612, 636, 678]}
+{"id": "train-6548", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6552", "candidates": 4, "right": 4, "chosen_len": 651, "lens_right": [651, 653, 701, 874]}
+{"id": "train-6553", "candidates": 4, "right": 4, "chosen_len": 437, "lens_right": [437, 465, 467, 473]}
+{"id": "train-6558", "candidates": 4, "right": 4, "chosen_len": 418, "lens_right": [418, 420, 429, 524]}
+{"id": "train-6559", "candidates": 4, "right": 4, "chosen_len": 429, "lens_right": [429, 462, 489, 490]}
+{"id": "train-657", "candidates": 4, "right": 4, "chosen_len": 506, "lens_right": [506, 558, 573, 619]}
+{"id": "train-6579", "candidates": 4, "right": 4, "chosen_len": 449, "lens_right": [449, 453, 490, 506]}
+{"id": "train-6581", "candidates": 4, "right": 4, "chosen_len": 439, "lens_right": [439, 473, 492, 532]}
+{"id": "train-6589", "candidates": 4, "right": 1, "chosen_len": 670, "lens_right": [670]}
+{"id": "train-659", "candidates": 4, "right": 1, "chosen_len": 532, "lens_right": [532]}
+{"id": "train-6594", "candidates": 4, "right": 4, "chosen_len": 366, "lens_right": [366, 368, 400, 408]}
+{"id": "train-6595", "candidates": 4, "right": 3, "chosen_len": 749, "lens_right": [749, 766, 812]}
+{"id": "train-6603", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-661", "candidates": 4, "right": 4, "chosen_len": 466, "lens_right": [466, 499, 512, 513]}
+{"id": "train-6611", "candidates": 4, "right": 4, "chosen_len": 417, "lens_right": [417, 426, 456, 464]}
+{"id": "train-6617", "candidates": 4, "right": 4, "chosen_len": 454, "lens_right": [454, 474, 480, 542]}
+{"id": "train-6627", "candidates": 4, "right": 4, "chosen_len": 549, "lens_right": [549, 552, 625, 630]}
+{"id": "train-6635", "candidates": 4, "right": 4, "chosen_len": 522, "lens_right": [522, 533, 577, 644]}
+{"id": "train-6637", "candidates": 4, "right": 4, "chosen_len": 518, "lens_right": [518, 543, 573, 592]}
+{"id": "train-6648", "candidates": 4, "right": 4, "chosen_len": 522, "lens_right": [522, 548, 591, 616]}
+{"id": "train-6654", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6655", "candidates": 4, "right": 4, "chosen_len": 554, "lens_right": [554, 581, 583, 635]}
+{"id": "train-666", "candidates": 4, "right": 4, "chosen_len": 491, "lens_right": [491, 568, 599, 632]}
+{"id": "train-6672", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-668", "candidates": 4, "right": 1, "chosen_len": 1666, "lens_right": [1666]}
+{"id": "train-6683", "candidates": 4, "right": 4, "chosen_len": 466, "lens_right": [466, 481, 504, 531]}
+{"id": "train-6693", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6695", "candidates": 4, "right": 4, "chosen_len": 488, "lens_right": [488, 497, 536, 554]}
+{"id": "train-6702", "candidates": 4, "right": 4, "chosen_len": 482, "lens_right": [482, 483, 518, 530]}
+{"id": "train-6709", "candidates": 4, "right": 4, "chosen_len": 537, "lens_right": [537, 550, 586, 590]}
+{"id": "train-6712", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6729", "candidates": 4, "right": 4, "chosen_len": 457, "lens_right": [457, 494, 542, 605]}
+{"id": "train-6733", "candidates": 4, "right": 4, "chosen_len": 505, "lens_right": [505, 536, 545, 578]}
+{"id": "train-6739", "candidates": 4, "right": 4, "chosen_len": 435, "lens_right": [435, 442, 450, 478]}
+{"id": "train-674", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6757", "candidates": 4, "right": 4, "chosen_len": 609, "lens_right": [609, 613, 659, 699]}
+{"id": "train-6758", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6760", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-6764", "candidates": 4, "right": 2, "chosen_len": 533, "lens_right": [533, 584]}
+{"id": "train-6774", "candidates": 4, "right": 4, "chosen_len": 602, "lens_right": [602, 681, 697, 777]}
+{"id": "train-6783", "candidates": 4, "right": 2, "chosen_len": 548, "lens_right": [548, 634]}
+{"id": "train-6790", "candidates": 4, "right": 4, "chosen_len": 703, "lens_right": [703, 751, 822, 911]}
+{"id": "train-6794", "candidates": 4, "right": 4, "chosen_len": 473, "lens_right": [473, 483, 486, 496]}
+{"id": "train-6798", "candidates": 4, "right": 4, "chosen_len": 450, "lens_right": [450, 461, 496, 513]}
+{"id": "train-6800", "candidates": 4, "right": 4, "chosen_len": 325, "lens_right": [325, 430, 436, 447]}
+{"id": "train-6801", "candidates": 4, "right": 4, "chosen_len": 402, "lens_right": [402, 431, 482, 501]}
+{"id": "train-6828", "candidates": 4, "right": 4, "chosen_len": 469, "lens_right": [469, 520, 551, 561]}
+{"id": "train-683", "candidates": 4, "right": 4, "chosen_len": 333, "lens_right": [333, 422, 456, 465]}
+{"id": "train-6830", "candidates": 4, "right": 4, "chosen_len": 608, "lens_right": [608, 692, 702, 788]}
+{"id": "train-6844", "candidates": 4, "right": 4, "chosen_len": 516, "lens_right": [516, 529, 546, 552]}
+{"id": "train-6847", "candidates": 4, "right": 4, "chosen_len": 625, "lens_right": [625, 641, 683, 689]}
+{"id": "train-685", "candidates": 4, "right": 4, "chosen_len": 694, "lens_right": [694, 695, 761, 1025]}
+{"id": "train-6860", "candidates": 4, "right": 4, "chosen_len": 436, "lens_right": [436, 438, 455, 456]}
+{"id": "train-6862", "candidates": 4, "right": 4, "chosen_len": 442, "lens_right": [442, 458, 465, 553]}
+{"id": "train-6863", "candidates": 4, "right": 4, "chosen_len": 458, "lens_right": [458, 458, 491, 538]}
+{"id": "train-6867", "candidates": 4, "right": 4, "chosen_len": 480, "lens_right": [480, 489, 508, 523]}
+{"id": "train-688", "candidates": 4, "right": 4, "chosen_len": 513, "lens_right": [513, 515, 571, 583]}
+{"id": "train-6882", "candidates": 4, "right": 3, "chosen_len": 440, "lens_right": [440, 456, 483]}
+{"id": "train-6888", "candidates": 4, "right": 3, "chosen_len": 659, "lens_right": [659, 695, 2025]}
+{"id": "train-69", "candidates": 4, "right": 4, "chosen_len": 412, "lens_right": [412, 426, 428, 461]}
+{"id": "train-6900", "candidates": 4, "right": 2, "chosen_len": 554, "lens_right": [554, 647]}
+{"id": "train-6901", "candidates": 4, "right": 4, "chosen_len": 414, "lens_right": [414, 416, 419, 439]}
+{"id": "train-6913", "candidates": 4, "right": 4, "chosen_len": 520, "lens_right": [520, 552, 552, 687]}
+{"id": "train-6917", "candidates": 4, "right": 3, "chosen_len": 553, "lens_right": [553, 563, 608]}
+{"id": "train-692", "candidates": 4, "right": 4, "chosen_len": 557, "lens_right": [557, 575, 614, 642]}
+{"id": "train-6922", "candidates": 4, "right": 4, "chosen_len": 647, "lens_right": [647, 693, 693, 695]}
+{"id": "train-6925", "candidates": 4, "right": 4, "chosen_len": 532, "lens_right": [532, 545, 575, 587]}
+{"id": "train-6926", "candidates": 4, "right": 4, "chosen_len": 461, "lens_right": [461, 479, 483, 487]}
+{"id": "train-693", "candidates": 4, "right": 4, "chosen_len": 382, "lens_right": [382, 384, 398, 434]}
+{"id": "train-6933", "candidates": 4, "right": 4, "chosen_len": 498, "lens_right": [498, 500, 513, 531]}
+{"id": "train-6956", "candidates": 4, "right": 4, "chosen_len": 849, "lens_right": [849, 879, 1130, 2637]}
+{"id": "train-6958", "candidates": 4, "right": 4, "chosen_len": 568, "lens_right": [568, 597, 643, 825]}
+{"id": "train-6967", "candidates": 4, "right": 4, "chosen_len": 437, "lens_right": [437, 441, 480, 485]}
+{"id": "train-6973", "candidates": 4, "right": 4, "chosen_len": 455, "lens_right": [455, 464, 486, 486]}
+{"id": "train-6986", "candidates": 4, "right": 4, "chosen_len": 460, "lens_right": [460, 536, 537, 552]}
+{"id": "train-6994", "candidates": 4, "right": 4, "chosen_len": 391, "lens_right": [391, 410, 421, 430]}
+{"id": "train-6995", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-7006", "candidates": 4, "right": 4, "chosen_len": 473, "lens_right": [473, 480, 519, 583]}
+{"id": "train-7020", "candidates": 4, "right": 4, "chosen_len": 419, "lens_right": [419, 443, 470, 526]}
+{"id": "train-7038", "candidates": 4, "right": 4, "chosen_len": 392, "lens_right": [392, 431, 479, 501]}
+{"id": "train-7044", "candidates": 4, "right": 4, "chosen_len": 568, "lens_right": [568, 579, 600, 634]}
+{"id": "train-7048", "candidates": 4, "right": 4, "chosen_len": 423, "lens_right": [423, 429, 443, 471]}
+{"id": "train-7053", "candidates": 4, "right": 4, "chosen_len": 499, "lens_right": [499, 534, 534, 573]}
+{"id": "train-7056", "candidates": 4, "right": 4, "chosen_len": 584, "lens_right": [584, 604, 663, 669]}
+{"id": "train-7060", "candidates": 4, "right": 4, "chosen_len": 494, "lens_right": [494, 497, 559, 571]}
+{"id": "train-7072", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-7074", "candidates": 4, "right": 4, "chosen_len": 561, "lens_right": [561, 619, 644, 656]}
+{"id": "train-7078", "candidates": 4, "right": 4, "chosen_len": 690, "lens_right": [690, 792, 823, 885]}
+{"id": "train-708", "candidates": 4, "right": 1, "chosen_len": 1362, "lens_right": [1362]}
+{"id": "train-7084", "candidates": 4, "right": 4, "chosen_len": 494, "lens_right": [494, 580, 613, 628]}
+{"id": "train-7088", "candidates": 4, "right": 4, "chosen_len": 390, "lens_right": [390, 403, 447, 453]}
+{"id": "train-7107", "candidates": 4, "right": 3, "chosen_len": 550, "lens_right": [550, 800, 831]}
+{"id": "train-7116", "candidates": 4, "right": 4, "chosen_len": 535, "lens_right": [535, 590, 609, 613]}
+{"id": "train-7117", "candidates": 4, "right": 4, "chosen_len": 467, "lens_right": [467, 502, 603, 636]}
+{"id": "train-712", "candidates": 4, "right": 4, "chosen_len": 406, "lens_right": [406, 450, 476, 488]}
+{"id": "train-7130", "candidates": 4, "right": 4, "chosen_len": 458, "lens_right": [458, 482, 523, 826]}
+{"id": "train-7138", "candidates": 4, "right": 4, "chosen_len": 452, "lens_right": [452, 457, 480, 508]}
+{"id": "train-7140", "candidates": 4, "right": 4, "chosen_len": 504, "lens_right": [504, 504, 514, 537]}
+{"id": "train-7142", "candidates": 4, "right": 4, "chosen_len": 393, "lens_right": [393, 412, 421, 421]}
+{"id": "train-7147", "candidates": 4, "right": 4, "chosen_len": 714, "lens_right": [714, 784, 789, 896]}
+{"id": "train-7156", "candidates": 4, "right": 4, "chosen_len": 490, "lens_right": [490, 569, 603, 650]}
+{"id": "train-7163", "candidates": 4, "right": 4, "chosen_len": 638, "lens_right": [638, 640, 706, 735]}
+{"id": "train-7164", "candidates": 4, "right": 4, "chosen_len": 405, "lens_right": [405, 425, 440, 455]}
+{"id": "train-7165", "candidates": 4, "right": 4, "chosen_len": 437, "lens_right": [437, 474, 475, 484]}
+{"id": "train-7166", "candidates": 4, "right": 4, "chosen_len": 416, "lens_right": [416, 469, 483, 485]}
+{"id": "train-7168", "candidates": 4, "right": 4, "chosen_len": 417, "lens_right": [417, 428, 432, 490]}
+{"id": "train-7171", "candidates": 4, "right": 4, "chosen_len": 481, "lens_right": [481, 496, 496, 546]}
+{"id": "train-7175", "candidates": 4, "right": 3, "chosen_len": 526, "lens_right": [526, 563, 652]}
+{"id": "train-7182", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-7189", "candidates": 4, "right": 4, "chosen_len": 506, "lens_right": [506, 556, 577, 652]}
+{"id": "train-7195", "candidates": 4, "right": 4, "chosen_len": 572, "lens_right": [572, 633, 668, 686]}
+{"id": "train-72", "candidates": 4, "right": 4, "chosen_len": 529, "lens_right": [529, 537, 629, 681]}
+{"id": "train-7219", "candidates": 4, "right": 4, "chosen_len": 654, "lens_right": [654, 677, 698, 707]}
+{"id": "train-7240", "candidates": 4, "right": 1, "chosen_len": 847, "lens_right": [847]}
+{"id": "train-7247", "candidates": 4, "right": 3, "chosen_len": 808, "lens_right": [808, 811, 838]}
+{"id": "train-7249", "candidates": 4, "right": 4, "chosen_len": 404, "lens_right": [404, 419, 422, 430]}
+{"id": "train-7252", "candidates": 4, "right": 4, "chosen_len": 482, "lens_right": [482, 515, 524, 545]}
+{"id": "train-7272", "candidates": 4, "right": 4, "chosen_len": 464, "lens_right": [464, 539, 550, 563]}
+{"id": "train-7280", "candidates": 4, "right": 4, "chosen_len": 406, "lens_right": [406, 418, 449, 509]}
+{"id": "train-7290", "candidates": 4, "right": 4, "chosen_len": 451, "lens_right": [451, 467, 474, 490]}
+{"id": "train-7292", "candidates": 4, "right": 4, "chosen_len": 466, "lens_right": [466, 475, 503, 505]}
+{"id": "train-7304", "candidates": 4, "right": 2, "chosen_len": 719, "lens_right": [719, 913]}
+{"id": "train-7305", "candidates": 4, "right": 2, "chosen_len": 955, "lens_right": [955, 2437]}
+{"id": "train-7306", "candidates": 4, "right": 4, "chosen_len": 457, "lens_right": [457, 468, 488, 496]}
+{"id": "train-7319", "candidates": 4, "right": 4, "chosen_len": 460, "lens_right": [460, 484, 509, 516]}
+{"id": "train-7326", "candidates": 4, "right": 4, "chosen_len": 428, "lens_right": [428, 438, 444, 468]}
+{"id": "train-7332", "candidates": 4, "right": 4, "chosen_len": 566, "lens_right": [566, 637, 638, 640]}
+{"id": "train-735", "candidates": 4, "right": 4, "chosen_len": 487, "lens_right": [487, 511, 514, 530]}
+{"id": "train-7353", "candidates": 4, "right": 4, "chosen_len": 701, "lens_right": [701, 732, 734, 736]}
+{"id": "train-7357", "candidates": 4, "right": 4, "chosen_len": 524, "lens_right": [524, 535, 590, 676]}
+{"id": "train-7363", "candidates": 4, "right": 4, "chosen_len": 529, "lens_right": [529, 530, 563, 594]}
+{"id": "train-7364", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-7373", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-7380", "candidates": 4, "right": 4, "chosen_len": 394, "lens_right": [394, 402, 407, 446]}
+{"id": "train-7381", "candidates": 4, "right": 2, "chosen_len": 1838, "lens_right": [1838, 2917]}
+{"id": "train-7382", "candidates": 4, "right": 3, "chosen_len": 457, "lens_right": [457, 500, 585]}
+{"id": "train-7383", "candidates": 4, "right": 1, "chosen_len": 445, "lens_right": [445]}
+{"id": "train-7388", "candidates": 4, "right": 4, "chosen_len": 470, "lens_right": [470, 473, 474, 753]}
+{"id": "train-7390", "candidates": 4, "right": 4, "chosen_len": 493, "lens_right": [493, 513, 514, 595]}
+{"id": "train-7391", "candidates": 4, "right": 4, "chosen_len": 573, "lens_right": [573, 600, 615, 694]}
+{"id": "train-7395", "candidates": 4, "right": 4, "chosen_len": 446, "lens_right": [446, 449, 454, 470]}
+{"id": "train-7397", "candidates": 4, "right": 4, "chosen_len": 411, "lens_right": [411, 434, 436, 443]}
+{"id": "train-7408", "candidates": 4, "right": 2, "chosen_len": 581, "lens_right": [581, 586]}
+{"id": "train-742", "candidates": 4, "right": 4, "chosen_len": 454, "lens_right": [454, 487, 509, 530]}
+{"id": "train-7420", "candidates": 4, "right": 1, "chosen_len": 957, "lens_right": [957]}
+{"id": "train-7438", "candidates": 4, "right": 4, "chosen_len": 532, "lens_right": [532, 543, 552, 697]}
+{"id": "train-7439", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-7443", "candidates": 4, "right": 3, "chosen_len": 604, "lens_right": [604, 809, 1485]}
+{"id": "train-745", "candidates": 4, "right": 4, "chosen_len": 502, "lens_right": [502, 579, 594, 599]}
+{"id": "train-7452", "candidates": 4, "right": 4, "chosen_len": 649, "lens_right": [649, 659, 667, 694]}
+{"id": "train-7453", "candidates": 4, "right": 4, "chosen_len": 472, "lens_right": [472, 510, 527, 542]}
+{"id": "train-7454", "candidates": 4, "right": 4, "chosen_len": 474, "lens_right": [474, 481, 496, 504]}
+{"id": "train-7469", "candidates": 4, "right": 3, "chosen_len": 908, "lens_right": [908, 1132, 1331]}
+{"id": "train-747", "candidates": 4, "right": 4, "chosen_len": 339, "lens_right": [339, 409, 422, 433]}
+{"id": "train-749", "candidates": 4, "right": 4, "chosen_len": 349, "lens_right": [349, 421, 455, 481]}
+{"id": "train-750", "candidates": 4, "right": 4, "chosen_len": 385, "lens_right": [385, 400, 413, 417]}
+{"id": "train-758", "candidates": 4, "right": 4, "chosen_len": 419, "lens_right": [419, 419, 422, 425]}
+{"id": "train-764", "candidates": 4, "right": 4, "chosen_len": 417, "lens_right": [417, 433, 450, 476]}
+{"id": "train-765", "candidates": 4, "right": 3, "chosen_len": 415, "lens_right": [415, 465, 524]}
+{"id": "train-767", "candidates": 4, "right": 4, "chosen_len": 440, "lens_right": [440, 449, 529, 589]}
+{"id": "train-776", "candidates": 4, "right": 1, "chosen_len": 467, "lens_right": [467]}
+{"id": "train-79", "candidates": 4, "right": 4, "chosen_len": 284, "lens_right": [284, 343, 385, 401]}
+{"id": "train-801", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 515, 547, 553]}
+{"id": "train-803", "candidates": 4, "right": 1, "chosen_len": 910, "lens_right": [910]}
+{"id": "train-809", "candidates": 4, "right": 4, "chosen_len": 355, "lens_right": [355, 403, 415, 462]}
+{"id": "train-81", "candidates": 4, "right": 4, "chosen_len": 557, "lens_right": [557, 619, 677, 772]}
+{"id": "train-812", "candidates": 4, "right": 4, "chosen_len": 446, "lens_right": [446, 473, 489, 506]}
+{"id": "train-814", "candidates": 4, "right": 4, "chosen_len": 509, "lens_right": [509, 514, 531, 543]}
+{"id": "train-820", "candidates": 4, "right": 4, "chosen_len": 454, "lens_right": [454, 461, 504, 546]}
+{"id": "train-824", "candidates": 4, "right": 4, "chosen_len": 544, "lens_right": [544, 553, 603, 615]}
+{"id": "train-826", "candidates": 4, "right": 4, "chosen_len": 384, "lens_right": [384, 410, 419, 431]}
+{"id": "train-831", "candidates": 4, "right": 4, "chosen_len": 434, "lens_right": [434, 469, 474, 528]}
+{"id": "train-840", "candidates": 4, "right": 0, "chosen_len": null, "lens_right": []}
+{"id": "train-857", "candidates": 4, "right": 4, "chosen_len": 451, "lens_right": [451, 458, 470, 497]}
+{"id": "train-858", "candidates": 4, "right": 3, "chosen_len": 623, "lens_right": [623, 703, 1024]}
+{"id": "train-862", "candidates": 4, "right": 4, "chosen_len": 421, "lens_right": [421, 432, 517, 568]}
+{"id": "train-889", "candidates": 4, "right": 4, "chosen_len": 442, "lens_right": [442, 447, 452, 466]}
+{"id": "train-890", "candidates": 4, "right": 4, "chosen_len": 721, "lens_right": [721, 856, 1166, 1224]}
+{"id": "train-893", "candidates": 4, "right": 4, "chosen_len": 540, "lens_right": [540, 549, 592, 597]}
+{"id": "train-9", "candidates": 4, "right": 4, "chosen_len": 648, "lens_right": [648, 701, 704, 751]}
+{"id": "train-909", "candidates": 4, "right": 3, "chosen_len": 588, "lens_right": [588, 640, 693]}
+{"id": "train-918", "candidates": 4, "right": 4, "chosen_len": 516, "lens_right": [516, 536, 537, 547]}
+{"id": "train-920", "candidates": 4, "right": 4, "chosen_len": 461, "lens_right": [461, 479, 480, 484]}
+{"id": "train-929", "candidates": 4, "right": 3, "chosen_len": 615, "lens_right": [615, 680, 909]}
+{"id": "train-937", "candidates": 4, "right": 4, "chosen_len": 417, "lens_right": [417, 433, 457, 493]}
+{"id": "train-941", "candidates": 4, "right": 3, "chosen_len": 422, "lens_right": [422, 436, 445]}
+{"id": "train-942", "candidates": 4, "right": 4, "chosen_len": 537, "lens_right": [537, 567, 603, 650]}
+{"id": "train-944", "candidates": 4, "right": 4, "chosen_len": 208, "lens_right": [208, 299, 421, 429]}
+{"id": "train-948", "candidates": 4, "right": 2, "chosen_len": 421, "lens_right": [421, 427]}
+{"id": "train-950", "candidates": 4, "right": 4, "chosen_len": 507, "lens_right": [507, 511, 537, 570]}
+{"id": "train-959", "candidates": 4, "right": 4, "chosen_len": 509, "lens_right": [509, 521, 567, 599]}
+{"id": "train-960", "candidates": 4, "right": 4, "chosen_len": 378, "lens_right": [378, 381, 409, 434]}
+{"id": "train-974", "candidates": 4, "right": 4, "chosen_len": 342, "lens_right": [342, 351, 384, 389]}
+{"id": "train-980", "candidates": 4, "right": 4, "chosen_len": 446, "lens_right": [446, 455, 511, 516]}
+{"id": "train-994", "candidates": 4, "right": 3, "chosen_len": 624, "lens_right": [624, 753, 772]}
+{"id": "train-995", "candidates": 4, "right": 4, "chosen_len": 694, "lens_right": [694, 944, 1243, 1410]}

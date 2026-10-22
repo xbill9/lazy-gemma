@@ -1,0 +1,5 @@
+2026-10-21 20:46:59 run 1 budget 256 {"n": 250, "right": 224, "accuracy": 0.896, "errors": 0, "truncated": 0, "mean_tokens": 568.2, "median_tokens": 517.0, "tokens_per_correct": 634.2, "seconds_per_correct": 5.86}
+2026-10-21 23:21:53 samples {"samples": 4000, "right": 3458, "problems": 1000}
+2026-10-22 01:16:31 trained {"problems": 1000, "with_right": 932, "train_seqs": 932, "mean_gen_len": 516.2}
+2026-10-22 01:38:11 run 2 uncapped {"n": 250, "right": 222, "accuracy": 0.888, "errors": 0, "truncated": 0, "mean_tokens": 535.1, "median_tokens": 491.5, "tokens_per_correct": 602.6, "seconds_per_correct": 5.57}
+2026-10-22 01:58:48 run 2 budget 256 {"n": 250, "right": 222, "accuracy": 0.888, "errors": 0, "truncated": 0, "mean_tokens": 535.4, "median_tokens": 491.5, "tokens_per_correct": 603.0, "seconds_per_correct": 5.57}

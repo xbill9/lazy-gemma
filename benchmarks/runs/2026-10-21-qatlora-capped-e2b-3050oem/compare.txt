@@ -1,0 +1,3 @@
+vs base + cap 256: only capped-data right 6, only base + cap 256 right 12, McNemar p=0.238; 216 both right: 554.6 vs 509.0 mean tokens
+vs base uncapped: only capped-data right 8, only base uncapped right 13, McNemar p=0.383; 214 both right: 798.4 vs 507.5 mean tokens
+vs tuned lr 1e-3 + cap 256: only capped-data right 8, only tuned lr 1e-3 + cap 256 right 10, McNemar p=0.815; 214 both right: 538.0 vs 506.5 mean tokens
