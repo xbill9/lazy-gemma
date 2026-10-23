@@ -2,3 +2,4 @@ run/
 __pycache__/
 *.pt
 server.log
+server-*.log
