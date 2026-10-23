@@ -1,0 +1,18 @@
+base cap none: right 1187 of 1319, tokens per correct 994.9
+base cap 512: right 1185 of 1319, tokens per correct 855.9
+base cap 256: right 1171 of 1319, tokens per correct 648.9
+base cap 128: right 1166 of 1319, tokens per correct 544.2
+base cap 64: right 1117 of 1319, tokens per correct 580.9
+tuned 512: right 1179, tokens per correct 764.3; vs same cap: -6 right, 10.7% fewer tokens, p=0.6; vs uncapped: -8 right, 23.2% fewer tokens, p=0.461
+tuned 256: right 1170, tokens per correct 610.2; vs same cap: -1 right, 6.0% fewer tokens, p=1; vs uncapped: -17 right, 38.7% fewer tokens, p=0.100
+tuned 128: right 1161, tokens per correct 492.2; vs same cap: -5 right, 9.5% fewer tokens, p=0.73; vs uncapped: -26 right, 50.5% fewer tokens, p=0.030
+tuned 64: right 1175, tokens per correct 454.0; vs same cap: +58 right, 21.8% fewer tokens, p=2.1e-05; vs uncapped: -12 right, 54.4% fewer tokens, p=0.299
+tuned 64 vs base cap 128: +9 right, 16.6% fewer tokens
+base cap 128 vs uncapped: 45.3% fewer tokens, -21 right
+tuned 256 accuracy: 88.7%
+train 512: 7568 s = 2 h 6 min, peak 4883 MiB; levels moved 6.2%
+train 256: 6846 s = 1 h 54 min, peak 4880 MiB; levels moved 9.4%
+train 128: 6341 s = 1 h 45 min, peak 4869 MiB; levels moved 8.4%
+train 64: 6248 s = 1 h 44 min, peak 4895 MiB; levels moved 9.6%
+sampling 64: 2 h 18 min
+64-cap targets vs uncapped targets: 0.52 of the length

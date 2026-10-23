@@ -36,7 +36,7 @@ Same recipe at a 128 cap: 4 samples on the same 1,000 training problems with thi
 | Trained on 128-capped samples | none | all 1,319 | 1,161 | 492.2 |
 
 On all 1,319: 63 problems only the trained model gets right, 68 only the capped base (McNemar p = 0.727). The
-trained model gets 5 fewer right, a gap these 1,319 problems cannot tell from noise, and uses 9.6% fewer tokens
+trained model gets 5 fewer right, a gap these 1,319 problems cannot tell from noise, and uses 9.5% fewer tokens
 per correct answer than the base with the 128 cap. On the 1,098 both get right it averages 399.9 tokens against
 437.5. The base with the 128 cap loses 5 problems against the 256 cap (1,166 vs 1,171) at 544.2 tokens per
 correct answer against 648.9, so the 128 cap is the stronger no-training baseline.

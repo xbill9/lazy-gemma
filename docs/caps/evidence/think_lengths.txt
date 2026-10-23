@@ -1,0 +1,7 @@
+base uncapped: thinking median 512 mean 607.6; answer median 264; thinking over 64/128/256: 1319/1319/1309 of 1319
+base + cap 128: thinking median 127 mean 127.0; answer median 281; thinking over 64/128/256: 1319/0/0 of 1319
+base + cap 64: thinking median 63 mean 63.0; answer median 321; thinking over 64/128/256: 0/0/0 of 1319
+tuned 512: thinking median 425 mean 410.1; answer median 245; thinking over 64/128/256: 1319/1314/1184 of 1319
+tuned 256: thinking median 255 mean 254.3; answer median 241; thinking over 64/128/256: 1319/1318/20 of 1319
+tuned 128: thinking median 127 mean 126.9; answer median 252; thinking over 64/128/256: 1319/0/0 of 1319
+tuned 64: thinking median 63 mean 63.0; answer median 274; thinking over 64/128/256: 2/0/0 of 1319
