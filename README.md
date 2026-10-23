@@ -24,11 +24,26 @@ back into a copy of that file, so the result serves with the same llama-server f
 | Tuned A at lr 1e-3, with the 256 cap | 224 | 634.2 | `benchmarks/runs/2026-10-21-qatlora-lr1e-3-budget256-e2b-3050oem` |
 | Tuned on 256-capped samples, lr 1e-3 | 222 | 602.6 | `benchmarks/runs/2026-10-21-qatlora-capped-e2b-3050oem` |
 
-On all 1,319 GSM8K test problems (`benchmarks/runs/2026-10-22-rest-e2b-3050oem`), the model tuned on 256-capped
-samples gets 1,170 right at 610.2 tokens per correct answer, uncapped; the base model with the 256 cap gets
-1,171 right at 648.9. Equal accuracy (McNemar p = 1.000), 6.0% fewer tokens per correct answer. At a 128 cap the
-tuned model gets 1,161 right at 492.2 against the capped base's 1,166 at 544.2: 9.6% fewer tokens, 5 fewer right
-(McNemar p = 0.727).
+#### All 1,319 GSM8K test problems
+
+Greedy, thinking on, the same eval as above; `benchmarks/runs/2026-10-22-rest-e2b-3050oem/REPORT.md`. Tuned models
+are QAT-LoRA at lr 1e-3 on the shortest right of 4 samples drawn with the given thinking cap, and run with no cap.
+
+| Model | Right | Tokens per correct answer | vs uncapped base: right, McNemar p |
+|---|---|---|---|
+| Base, uncapped | 1,187 | 994.9 | |
+| Base + cap 512 | 1,185 | 855.9 | |
+| Base + cap 256 | 1,171 | 648.9 | |
+| Base + cap 128 | 1,166 | 544.2 | |
+| Base + cap 64 | 1,117 | 580.9 | |
+| Tuned on 512-capped samples | 1,179 | 764.3 | -8, 0.461 |
+| Tuned on 256-capped samples | 1,170 | 610.2 | -17, 0.100 |
+| Tuned on 128-capped samples | 1,161 | 492.2 | -26, 0.030 |
+| Tuned on 64-capped samples | 1,175 | 454.0 | -12, 0.299 |
+
+Tuned on 64-capped samples: 54.4% fewer tokens per correct answer than the uncapped base, 12 fewer right, a gap
+1,319 problems cannot tell from noise. Against the base with the 128 cap, the best no-training setting, it gets 9
+more right at 16.6% fewer tokens.
 
 The capped-samples model is on Hugging Face:
 [`xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf).

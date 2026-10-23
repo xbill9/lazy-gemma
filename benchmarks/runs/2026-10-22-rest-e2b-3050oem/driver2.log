@@ -4,3 +4,5 @@
 2026-10-23 11:22:03 benchmarks/runs/2026-10-22-rest-e2b-3050oem/base-budget-64 {"n": 1069, "right": 904, "accuracy": 0.8457, "errors": 0, "truncated": 1, "mean_tokens": 494.1, "median_tokens": 395, "tokens_per_correct": 584.3, "seconds_per_correct": 5.41}
 2026-10-23 13:06:42 trained 64 {"problems": 1000, "with_right": 943, "train_seqs": 939, "mean_gen_len": 376.1}
 2026-10-23 13:23:26 benchmarks/runs/2026-10-23-qatlora-capped64-e2b-3050oem/think-greedy {"n": 250, "right": 222, "accuracy": 0.888, "errors": 0, "truncated": 1, "mean_tokens": 405.8, "median_tokens": 332.0, "tokens_per_correct": 457.0, "seconds_per_correct": 4.24}
+2026-10-23 14:30:13 benchmarks/runs/2026-10-22-rest-e2b-3050oem/capped64-think {"n": 1069, "right": 953, "accuracy": 0.8915, "errors": 0, "truncated": 0, "mean_tokens": 404.1, "median_tokens": 345, "tokens_per_correct": 453.3, "seconds_per_correct": 4.2}
+2026-10-23 14:30:14 done2

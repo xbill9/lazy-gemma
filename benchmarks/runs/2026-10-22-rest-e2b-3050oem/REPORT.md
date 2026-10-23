@@ -70,3 +70,38 @@ baseline (`2026-10-20-baseline-e2b-3050oem`), all 1,319: 1,187 right at 994.9, 4
 
 Against the uncapped base, the 128-trained model gets 26 fewer right (80 only the base gets right, 54 only the
 trained model), and at p = 0.030 that loss is measurable. The 512-trained model gets 8 fewer right, within noise.
+
+#### Cap 64 (2026-10-23)
+
+Driver `run2.sh` (log `driver2.log`). Same recipe at a 64 cap (`2026-10-23-samples-budget64-e2b-3050oem`, 3,495 of
+4,000 right; 943 problems, 939 sequences, 376.1 generated tokens on average; `2026-10-23-qatlora-capped64-e2b-3050oem`,
+175,425,067 Q4_0 levels changed). Base with the 64 cap on the 250: `2026-10-23-qatlora-capped64-e2b-3050oem/base-budget-64.jsonl`.
+
+| Model | Cap | Set | Right | Tokens per correct answer |
+|---|---|---|---|---|
+| Base GGUF | 64 | 1,069 | 904 | 584.3 |
+| Trained on 64-capped samples | none | 1,069 | 953 | 453.3 |
+| Base GGUF | 64 | all 1,319 | 1,117 | 580.9 |
+| Trained on 64-capped samples | none | all 1,319 | 1,175 | 454.0 |
+
+At 64 the cap hurts the base model: 1,117 right against 1,166 at 128, at more tokens per correct answer (580.9
+against 544.2). The trained model gets 58 more right than the base with the 64 cap (120 only the trained model,
+62 only the base; McNemar p = 2.1e-05) at 21.8% fewer tokens per correct answer. Against the uncapped base it gets
+12 fewer right (50 vs 62, p = 0.299) at 54.4% fewer tokens per correct answer (454.0 against 994.9), and against
+the base with the 128 cap, the strongest no-training setting, 9 more right at 16.6% fewer tokens.
+
+#### All caps, all 1,319
+
+| Model | Right | Tokens per correct answer | vs uncapped base: right, McNemar p |
+|---|---|---|---|
+| Base, uncapped | 1,187 | 994.9 | |
+| Base + cap 512 | 1,185 | 855.9 | |
+| Base + cap 256 | 1,171 | 648.9 | |
+| Base + cap 128 | 1,166 | 544.2 | |
+| Base + cap 64 | 1,117 | 580.9 | |
+| Trained, 512-capped samples | 1,179 | 764.3 | -8, 0.461 |
+| Trained, 256-capped samples | 1,170 | 610.2 | -17, 0.100 |
+| Trained, 128-capped samples | 1,161 | 492.2 | -26, 0.030 |
+| Trained, 64-capped samples | 1,175 | 454.0 | -12, 0.299 |
+
+The trained models run with no cap.

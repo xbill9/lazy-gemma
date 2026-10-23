@@ -15,11 +15,12 @@ def load(p):
 
 
 TRAINED_250 = {256: "2026-10-21-qatlora-capped-e2b-3050oem", 128: "2026-10-22-qatlora-capped128-e2b-3050oem",
-               512: "2026-10-22-qatlora-capped512-e2b-3050oem"}
+               512: "2026-10-22-qatlora-capped512-e2b-3050oem", 64: "2026-10-23-qatlora-capped64-e2b-3050oem"}
+BASE_250 = {64: "2026-10-23-qatlora-capped64-e2b-3050oem/base-budget-64.jsonl"}  # others: 2026-10-20-budget
 sets = {}
 for cap, run in TRAINED_250.items():
     paths = [f"2026-10-22-rest-e2b-3050oem/base-budget-{cap}.jsonl", f"2026-10-22-rest-e2b-3050oem/capped{cap}-think.jsonl",
-             f"2026-10-20-budget-e2b-3050oem/budget-{cap}.jsonl", f"{run}/think-greedy.jsonl"]
+             BASE_250.get(cap, f"2026-10-20-budget-e2b-3050oem/budget-{cap}.jsonl"), f"{run}/think-greedy.jsonl"]
     if not all(os.path.exists(os.path.join(RUNS, p)) for p in paths):
         continue
     base, new, base250, new250 = map(load, paths)
