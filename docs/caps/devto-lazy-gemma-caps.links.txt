@@ -1,6 +1,5 @@
 devto = PENDING
-part1 = https://dev.to/xbill/fine-tuning-gemma-4-on-an-8-gb-rtx-3050-slow-low-end-and-still-viable-291f
 repo = https://github.com/xbill9/lazy-gemma
-huggingface = https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf
+companion = https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf
 
 # dev.to draft id 4907189 (unpublished), created 2026-10-23

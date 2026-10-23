@@ -16,3 +16,5 @@ train 128: 6341 s = 1 h 45 min, peak 4869 MiB; levels moved 8.4%
 train 64: 6248 s = 1 h 44 min, peak 4895 MiB; levels moved 9.6%
 sampling 64: 2 h 18 min
 64-cap targets vs uncapped targets: 0.52 of the length
+tuned 64 seed 1: right 1154, tokens per correct 473.5; vs seed 0: -21 right, p=0.066; vs same cap: +37 right, 18.5% fewer tokens, p=0.0055; vs uncapped: -33 right, 52.4% fewer tokens, p=0.004
+tuned 64 seed 1 vs base cap 128: -12 right, 13.0% fewer tokens, p=0.335

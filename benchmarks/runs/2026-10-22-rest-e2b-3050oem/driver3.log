@@ -1,2 +1,3 @@
 2026-10-23 16:53:15 trained 64 seed 1 {"problems": 1000, "with_right": 943, "train_seqs": 939, "mean_gen_len": 376.1}
 2026-10-23 17:11:55 benchmarks/runs/2026-10-23-qatlora-capped64-seed1-e2b-3050oem/think-greedy {"n": 250, "right": 221, "accuracy": 0.884, "errors": 0, "truncated": 1, "mean_tokens": 420.8, "median_tokens": 342.5, "tokens_per_correct": 476.1, "seconds_per_correct": 4.42}
+2026-10-23 18:20:03 benchmarks/runs/2026-10-23-qatlora-capped64-seed1-e2b-3050oem/rest-think {"n": 1069, "right": 933, "accuracy": 0.8728, "errors": 0, "truncated": 1, "mean_tokens": 412.8, "median_tokens": 346, "tokens_per_correct": 472.9, "seconds_per_correct": 4.38}

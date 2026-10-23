@@ -1,7 +1,7 @@
 ---
 title: "Train Gemma 4 on Its Own Cut-Short Answers: Half the Tokens on an 8 GB RTX 3050"
 published: false
-description: "llama.cpp's thinking cap trades accuracy for tokens. Fine-tuning Gemma 4 E2B on its own answers sampled under a 64-token cap halves tokens per correct answer on all 1,319 GSM8K test problems, with no measurable accuracy loss and no cap at inference."
+description: "llama.cpp's thinking cap trades accuracy for tokens. Fine-tuning Gemma 4 E2B on its own answers sampled under a 64-token cap halves tokens per correct answer on all 1,319 GSM8K test problems, with no cap at inference, for 12 to 33 fewer right answers across two training seeds."
 tags: gemma, llamacpp, machinelearning, finetuning
 cover_image: https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/caps/devto-cover.2ca1e7c8.jpg
 ---
@@ -10,7 +10,7 @@ This article provides a step by step guide to fine-tuning Gemma 4 E2B on an 8 GB
 
 https://github.com/xbill9/lazy-gemma
 
-**On all 1,319 GSM8K test problems, Gemma 4 E2B uses 994.9 tokens per correct answer and gets 1,187 right. Trained on its own shortest right answers sampled with thinking cut at 64 tokens, it uses 454.0 and gets 1,175 right, with no cap set at inference: 54.4% fewer tokens, and an accuracy gap of 12 problems that 1,319 problems cannot tell from chance. The same 64-token cap applied to the untrained model costs it 70 problems. Training on the cut-short answers wins 58 of them back.**
+**On all 1,319 GSM8K test problems, Gemma 4 E2B uses 994.9 tokens per correct answer and gets 1,187 right. Trained on its own shortest right answers sampled with thinking cut at 64 tokens, it uses 454.0 and gets 1,175 right, with no cap set at inference: 54.4% fewer tokens. A second training seed gives 473.5 tokens and 1,154 right. The token saving repeats; the accuracy cost ranges from 12 problems, within chance, to 33, outside it. The same 64-token cap applied to the untrained model costs it 70 problems, and training on the cut-short answers wins back 58 with one seed and 37 with the other.**
 
 ---
 
@@ -128,7 +128,7 @@ cap 64, all 1,319 (1319): right base 1117, capped-data 1175; only capped-data ri
 cap 128, vs base uncapped, all 1,319 (1319): right base 1187, capped-data 1161; only capped-data right 54, only base right 80, McNemar p=0.030
 ```
 
-The 64-trained model's 12-problem gap to the uncapped model (p = 0.299) is within chance. Its 58-problem lead over the untrained model at the same cap is far outside it (p = 2.1e-05). The 128-trained model is the only one with a measurable loss against the uncapped model: 26 fewer right, p = 0.030.
+The 64-trained model's 12-problem gap to the uncapped model (p = 0.299) is within chance for this training run; Step 7 repeats the run with a second seed. Its 58-problem lead over the untrained model at the same cap is far outside it (p = 2.1e-05). The 128-trained model is the only one with a measurable loss against the uncapped model: 26 fewer right, p = 0.030.
 
 Against the best untrained setting, the 128 cap, the 64-trained model gets 9 more right at 16.6% fewer tokens per correct answer.
 
@@ -138,7 +138,7 @@ Against the best untrained setting, the 128 cap, the 64-trained model gets 9 mor
 
 #### Step 6 — Where the Tokens Go
 
-The eval rows keep the thinking and the answer as separate text. `docs/caps/think_lengths.py` counts both with Gemma 4's tokenizer, over all 1,319:
+The eval rows keep the thinking and the answer as separate text. `docs/caps/think_lengths.py` counts both with Gemma 4's tokenizer, over all 1,319, for the seed-0 models:
 
 ```text
 base uncapped: thinking median 512 mean 607.6; answer median 264; thinking over 64/128/256: 1319/1319/1309 of 1319
@@ -156,7 +156,27 @@ The 64-trained model and the capped untrained model think for the same 63 tokens
 
 #### Step 7 — Repeat With a Second Seed
 
-SEED-PENDING
+Every number above comes from one training run per cap. `train.py --seed 1` retrains the 64-cap model on the same samples with the same settings; the seed sets the adapter's starting values and the order of the training data. Paired against seed 0 and the untrained model on all 1,319:
+
+```text
+tuned 64 seed 1: right 1154, tokens per correct 473.5; vs seed 0: -21 right, p=0.066; vs same cap: +37 right, 18.5% fewer tokens, p=0.0055; vs uncapped: -33 right, 52.4% fewer tokens, p=0.004
+tuned 64 seed 1 vs base cap 128: -12 right, 13.0% fewer tokens, p=0.335
+```
+
+| 64-cap model | Right of 1,319 | Tokens per correct answer | vs uncapped, untrained |
+| :--- | :--- | :--- | :--- |
+| seed 0 | 1,175 | 454.0 | 12 fewer right, p = 0.299 |
+| seed 1 | 1,154 | 473.5 | 33 fewer right, p = 0.004 |
+
+What repeats across the two seeds:
+
+- Tokens per correct answer fall by more than half against the untrained model: 54.4% and 52.4%.
+- The tuned model beats the untrained model with the same 64-token cap by a clear margin: 58 and 37 more right.
+- Against the 128 cap, the best untrained setting, it uses 16.6% and 13.0% fewer tokens, and the accuracy gap (+9 and -12 right) is within chance both times.
+
+Accuracy against the uncapped model differs between the seeds. Seed 0 is within chance of it; seed 1 is 33 problems short, outside it. The two seeds differ from each other by 21 right answers (p = 0.066), so a single training run moves accuracy by about as much as the effect being measured.
+
+SEED128-PENDING
 
 ---
 
@@ -164,8 +184,8 @@ SEED-PENDING
 
 | | Untrained, uncapped | Untrained, cap 128 | Tuned on 64-capped answers |
 | :--- | :--- | :--- | :--- |
-| Right of 1,319 | 🥇 1,187 | 🥉 1,166 | 🥈 1,175 |
-| Tokens per correct answer | 994.9 | 🥈 544.2 | 🥇 454.0 |
+| Right of 1,319 | 🥇 1,187 | 1,166 | 1,175 and 1,154 (two seeds) |
+| Tokens per correct answer | 994.9 | 🥈 544.2 | 🥇 454.0 and 473.5 |
 | Median thinking tokens | 512 | 127 | 63 |
 | Training needed | 🟢 none | 🟢 none | ⚠️ 2 h 18 min sampling, 1 h 44 min training |
 | Works with any client | 🟢 yes | ⚠️ needs the request field | 🟢 yes |
@@ -174,7 +194,7 @@ SEED-PENDING
 
 #### So, Which One?
 
-To make Gemma 4 E2B think less with no training, set `thinking_budget_tokens` to 128: it cuts tokens per correct answer by 45.3% for 21 fewer right out of 1,319. To halve the tokens and keep the accuracy, fine-tune on the model's own answers sampled under a 64-token cap: one night on the 3050, and the result serves with no request field, from any client. Avoid a 64-token cap on the untrained model: it costs 70 right answers and saves fewer tokens than 128.
+To make Gemma 4 E2B think less with no training, set `thinking_budget_tokens` to 128: it cuts tokens per correct answer by 45.3% for 21 fewer right out of 1,319. To halve the tokens with no request field, fine-tune on the model's own answers sampled under a 64-token cap: one night on the 3050, 13% to 17% fewer tokens than the 128 cap at accuracy within chance of it, and the result serves from any client. Keep the uncapped model where every right answer counts: depending on the training seed, the tuned model gets 12 to 33 fewer right. Avoid a 64-token cap on the untrained model: it costs 70 right answers and saves fewer tokens than 128.
 
 The 64-trained model is on Hugging Face as [`xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf), the same size and format as the file it was trained from.
 
@@ -184,15 +204,16 @@ The 64-trained model is on Hugging Face as [`xbill9/gemma-4-E2B-it-lazy-capped64
 
 The goal of this article was to make Gemma 4 E2B reach the same answer in fewer tokens with a fine-tune that beats llama.cpp's thinking cap. The key to the solution was the training data: answers the model writes under the cap, so the shortest right answer is half as long as the model's uncapped ones. The results on all 1,319 GSM8K test problems were:
 
-- 🟢 Tuned on 64-capped answers: 454.0 tokens per correct answer against 994.9 uncapped, 54.4% fewer, with 1,175 right against 1,187 (McNemar p = 0.299).
-- 🟢 It beats the best untrained setting, the 128 cap: 9 more right, 16.6% fewer tokens, and no cap needed at inference.
+- 🟢 Tuned on 64-capped answers: 454.0 and 473.5 tokens per correct answer across two training seeds, against 994.9 uncapped, 54.4% and 52.4% fewer.
+- 🟢 Against the best untrained setting, the 128 cap: 16.6% and 13.0% fewer tokens, accuracy within chance both times, and no cap needed at inference.
+- ⚠️ Against the uncapped model: 12 fewer right with one seed (p = 0.299) and 33 fewer with the other (p = 0.004). The two seeds differ by 21 right answers.
 - 🟢 Every tuned model stops thinking near its training cap with no cap set; the 64-trained model passes 64 thinking tokens on 2 of 1,319 problems.
 - 🟢 The whole loop runs on one 8 GB RTX 3050, under 4.9 GB while training.
 - ⚠️ The 512-, 256- and 128-trained models save 23% to 51% of tokens against the uncapped model, and the 128-trained model loses 26 right answers (p = 0.030).
 - ❌ The 64-token cap on the untrained model costs 70 right answers and saves fewer tokens than the 128 cap.
 - ❌ 250 problems were too few: a 6-problem gap there became 1 problem on all 1,319.
 
-Scope: one RTX 3050 OEM, llama.cpp `b11696-3-g7182ef71e`, GSM8K only, one greedy eval per model on all 1,319 test problems, four samples per training problem on the same 1,000 training problems at every cap, one training run per cap. Accuracy differences are tested per problem with an exact two-sided McNemar test.
+Scope: one RTX 3050 OEM, llama.cpp `b11696-3-g7182ef71e`, GSM8K only, one greedy eval per model on all 1,319 test problems, four samples per training problem on the same 1,000 training problems at every cap, one training run per cap and a second training seed for the 64 cap. Accuracy differences are tested per problem with an exact two-sided McNemar test.
 
 The strategy for training Gemma 4 to think less on a low-end 8 GB GPU was validated with an incremental step by step approach.
 

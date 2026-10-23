@@ -76,3 +76,16 @@ for c, run in RUN.items():
 s = stamp(f"{REST}/driver2.log", "samples 64") - stamp(f"{REST}/driver2.log", "base-think")
 print(f"sampling 64: {s.seconds // 3600} h {s.seconds % 3600 // 60} min")
 print(f"64-cap targets vs uncapped targets: {376.1 / 723.8:.2f} of the length")
+
+SEED1 = {64: "2026-10-23-qatlora-capped64-seed1-e2b-3050oem", 128: "2026-10-23-qatlora-capped128-seed1-e2b-3050oem"}
+for c, run in SEED1.items():
+    if not os.path.exists(os.path.join(R, run, "rest-think.summary.json")) or not text(f"{run}/rest-think.summary.json"):
+        continue
+    d = rows(f"{run}/rest-think.jsonl", f"{run}/think-greedy.jsonl")
+    u, b, s0 = base["none"], base[c], tuned[c]
+    print(f"tuned {c} seed 1: right {right(d)}, tokens per correct {tpc(d):.1f}; vs seed 0: {right(d) - right(s0):+d} right, "
+          f"p={mcnemar(s0, d):.3f}; vs same cap: {right(d) - right(b):+d} right, {100 * (1 - tpc(d) / tpc(b)):.1f}% fewer "
+          f"tokens, p={mcnemar(b, d):.2g}; vs uncapped: {right(d) - right(u):+d} right, "
+          f"{100 * (1 - tpc(d) / tpc(u)):.1f}% fewer tokens, p={mcnemar(u, d):.3f}")
+    print(f"tuned {c} seed 1 vs base cap 128: {right(d) - right(b128):+d} right, {100 * (1 - tpc(d) / tpc(b128)):.1f}% fewer "
+          f"tokens, p={mcnemar(b128, d):.3f}")
