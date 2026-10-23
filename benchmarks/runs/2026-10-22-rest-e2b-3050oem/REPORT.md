@@ -56,3 +56,17 @@ Base with the 512 cap on the 250: `2026-10-20-budget-e2b-3050oem/budget-512.json
 
 On all 1,319: 42 only the trained model gets right, 48 only the capped base (McNemar p = 0.598). 6 fewer right,
 10.7% fewer tokens per correct answer; on the 1,137 both get right, 656.7 tokens against 739.6.
+
+#### Against the uncapped base (2026-10-23)
+
+Base GGUF, no cap, on the 1,069 (`base-think`): 960 right at 998.9 tokens per correct answer. With the 250-set
+baseline (`2026-10-20-baseline-e2b-3050oem`), all 1,319: 1,187 right at 994.9, 4 replies hit the 4,096 limit.
+
+| Trained on samples capped at | Right of 1,319 | Tokens per correct answer | Fewer than uncapped base | McNemar p |
+|---|---|---|---|---|
+| 512 | 1,179 | 764.3 | 23.2% | 0.461 |
+| 256 | 1,170 | 610.2 | 38.7% | 0.100 |
+| 128 | 1,161 | 492.2 | 50.5% | 0.030 |
+
+Against the uncapped base, the 128-trained model gets 26 fewer right (80 only the base gets right, 54 only the
+trained model), and at p = 0.030 that loss is measurable. The 512-trained model gets 8 fewer right, within noise.

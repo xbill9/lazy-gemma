@@ -27,6 +27,12 @@ for cap, run in TRAINED_250.items():
         continue
     sets[f"cap {cap}, rest 1,069"] = (base, new)
     sets[f"cap {cap}, all 1,319"] = ({**base, **base250}, {**new, **new250})
+UNCAPPED = ["2026-10-22-rest-e2b-3050oem/base-think.jsonl", "2026-10-20-baseline-e2b-3050oem/think-greedy.jsonl"]
+if all(os.path.exists(os.path.join(RUNS, p)) for p in UNCAPPED):
+    uncapped = {**load(UNCAPPED[0]), **load(UNCAPPED[1])}
+    for name, (_, cur) in list(sets.items()):
+        if name.endswith("all 1,319"):
+            sets[name.replace("all 1,319", "vs base uncapped, all 1,319")] = (uncapped, cur)
 for name, (old, cur) in sets.items():
     assert old.keys() == cur.keys()
     ids = list(old)
@@ -38,7 +44,7 @@ for name, (old, cur) in sets.items():
     both = [i for i in ids if old[i]["right"] and cur[i]["right"]]
     mo = sum(old[i]["completion_tokens"] for i in both) / len(both)
     mn = sum(cur[i]["completion_tokens"] for i in both) / len(both)
-    print(f"{name} ({len(ids)}): right base+cap {sum(old[i]['right'] for i in ids)}, capped-data "
-          f"{sum(cur[i]['right'] for i in ids)}; only capped-data right {b}, only base+cap right {c}, "
+    print(f"{name} ({len(ids)}): right base {sum(old[i]['right'] for i in ids)}, capped-data "
+          f"{sum(cur[i]['right'] for i in ids)}; only capped-data right {b}, only base right {c}, "
           f"McNemar p={pv:.3f}; tokens per correct {tpc[0]:.1f} vs {tpc[1]:.1f}; "
           f"{len(both)} both right: {mo:.1f} vs {mn:.1f} mean tokens")
