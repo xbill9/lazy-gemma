@@ -28,8 +28,8 @@ into the same Q4_0 grid. Same size, same tensors, same llama-server flags.
 It is part of [lazy-gemma](https://github.com/xbill9/lazy-gemma), a Hacktoberfest 2026 Week 3 entry.
 
 **Newer model:** [`xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf),
-trained the same way on 64-capped samples, gets more right with fewer tokens: 1,175 of 1,319 at 454.0 tokens
-per correct answer.
+trained the same way on 64-capped samples, uses fewer tokens: 454.0 and 473.5 per correct answer across two
+training seeds, with 1,175 and 1,154 of 1,319 right.
 
 #### Results
 
