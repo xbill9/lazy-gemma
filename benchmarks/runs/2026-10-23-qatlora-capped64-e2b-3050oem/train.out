@@ -20,3 +20,6 @@
 {"step": 190, "of": 236, "epoch": 1, "loss": 0.1397, "gnorm": 0.513, "lr": 9.084861204591549e-05, "elapsed_s": 5044, "peak_mib": 4895}
 {"step": 200, "of": 236, "epoch": 1, "loss": 0.1609, "gnorm": 0.484, "lr": 5.6323962471714174e-05, "elapsed_s": 5310, "peak_mib": 4895}
 {"step": 210, "of": 236, "epoch": 1, "loss": 0.1564, "gnorm": 0.601, "lr": 2.9649866664483326e-05, "elapsed_s": 5575, "peak_mib": 4895}
+{"step": 220, "of": 236, "epoch": 1, "loss": 0.1953, "gnorm": 0.626, "lr": 1.1298305091066662e-05, "elapsed_s": 5839, "peak_mib": 4895}
+{"step": 230, "of": 236, "epoch": 1, "loss": 0.1321, "gnorm": 0.43, "lr": 1.5939964846249378e-06, "elapsed_s": 6108, "peak_mib": 4895}
+{"step": 236, "of": 236, "epoch": 1, "loss": 0.0885, "gnorm": 0.492, "lr": 0.0, "elapsed_s": 6248, "peak_mib": 4895}
