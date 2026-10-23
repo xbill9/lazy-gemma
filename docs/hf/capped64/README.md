@@ -47,14 +47,22 @@ noise. Against the base with the 128 cap, the best setting without training, it 
 fewer tokens. A 64 cap on the base model costs 70 problems against no cap; training on 64-capped samples gets
 58 of them back (p = 2.1e-05 against the base with the 64 cap).
 
+**A second training seed gets less accuracy.** This file is training seed 0. Retrained with seed 1 on the
+same samples and settings (the seed sets the adapter's starting values and the data order), the model gets
+1,154 right at 473.5 tokens per correct answer: 33 fewer right than the uncapped base, which is outside
+chance (p = 0.004), at 52.4% fewer tokens. The two seeds differ from each other by 21 right answers
+(p = 0.066). What both seeds show: more than half the tokens saved against the uncapped base, 37 to 58 more
+right than the base with the same 64 cap, and accuracy within chance of the base with the 128 cap at 13% to
+17% fewer tokens. Where every right answer counts, use the base GGUF uncapped.
+
 The same recipe at caps 128, 256 and 512 gave 1,161, 1,170 and 1,179 right at 492.2, 610.2 and 764.3 tokens per
-correct answer: accuracy does not fall steadily as the cap tightens. Each model is one training run with one
-seed.
+correct answer: accuracy does not fall steadily as the cap tightens. Those are one training run each.
 
 Tokens include the thinking block, counted by the server with the model's tokenizer. Rows, logs and the
 comparison script are in the repo under
 [`benchmarks/runs/2026-10-22-rest-e2b-3050oem`](https://github.com/xbill9/lazy-gemma/tree/main/benchmarks/runs/2026-10-22-rest-e2b-3050oem)
-and [`benchmarks/runs/2026-10-23-qatlora-capped64-e2b-3050oem`](https://github.com/xbill9/lazy-gemma/tree/main/benchmarks/runs/2026-10-23-qatlora-capped64-e2b-3050oem).
+[`benchmarks/runs/2026-10-23-qatlora-capped64-e2b-3050oem`](https://github.com/xbill9/lazy-gemma/tree/main/benchmarks/runs/2026-10-23-qatlora-capped64-e2b-3050oem)
+and, for seed 1, [`benchmarks/runs/2026-10-23-qatlora-capped64-seed1-e2b-3050oem`](https://github.com/xbill9/lazy-gemma/tree/main/benchmarks/runs/2026-10-23-qatlora-capped64-seed1-e2b-3050oem).
 
 #### How it was trained
 

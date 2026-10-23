@@ -105,3 +105,19 @@ the base with the 128 cap, the strongest no-training setting, 9 more right at 16
 | Trained, 64-capped samples | 1,175 | 454.0 | -12, 0.299 |
 
 The trained models run with no cap.
+
+#### Cap 64, training seed 1 (2026-10-23)
+
+Driver `run3.sh`, resumed by `run3b.sh` after the disk filled during the export (log `driver3.log`).
+`train.py --seed 1` (adapter starting values and data order) on the same 64-capped samples and settings
+(`2026-10-23-qatlora-capped64-seed1-e2b-3050oem`, 191,885,845 Q4_0 levels changed). Paired figures from
+`docs/caps/figures.py` (output `docs/caps/evidence/figures.txt`).
+
+| 64-cap model | Right of 1,319 | Tokens per correct answer | vs uncapped base | vs base + cap 128 |
+|---|---|---|---|---|
+| seed 0 | 1,175 | 454.0 | -12, p = 0.299 | +9, 16.6% fewer tokens |
+| seed 1 | 1,154 | 473.5 | -33, p = 0.004 | -12, 13.0% fewer tokens, p = 0.335 |
+
+The seeds differ by 21 right answers (p = 0.066). Both save more than half the tokens of the uncapped base
+(54.4% and 52.4%) and beat the base with the 64 cap (+58, p = 2.1e-05; +37, p = 0.0055). Against the uncapped
+base, seed 1 loses accuracy outside chance.
