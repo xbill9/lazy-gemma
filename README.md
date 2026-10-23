@@ -45,8 +45,11 @@ Tuned on 64-capped samples: 54.4% fewer tokens per correct answer than the uncap
 1,319 problems cannot tell from noise. Against the base with the 128 cap, the best no-training setting, it gets 9
 more right at 16.6% fewer tokens.
 
-The capped-samples model is on Hugging Face:
+On Hugging Face: the model tuned on 64-capped samples,
+[`xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf),
+and on 256-capped samples,
 [`xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped-q4_0-gguf).
+Their cards are in `docs/hf/`.
 
 Training: 4,896 MiB peak, 33.4 s per step of 8 sequences. Derived figures: `docs/figures.py`
 (output in `docs/evidence/figures.txt`). Check outputs: `benchmarks/runs/2026-10-20-checks-e2b-3050oem`.
