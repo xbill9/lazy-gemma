@@ -1,0 +1,12 @@
+cap 256, rest 1,069 (1069): right base 943, capped-data 948; only capped-data right 45, only base right 40, McNemar p=0.665; tokens per correct 654.0 vs 612.0; 903 both right: 548.5 vs 516.5 mean tokens
+cap 256, all 1,319 (1319): right base 1171, capped-data 1170; only capped-data right 51, only base right 52, McNemar p=1.000; tokens per correct 648.9 vs 610.2; 1119 both right: 549.7 vs 515.1 mean tokens
+cap 128, rest 1,069 (1069): right base 942, capped-data 943; only capped-data right 55, only base right 54, McNemar p=1.000; tokens per correct 543.1 vs 486.7; 888 both right: 435.4 vs 399.5 mean tokens
+cap 128, all 1,319 (1319): right base 1166, capped-data 1161; only capped-data right 63, only base right 68, McNemar p=0.727; tokens per correct 544.2 vs 492.2; 1098 both right: 437.5 vs 399.9 mean tokens
+cap 512, rest 1,069 (1069): right base 957, capped-data 958; only capped-data right 35, only base right 34, McNemar p=1.000; tokens per correct 855.6 vs 763.7; 923 both right: 739.5 vs 656.4 mean tokens
+cap 512, all 1,319 (1319): right base 1185, capped-data 1179; only capped-data right 42, only base right 48, McNemar p=0.598; tokens per correct 855.9 vs 764.3; 1137 both right: 739.6 vs 656.7 mean tokens
+cap 64, rest 1,069 (1069): right base 904, capped-data 953; only capped-data right 99, only base right 50, McNemar p=0.000; tokens per correct 584.3 vs 453.3; 854 both right: 428.9 vs 365.7 mean tokens
+cap 64, all 1,319 (1319): right base 1117, capped-data 1175; only capped-data right 120, only base right 62, McNemar p=0.000; tokens per correct 580.9 vs 454.0; 1055 both right: 425.8 vs 363.0 mean tokens
+cap 256, vs base uncapped, all 1,319 (1319): right base 1187, capped-data 1170; only capped-data right 39, only base right 56, McNemar p=0.100; tokens per correct 994.9 vs 610.2; 1131 both right: 817.5 vs 516.3 mean tokens
+cap 128, vs base uncapped, all 1,319 (1319): right base 1187, capped-data 1161; only capped-data right 54, only base right 80, McNemar p=0.030; tokens per correct 994.9 vs 492.2; 1107 both right: 813.3 vs 399.3 mean tokens
+cap 512, vs base uncapped, all 1,319 (1319): right base 1187, capped-data 1179; only capped-data right 41, only base right 49, McNemar p=0.461; tokens per correct 994.9 vs 764.3; 1138 both right: 818.9 vs 656.1 mean tokens
+cap 64, vs base uncapped, all 1,319 (1319): right base 1187, capped-data 1175; only capped-data right 50, only base right 62, McNemar p=0.299; tokens per correct 994.9 vs 454.0; 1125 both right: 814.1 vs 360.4 mean tokens

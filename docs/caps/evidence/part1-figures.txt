@@ -1,0 +1,39 @@
+tokens per correct, fewer than uncapped:
+  cap 256 35.8%
+  run A   5.2%
+  run B   3.1%
+  run A at lr 1e-3 6.3%
+  QLoRA at lr 1e-3 1.5%
+exact grid vs QLoRA at lr 1e-3: 4.9% fewer tokens per correct answer (916.2 vs 963.2)
+cap 256 saves 349.8 tokens per correct answer; at 5.00 tok/s that is 70.0 s
+2026-10-20-qatlora-e2b-3050oem: 234 steps, 7822 s = 2 h 10 min, 33.4 s per step, peak 4896 MiB
+  4-bit weights changed: 238,829 of 1,835,532,288 = 0.013%
+2026-10-20-qatlora-budgetprompt-e2b-3050oem: 354 steps, 12526 s = 3 h 28 min, 35.4 s per step, peak 4899 MiB
+  4-bit weights changed: 757,918 of 1,835,532,288 = 0.041%
+2026-10-21-qatlora-lr1e-3-e2b-3050oem: 234 steps, 7826 s = 2 h 10 min, 33.4 s per step, peak 4896 MiB
+  4-bit weights changed: 134,965,355 of 1,835,532,288 = 7.353%
+2026-10-21-qlora-nf4-e2b-3050oem: 234 steps, 4002 s = 1 h 6 min, 17.1 s per step, peak 6201 MiB
+  4-bit weights changed: 52,531,066 of 1,835,532,288 = 2.862%
+QLoRA setup: {"load_s": 3.9, "load_peak_mib": 6201, "lora_params": 24158208} {"ple_device": "cpu", "gpu_mib": 1785}
+per-layer table in 16-bit: 262,144 x 8,960 x 2 bytes = 4.7 GB
+versions: torch 2.14.1+cu130 transformers 5.12.1 peft 0.21.2 bitsandbytes 0.50.2
+held-out runs, 250 problems each (right, share right, tokens per correct, median tokens, s per correct):
+  uncapped          227 90.8% 977.8 median 788 tokens 9.06 s
+  cap 128           224 89.6% 548.8 median 411 tokens 5.08 s
+  cap 256           228 91.2% 628.0 median 517 tokens 5.80 s
+  cap 512           228 91.2% 856.8 median 753 tokens 7.92 s
+  run A             220 88.0% 927.2 median 707 tokens 8.57 s
+  run B plain       229 91.6% 947.2 median 780 tokens 8.73 s
+  run B prompt 256  224 89.6% 903.2 median 740 tokens 8.33 s
+  run A lr 1e-3     226 90.4% 916.2 median 706 tokens 8.49 s
+  QLoRA lr 1e-3     228 91.2% 963.2 median 786 tokens 8.90 s
+qat_smoke.py defaults (the log does not record arguments): seq 1,024, batch 8
+2026-10-20-baseline-e2b-3050oem: median decode 109.3 tok/s per request, 0 h 35 min to last reply
+2026-10-20-samples-e2b-3050oem: median decode 64.6 tok/s per request, 4 h 1 min to last reply
+2026-10-21-qatlora-lr1e-3-e2b-3050oem: median decode 109.2 tok/s per request, 0 h 32 min to last reply
+2026-10-21-qlora-nf4-e2b-3050oem: median decode 109.4 tok/s per request, 0 h 34 min to last reply
+sampling: 3,707,725 generated tokens in 241 min = 256 tok/s across 4 slots
+loop, sample + train + eval: 241 + 130 + 32 min = 6 h 44 min
+shortest right answer mean 757.2, all right answers mean 858.3: 11.8% shorter
+lr 1e-3 export moved 565x run A's export
+overfit moved 24,385,598 levels in 12 steps = 102x run A's export
