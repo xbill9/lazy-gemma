@@ -1,0 +1,18 @@
+{"problems": 1000, "with_right": 943, "train_seqs": 939, "mean_gen_len": 376.1}
+{"step": 10, "of": 236, "epoch": 0, "loss": 0.2122, "gnorm": 0.807, "lr": 0.0009955764155020036, "elapsed_s": 266, "peak_mib": 4742}
+{"step": 20, "of": 236, "epoch": 0, "loss": 0.2541, "gnorm": 0.92, "lr": 0.000982383934407258, "elapsed_s": 532, "peak_mib": 4821}
+{"step": 30, "of": 236, "epoch": 0, "loss": 0.2585, "gnorm": 0.991, "lr": 0.0009606559889352064, "elapsed_s": 799, "peak_mib": 4821}
+{"step": 40, "of": 236, "epoch": 0, "loss": 0.3795, "gnorm": 0.606, "lr": 0.000930777040696903, "elapsed_s": 1069, "peak_mib": 4884}
+{"step": 50, "of": 236, "epoch": 0, "loss": 0.2646, "gnorm": 0.554, "lr": 0.0008932757779013212, "elapsed_s": 1334, "peak_mib": 4884}
+{"step": 60, "of": 236, "epoch": 0, "loss": 0.2309, "gnorm": 0.619, "lr": 0.0008488157605674924, "elapsed_s": 1598, "peak_mib": 4884}
+{"step": 70, "of": 236, "epoch": 0, "loss": 0.2089, "gnorm": 0.61, "lr": 0.0007981836792692507, "elapsed_s": 1861, "peak_mib": 4884}
+{"step": 80, "of": 236, "epoch": 0, "loss": 0.2136, "gnorm": 0.578, "lr": 0.0007422754351663251, "elapsed_s": 2130, "peak_mib": 4895}
+{"step": 90, "of": 236, "epoch": 0, "loss": 0.1971, "gnorm": 0.492, "lr": 0.0006820802876264111, "elapsed_s": 2400, "peak_mib": 4895}
+{"step": 100, "of": 236, "epoch": 0, "loss": 0.2046, "gnorm": 0.495, "lr": 0.0006186633499355574, "elapsed_s": 2662, "peak_mib": 4895}
+{"step": 110, "of": 236, "epoch": 0, "loss": 0.1891, "gnorm": 0.497, "lr": 0.0005531467428236827, "elapsed_s": 2933, "peak_mib": 4895}
+{"step": 120, "of": 236, "epoch": 1, "loss": 0.1565, "gnorm": 0.424, "lr": 0.0004866897392811127, "elapsed_s": 3175, "peak_mib": 4895}
+{"step": 130, "of": 236, "epoch": 1, "loss": 0.1053, "gnorm": 0.502, "lr": 0.00042046825199046404, "elapsed_s": 3444, "peak_mib": 4895}
+{"step": 140, "of": 236, "epoch": 1, "loss": 0.1839, "gnorm": 0.438, "lr": 0.0003556540263301896, "elapsed_s": 3715, "peak_mib": 4895}
+{"step": 150, "of": 236, "epoch": 1, "loss": 0.2087, "gnorm": 0.494, "lr": 0.00029339390711581093, "elapsed_s": 3981, "peak_mib": 4895}
+{"step": 160, "of": 236, "epoch": 1, "loss": 0.1708, "gnorm": 0.769, "lr": 0.0002347895459401288, "elapsed_s": 4242, "peak_mib": 4895}
+{"step": 170, "of": 236, "epoch": 1, "loss": 0.1186, "gnorm": 0.503, "lr": 0.00018087790817758993, "elapsed_s": 4509, "peak_mib": 4895}
