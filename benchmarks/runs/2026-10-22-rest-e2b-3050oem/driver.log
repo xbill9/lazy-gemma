@@ -5,3 +5,9 @@
 2026-10-22 17:36:51 trained 128 {"problems": 1000, "with_right": 939, "train_seqs": 936, "mean_gen_len": 404.2}
 2026-10-22 17:55:16 benchmarks/runs/2026-10-22-qatlora-capped128-e2b-3050oem/think-greedy {"n": 250, "right": 218, "accuracy": 0.872, "errors": 0, "truncated": 0, "mean_tokens": 450.3, "median_tokens": 395.5, "tokens_per_correct": 516.4, "seconds_per_correct": 4.78}
 2026-10-22 19:06:08 benchmarks/runs/2026-10-22-rest-e2b-3050oem/capped128-think {"n": 1069, "right": 943, "accuracy": 0.8821, "errors": 0, "truncated": 1, "mean_tokens": 429.3, "median_tokens": 383, "tokens_per_correct": 486.7, "seconds_per_correct": 4.51}
+2026-10-22 22:23:46 samples 512 {"samples": 4000, "right": 3497, "problems": 1000}
+2026-10-23 00:29:39 benchmarks/runs/2026-10-22-rest-e2b-3050oem/base-budget-512 {"n": 1069, "right": 957, "accuracy": 0.8952, "errors": 0, "truncated": 0, "mean_tokens": 766.0, "median_tokens": 762, "tokens_per_correct": 855.6, "seconds_per_correct": 7.89}
+2026-10-23 02:36:17 trained 512 {"problems": 1000, "with_right": 941, "train_seqs": 938, "mean_gen_len": 664.3}
+2026-10-23 03:03:25 benchmarks/runs/2026-10-22-qatlora-capped512-e2b-3050oem/think-greedy {"n": 250, "right": 221, "accuracy": 0.884, "errors": 0, "truncated": 0, "mean_tokens": 678.0, "median_tokens": 681.0, "tokens_per_correct": 767.0, "seconds_per_correct": 7.08}
+2026-10-23 04:56:00 benchmarks/runs/2026-10-22-rest-e2b-3050oem/capped512-think {"n": 1069, "right": 958, "accuracy": 0.8962, "errors": 0, "truncated": 0, "mean_tokens": 684.4, "median_tokens": 678, "tokens_per_correct": 763.7, "seconds_per_correct": 7.05}
+2026-10-23 04:56:02 done

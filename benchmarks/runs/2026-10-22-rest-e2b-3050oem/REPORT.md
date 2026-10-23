@@ -40,3 +40,19 @@ trained model gets 5 fewer right, a gap these 1,319 problems cannot tell from no
 per correct answer than the base with the 128 cap. On the 1,098 both get right it averages 399.9 tokens against
 437.5. The base with the 128 cap loses 5 problems against the 256 cap (1,166 vs 1,171) at 544.2 tokens per
 correct answer against 648.9, so the 128 cap is the stronger no-training baseline.
+
+#### Cap 512 (2026-10-23)
+
+Same recipe at a 512 cap (`2026-10-22-samples-budget512-e2b-3050oem`, 3,497 of 4,000 right; 941 problems,
+664.3 generated tokens on average; `2026-10-22-qatlora-capped512-e2b-3050oem`, 113,689,221 Q4_0 levels changed).
+Base with the 512 cap on the 250: `2026-10-20-budget-e2b-3050oem/budget-512.jsonl`.
+
+| Model | Cap | Set | Right | Tokens per correct answer |
+|---|---|---|---|---|
+| Base GGUF | 512 | 1,069 | 957 | 855.6 |
+| Trained on 512-capped samples | none | 1,069 | 958 | 763.7 |
+| Base GGUF | 512 | all 1,319 | 1,185 | 855.9 |
+| Trained on 512-capped samples | none | all 1,319 | 1,179 | 764.3 |
+
+On all 1,319: 42 only the trained model gets right, 48 only the capped base (McNemar p = 0.598). 6 fewer right,
+10.7% fewer tokens per correct answer; on the 1,137 both get right, 656.7 tokens against 739.6.
