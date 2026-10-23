@@ -22,3 +22,4 @@
 {"step": 210, "of": 236, "epoch": 1, "loss": 0.1076, "gnorm": 0.422, "lr": 2.9649866664483326e-05, "elapsed_s": 5585, "peak_mib": 4897}
 {"step": 220, "of": 236, "epoch": 1, "loss": 0.1339, "gnorm": 0.455, "lr": 1.1298305091066662e-05, "elapsed_s": 5844, "peak_mib": 4897}
 {"step": 230, "of": 236, "epoch": 1, "loss": 0.1243, "gnorm": 0.445, "lr": 1.5939964846249378e-06, "elapsed_s": 6103, "peak_mib": 4897}
+{"step": 236, "of": 236, "epoch": 1, "loss": 0.1131, "gnorm": 0.71, "lr": 0.0, "elapsed_s": 6242, "peak_mib": 4897}
