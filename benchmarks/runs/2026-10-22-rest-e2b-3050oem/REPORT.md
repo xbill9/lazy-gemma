@@ -121,3 +121,13 @@ Driver `run3.sh`, resumed by `run3b.sh` after the disk filled during the export 
 The seeds differ by 21 right answers (p = 0.066). Both save more than half the tokens of the uncapped base
 (54.4% and 52.4%) and beat the base with the 64 cap (+58, p = 2.1e-05; +37, p = 0.0055). Against the uncapped
 base, seed 1 loses accuracy outside chance.
+
+#### Cap 128, training seed 1 (2026-10-23)
+
+Same as seed 1 at cap 64, on the 128-capped samples (`2026-10-23-qatlora-capped128-seed1-e2b-3050oem`).
+1,163 right of 1,319 at 479.1 tokens per correct answer; seed 0 had 1,161 at 492.2 (+2 right, p = 0.930).
+Against the uncapped base: -24 right, p = 0.025, 51.8% fewer tokens. Against the base with the 128 cap: -3 right,
+p = 0.855, 12.0% fewer tokens.
+
+All four runs at caps 64 and 128 against the base with the 128 cap: +9 (p = 0.467), -12 (p = 0.335), -5
+(p = 0.727), -3 (p = 0.855) right, at 16.6%, 13.0%, 9.5% and 12.0% fewer tokens per correct answer.

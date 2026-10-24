@@ -1,7 +1,7 @@
 ---
 title: "Train Gemma 4 on Its Own Cut-Short Answers: Half the Tokens on an 8 GB RTX 3050"
 published: false
-description: "llama.cpp's thinking cap trades accuracy for tokens. Fine-tuning Gemma 4 E2B on its own answers sampled under a 64-token cap halves tokens per correct answer on all 1,319 GSM8K test problems, with no cap at inference, for 12 to 33 fewer right answers across two training seeds."
+description: "llama.cpp's thinking cap trades accuracy for tokens. Fine-tuning Gemma 4 E2B on its own answers sampled under a 64-token cap halves tokens per correct answer on all 1,319 GSM8K test problems, with no cap at inference, for 12 to 33 fewer right answers across four training runs, and matches the accuracy of the best cap with 9.5% to 16.6% fewer tokens."
 tags: gemma, llamacpp, machinelearning, finetuning
 cover_image: https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/caps/devto-cover.2ca1e7c8.jpg
 ---
@@ -10,7 +10,7 @@ This article provides a step by step guide to fine-tuning Gemma 4 E2B on an 8 GB
 
 https://github.com/xbill9/lazy-gemma
 
-**On all 1,319 GSM8K test problems, Gemma 4 E2B uses 994.9 tokens per correct answer and gets 1,187 right. Trained on its own shortest right answers sampled with thinking cut at 64 tokens, it uses 454.0 and gets 1,175 right, with no cap set at inference: 54.4% fewer tokens. A second training seed gives 473.5 tokens and 1,154 right. The token saving repeats; the accuracy cost ranges from 12 problems, within chance, to 33, outside it. The same 64-token cap applied to the untrained model costs it 70 problems, and training on the cut-short answers wins back 58 with one seed and 37 with the other.**
+**On all 1,319 GSM8K test problems, Gemma 4 E2B uses 994.9 tokens per correct answer and gets 1,187 right. Trained on its own shortest right answers sampled with thinking cut at 64 tokens, it uses 454.0 and gets 1,175 right, with no cap set at inference: 54.4% fewer tokens. Across four training runs at the 64 and 128 caps, tokens per correct answer fall by 51.8% to 54.4%, and the model gets 12 to 33 fewer right, a measurable loss in three of the four. Against llama.cpp's best cap, 128, all four match its accuracy within chance and use 9.5% to 16.6% fewer tokens, with no cap set. The same 64-token cap applied to the untrained model costs it 70 problems, and training on the cut-short answers wins back 58 with one seed and 37 with the other.**
 
 ---
 
@@ -176,7 +176,22 @@ What repeats across the two seeds:
 
 Accuracy against the uncapped model differs between the seeds. Seed 0 is within chance of it; seed 1 is 33 problems short, outside it. The two seeds differ from each other by 21 right answers (p = 0.066), so a single training run moves accuracy by about as much as the effect being measured.
 
-SEED128-PENDING
+The 128-cap model, retrained the same way with seed 1:
+
+```text
+tuned 128 seed 1: right 1163, tokens per correct 479.1; vs seed 0: +2 right, p=0.930; vs same cap: -3 right, 12.0% fewer tokens, p=0.85; vs uncapped: -24 right, 51.8% fewer tokens, p=0.025
+```
+
+Its two seeds agree: 1,161 and 1,163 right. Across all four tuned runs at the two tightest caps:
+
+| Tuned run | Right of 1,319 | Tokens per correct answer | vs uncapped (1,187 right) | vs untrained + cap 128 (1,166 right) |
+| :--- | :--- | :--- | :--- | :--- |
+| cap 64, seed 0 | 1,175 | 454.0 | -12, p = 0.299 | +9, 16.6% fewer tokens |
+| cap 64, seed 1 | 1,154 | 473.5 | -33, p = 0.004 | -12, 13.0% fewer tokens |
+| cap 128, seed 0 | 1,161 | 492.2 | -26, p = 0.030 | -5, 9.5% fewer tokens |
+| cap 128, seed 1 | 1,163 | 479.1 | -24, p = 0.025 | -3, 12.0% fewer tokens |
+
+Against the untrained model with the 128 cap, every one of the four is within chance on accuracy (p from 0.335 to 0.855) and uses 9.5% to 16.6% fewer tokens. Against the uncapped model, three of the four lose a measurable 24 to 33 right answers, about 2 percentage points, for about half the tokens.
 
 ---
 
@@ -194,7 +209,7 @@ SEED128-PENDING
 
 #### So, Which One?
 
-To make Gemma 4 E2B think less with no training, set `thinking_budget_tokens` to 128: it cuts tokens per correct answer by 45.3% for 21 fewer right out of 1,319. To halve the tokens with no request field, fine-tune on the model's own answers sampled under a 64-token cap: one night on the 3050, 13% to 17% fewer tokens than the 128 cap at accuracy within chance of it, and the result serves from any client. Keep the uncapped model where every right answer counts: depending on the training seed, the tuned model gets 12 to 33 fewer right. Avoid a 64-token cap on the untrained model: it costs 70 right answers and saves fewer tokens than 128.
+To make Gemma 4 E2B think less with no training, set `thinking_budget_tokens` to 128: it cuts tokens per correct answer by 45.3% for 21 fewer right out of 1,319. To halve the tokens with no request field, fine-tune on the model's own answers sampled under a 64-token cap: one night on the 3050, the 128 cap's accuracy with 9.5% to 16.6% fewer tokens across four training runs, and the result serves from any client. Keep the uncapped model where every right answer counts: the tuned models get 12 to 33 fewer right, about 2 percentage points. Avoid a 64-token cap on the untrained model: it costs 70 right answers and saves fewer tokens than 128.
 
 The 64-trained model is on Hugging Face as [`xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf), the same size and format as the file it was trained from.
 
@@ -205,15 +220,15 @@ The 64-trained model is on Hugging Face as [`xbill9/gemma-4-E2B-it-lazy-capped64
 The goal of this article was to make Gemma 4 E2B reach the same answer in fewer tokens with a fine-tune that beats llama.cpp's thinking cap. The key to the solution was the training data: answers the model writes under the cap, so the shortest right answer is half as long as the model's uncapped ones. The results on all 1,319 GSM8K test problems were:
 
 - 🟢 Tuned on 64-capped answers: 454.0 and 473.5 tokens per correct answer across two training seeds, against 994.9 uncapped, 54.4% and 52.4% fewer.
-- 🟢 Against the best untrained setting, the 128 cap: 16.6% and 13.0% fewer tokens, accuracy within chance both times, and no cap needed at inference.
-- ⚠️ Against the uncapped model: 12 fewer right with one seed (p = 0.299) and 33 fewer with the other (p = 0.004). The two seeds differ by 21 right answers.
+- 🟢 Against the best untrained setting, the 128 cap: all four tuned runs at caps 64 and 128 match its accuracy within chance and use 9.5% to 16.6% fewer tokens, with no cap needed at inference.
+- ⚠️ Against the uncapped model: 12 to 33 fewer right, measurable in three of the four runs. The two 64-cap seeds differ by 21 right answers; the two 128-cap seeds by 2.
 - 🟢 Every tuned model stops thinking near its training cap with no cap set; the 64-trained model passes 64 thinking tokens on 2 of 1,319 problems.
 - 🟢 The whole loop runs on one 8 GB RTX 3050, under 4.9 GB while training.
 - ⚠️ The 512-, 256- and 128-trained models save 23% to 51% of tokens against the uncapped model, and the 128-trained model loses 26 right answers (p = 0.030).
 - ❌ The 64-token cap on the untrained model costs 70 right answers and saves fewer tokens than the 128 cap.
 - ❌ 250 problems were too few: a 6-problem gap there became 1 problem on all 1,319.
 
-Scope: one RTX 3050 OEM, llama.cpp `b11696-3-g7182ef71e`, GSM8K only, one greedy eval per model on all 1,319 test problems, four samples per training problem on the same 1,000 training problems at every cap, one training run per cap and a second training seed for the 64 cap. Accuracy differences are tested per problem with an exact two-sided McNemar test.
+Scope: one RTX 3050 OEM, llama.cpp `b11696-3-g7182ef71e`, GSM8K only, one greedy eval per model on all 1,319 test problems, four samples per training problem on the same 1,000 training problems at every cap, one training run per cap and a second training seed for the 64 and 128 caps. Accuracy differences are tested per problem with an exact two-sided McNemar test.
 
 The strategy for training Gemma 4 to think less on a low-end 8 GB GPU was validated with an incremental step by step approach.
 

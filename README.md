@@ -39,14 +39,15 @@ are QAT-LoRA at lr 1e-3 on the shortest right of 4 samples drawn with the given 
 | Tuned on 512-capped samples | 1,179 | 764.3 | -8, 0.461 |
 | Tuned on 256-capped samples | 1,170 | 610.2 | -17, 0.100 |
 | Tuned on 128-capped samples | 1,161 | 492.2 | -26, 0.030 |
+| Tuned on 128-capped samples, training seed 1 | 1,163 | 479.1 | -24, 0.025 |
 | Tuned on 64-capped samples | 1,175 | 454.0 | -12, 0.299 |
 | Tuned on 64-capped samples, training seed 1 | 1,154 | 473.5 | -33, 0.004 |
 
 Tuned on 64-capped samples: 54.4% and 52.4% fewer tokens per correct answer than the uncapped base across two
 training seeds. Accuracy depends on the seed: 12 fewer right with seed 0, within chance (p = 0.299), and 33 fewer
-with seed 1, outside it (p = 0.004); the seeds differ by 21 right answers (p = 0.066). Against the base with the
-128 cap, the best no-training setting, both seeds use 13.0% to 16.6% fewer tokens with accuracy within chance
-(+9 and -12 right). Every other tuned row is one training run.
+with seed 1, outside it (p = 0.004); the seeds differ by 21 right answers (p = 0.066). The two 128-cap seeds agree (1,161 and 1,163 right).
+Against the base with the 128 cap, the best no-training setting, all four 64- and 128-cap runs are within chance on
+accuracy (McNemar p 0.335 to 0.855) at 9.5% to 16.6% fewer tokens. The 256 and 512 rows are one training run each.
 
 On Hugging Face: the model tuned on 64-capped samples,
 [`xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf`](https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf),

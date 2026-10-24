@@ -64,7 +64,8 @@ for c, d in tuned.items():
           f"{100 * (1 - tpc(d) / tpc(b)):.1f}% fewer tokens, p={mcnemar(b, d):.2g}; vs uncapped: {right(d) - right(u):+d} right, "
           f"{100 * (1 - tpc(d) / tpc(u)):.1f}% fewer tokens, p={mcnemar(u, d):.3f}")
 t64, b128 = tuned[64], base[128]
-print(f"tuned 64 vs base cap 128: {right(t64) - right(b128):+d} right, {100 * (1 - tpc(t64) / tpc(b128)):.1f}% fewer tokens")
+print(f"tuned 64 vs base cap 128: {right(t64) - right(b128):+d} right, {100 * (1 - tpc(t64) / tpc(b128)):.1f}% fewer tokens, "
+      f"p={mcnemar(b128, t64):.3f}")
 print(f"base cap 128 vs uncapped: {100 * (1 - tpc(b128) / tpc(base['none'])):.1f}% fewer tokens, "
       f"{right(b128) - right(base['none']):+d} right")
 print(f"tuned 256 accuracy: {100 * right(tuned[256]) / len(tuned[256]):.1f}%")
