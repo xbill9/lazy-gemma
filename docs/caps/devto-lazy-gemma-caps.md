@@ -224,7 +224,7 @@ The goal of this article was to make Gemma 4 E2B reach the same answer in fewer 
 - ⚠️ Against the uncapped model: 12 to 33 fewer right, measurable in three of the four runs. The two 64-cap seeds differ by 21 right answers; the two 128-cap seeds by 2.
 - 🟢 Every tuned model stops thinking near its training cap with no cap set; the 64-trained model passes 64 thinking tokens on 2 of 1,319 problems.
 - 🟢 The whole loop runs on one 8 GB RTX 3050, under 4.9 GB while training.
-- ⚠️ The 512-, 256- and 128-trained models save 23% to 51% of tokens against the uncapped model, and the 128-trained model loses 26 right answers (p = 0.030).
+- ⚠️ The 512-, 256- and 128-trained models save 23% to 51% of tokens against the uncapped model, and the two 128-trained runs lose 26 and 24 right answers (p = 0.030 and 0.025).
 - ❌ The 64-token cap on the untrained model costs 70 right answers and saves fewer tokens than the 128 cap.
 - ❌ 250 problems were too few: a 6-problem gap there became 1 problem on all 1,319.
 
