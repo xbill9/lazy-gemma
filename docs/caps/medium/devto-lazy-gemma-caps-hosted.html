@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Train Gemma 4 on Its Own Cut-Short Answers: Half the Tokens on an 8 GB RTX 3050</title>
+  <meta name="description" content="llama.cpp&#x27;s thinking cap trades accuracy for tokens. Fine-tuning Gemma 4 E2B on its own answers sampled under a 64-token cap halves tokens per correct answer on all 1,319 GSM8K test problems, with no cap at inference, for 12 to 33 fewer right answers across four training runs, and matches the accuracy of the best cap with 9.5% to 16.6% fewer tokens." />
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <style>
+    body{font-family:-apple-system,'Segoe UI',Roboto,'Liberation Sans',Arial,sans-serif;
+         font-size:18px;line-height:1.58;max-width:42em;color:#242424;}
+    h1,h2,h3,h4{font-weight:700;line-height:1.25;margin-top:1.8em;}
+    h4{font-size:1.25em;}
+    img{max-width:100%;height:auto;display:block;margin:1.6em 0;}
+    pre{background:#f7f7f7;border:1px solid #e6e6e6;border-radius:4px;
+        padding:12px 14px;overflow-x:auto;font-size:14px;line-height:1.45;}
+    code{font-family:'Liberation Mono',Menlo,Consolas,monospace;}
+    :not(pre)>code{background:#f2f2f2;padding:1px 5px;border-radius:3px;font-size:.9em;}
+    blockquote{border-left:3px solid #ddd;margin-left:0;padding-left:1em;color:#555;}
+    hr{border:0;border-top:1px solid #e6e6e6;margin:2.4em 0;}
+  </style>
+</head>
+<body>
+<p>This article provides a step by step guide to fine-tuning Gemma 4 E2B
+on an 8 GB NVIDIA RTX 3050 so that it thinks in 64 tokens, using answers
+the model wrote itself under llama.cpp's thinking cap. Every log, script
+and number is committed.</p>
+<figure><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/caps/medium/img/devto-cover.2ca1e7c8.jpg" alt="Train Gemma 4 on Its Own Cut-Short Answers: Half the Tokens on an 8 GB RTX 3050" /></figure>
+<p><a
+href="https://github.com/xbill9/lazy-gemma">https://github.com/xbill9/lazy-gemma</a></p>
+<p><strong>On all 1,319 GSM8K test problems, Gemma 4 E2B uses 994.9
+tokens per correct answer and gets 1,187 right. Trained on its own
+shortest right answers sampled with thinking cut at 64 tokens, it uses
+454.0 and gets 1,175 right, with no cap set at inference: 54.4% fewer
+tokens. Across four training runs at the 64 and 128 caps, tokens per
+correct answer fall by 51.8% to 54.4%, and the model gets 12 to 33 fewer
+right, a measurable loss in three of the four. Against llama.cpp's best
+cap, 128, all four match its accuracy within chance and use 9.5% to
+16.6% fewer tokens, with no cap set. The same 64-token cap applied to
+the untrained model costs it 70 problems, and training on the cut-short
+answers wins back 58 with one seed and 37 with the other.</strong></p>
+<hr />
+<h4 id="where-part-1-left-off">Where Part 1 Left Off</h4>
+<p><a
+href="https://dev.to/xbill/fine-tuning-gemma-4-on-an-8-gb-rtx-3050-slow-low-end-and-still-viable-291f">Part
+1</a> built the loop on one RTX 3050: sample four answers per training
+problem, keep the shortest right one, train through the exact 4-bit
+weights of the served GGUF, and write the result back into the same
+file. The tuned models cut tokens per correct answer by at most 6.3%,
+while llama.cpp's <code>thinking_budget_tokens</code> cut them by 35.8%
+with no training.</p>
+<p>The reason was the data. The shortest of four uncapped answers was
+only 11.8% shorter than a typical right answer, so the model had little
+short thinking to learn from. This part changes one thing: the training
+answers are sampled with the thinking cap on.</p>
+<hr />
+<h4 id="at-this-point-you-should-have">At This Point You Should
+Have…</h4>
+<ul>
+<li>An NVIDIA GeForce RTX 3050 OEM, 8,192 MiB</li>
+<li>llama.cpp built with CUDA, at <code>b11696-3-g7182ef71e</code></li>
+<li>The served model:
+<code>xbill9/gemma-4-E2B-it-qat-q4_0-exact-gguf</code></li>
+<li>The machine's own Python 3.14 with torch 2.14.1 (CUDA 13.0) and
+transformers 5.12.1</li>
+<li>A clone:
+<code>git clone https://github.com/xbill9/lazy-gemma</code>, with Part
+1's <code>data/train.jsonl</code> and
+<code>data/heldout.jsonl</code></li>
+</ul>
+<hr />
+<h4 id="step-1--use-the-whole-test-split">Step 1 — Use the Whole Test
+Split</h4>
+<p>Part 1 graded on 250 of GSM8K's 1,319 test problems.
+<code>make_rest.py</code> writes the other 1,069 to
+<code>data/heldout-rest.jsonl</code>, after checking the downloaded test
+file against the sha256 recorded by <code>make_splits.py</code> and that
+no question appears in the training split:</p>
+<pre class="text"><code>$ python3 make_rest.py
+{&quot;heldout_rest&quot;: 1069}</code></pre>
+<p>Every result below is on all 1,319, as the 250 plus the 1,069, with
+the same eval: greedy, thinking on, <code>max_tokens</code> 4096, one
+request at a time, graded by code.</p>
+<hr />
+<h4 id="step-2--measure-the-cap-at-five-settings">Step 2 — Measure the
+Cap at Five Settings</h4>
+<p>The untrained model, uncapped and with
+<code>thinking_budget_tokens</code> at 512, 256, 128 and 64:</p>
+<p><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/caps/medium/img/devto-lazy-gemma-caps-table-1.png"
+alt="Table: Thinking cap, Right of 1,319, Tokens per correct answer" /></p>
+<p>The cap is a dial. Each halving costs a few right answers down to
+128, and at 64 it costs 49 more and saves nothing: the model, cut off
+mid-thought, writes a longer answer and gets more of them wrong. The
+best setting with no training is 128.</p>
+<hr />
+<h4 id="step-3--sample-with-the-cap-on">Step 3 — Sample With the Cap
+On</h4>
+<p><code>sample_train.py --budget B</code> sends llama.cpp's reasoning
+budget fields with each <code>/completion</code> request, the same cap
+the eval's <code>thinking_budget_tokens</code> applies on the chat
+endpoint. The forced end-of-thinking token lands in the sampled token
+ids like a sampled one, so the trainer sees exactly what the server
+produced.</p>
+<p>On the same 1,000 training problems as Part 1, four samples each at
+temperature 1.0, on a 4-slot llama-server:</p>
+<pre class="text"><code>samples 64  {&quot;samples&quot;: 4000, &quot;right&quot;: 3495, &quot;problems&quot;: 1000}
+samples 128 {&quot;samples&quot;: 4000, &quot;right&quot;: 3484, &quot;problems&quot;: 1000}
+samples 256 {&quot;samples&quot;: 4000, &quot;right&quot;: 3458, &quot;problems&quot;: 1000}
+samples 512 {&quot;samples&quot;: 4000, &quot;right&quot;: 3497, &quot;problems&quot;: 1000}</code></pre>
+<p>Uncapped, Part 1 got 3,524 right. The cap barely changes how many
+training answers are right; it changes how long they are.</p>
+<hr />
+<h4 id="step-4--train-on-the-shortest-right-capped-answer">Step 4 —
+Train on the Shortest Right Capped Answer</h4>
+<p><code>train.py</code> is unchanged from Part 1: the shortest right
+answer per problem, chosen in code, QAT-LoRA rank 16 at lr 1e-3, batch
+8, two passes.</p>
+<pre class="text"><code>cap 64   {&quot;problems&quot;: 1000, &quot;with_right&quot;: 943, &quot;train_seqs&quot;: 939, &quot;mean_gen_len&quot;: 376.1}
+cap 128  {&quot;problems&quot;: 1000, &quot;with_right&quot;: 939, &quot;train_seqs&quot;: 936, &quot;mean_gen_len&quot;: 404.2}
+cap 256  {&quot;problems&quot;: 1000, &quot;with_right&quot;: 932, &quot;train_seqs&quot;: 932, &quot;mean_gen_len&quot;: 516.2}
+cap 512  {&quot;problems&quot;: 1000, &quot;with_right&quot;: 941, &quot;train_seqs&quot;: 938, &quot;mean_gen_len&quot;: 664.3}</code></pre>
+<p>Part 1's uncapped targets averaged 723.8 tokens. The 64-cap targets
+average 376.1, about half.</p>
+<p>Each run fits the card the same way as Part 1, under 4.9 GB:</p>
+<pre class="text"><code>cap 64   {&quot;step&quot;: 236, &quot;of&quot;: 236, &quot;loss&quot;: 0.0885, &quot;elapsed_s&quot;: 6248, &quot;peak_mib&quot;: 4895}
+cap 128  {&quot;step&quot;: 234, &quot;of&quot;: 234, &quot;loss&quot;: 0.145,  &quot;elapsed_s&quot;: 6341, &quot;peak_mib&quot;: 4869}
+cap 256  {&quot;step&quot;: 234, &quot;of&quot;: 234, &quot;loss&quot;: 0.1089, &quot;elapsed_s&quot;: 6846, &quot;peak_mib&quot;: 4880}
+cap 512  {&quot;step&quot;: 236, &quot;of&quot;: 236, &quot;loss&quot;: 0.0834, &quot;elapsed_s&quot;: 7568, &quot;peak_mib&quot;: 4883}</code></pre>
+<p>Shorter targets train faster: 1 h 44 min at 64, 2 h 6 min at 512.
+Each export moves 6.2% to 9.6% of the 4-bit weights:</p>
+<pre class="text"><code>cap 64   levels changed 175425067 of 1835532288 in trained tensors
+cap 512  levels changed 113689221 of 1835532288 in trained tensors</code></pre>
+<hr />
+<h4 id="step-5--measure-the-tuned-models-on-all-1319">Step 5 — Measure
+the Tuned Models on All 1,319</h4>
+<p>Each tuned model runs with no cap. Against the untrained model with
+the same cap, and against the untrained model uncapped:</p>
+<p><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/caps/medium/img/devto-lazy-gemma-caps-table-2.png"
+alt="Table: Trained on answers capped at, Right of 1,319, Tokens per correct answer, vs same cap, untrained, vs uncapped, untrained" /></p>
+<p>Whether an accuracy gap is real is checked per problem with an exact
+McNemar test, which counts the problems only one model gets right:</p>
+<pre class="text"><code>cap 64, vs base uncapped, all 1,319 (1319): right base 1187, capped-data 1175; only capped-data right 50, only base right 62, McNemar p=0.299
+cap 64, all 1,319 (1319): right base 1117, capped-data 1175; only capped-data right 120, only base right 62, McNemar p=0.000
+cap 128, vs base uncapped, all 1,319 (1319): right base 1187, capped-data 1161; only capped-data right 54, only base right 80, McNemar p=0.030</code></pre>
+<p>The 64-trained model's 12-problem gap to the uncapped model (p =
+0.299) is within chance for this training run; Step 7 repeats the run
+with a second seed. Its 58-problem lead over the untrained model at the
+same cap is far outside it (p = 2.1e-05). The 128-trained model is the
+only one with a measurable loss against the uncapped model: 26 fewer
+right, p = 0.030.</p>
+<p>Against the best untrained setting, the 128 cap, the 64-trained model
+gets 9 more right at 16.6% fewer tokens per correct answer.</p>
+<p>🔎 <strong>Tip: 250 problems are too few to judge accuracy.</strong>
+On Part 1's 250 held-out problems, the 256-trained model got 222 right
+against the capped base's 228, and the per-problem test gave p = 0.238.
+On all 1,319 the same two models get 1,170 and 1,171. Both models are at
+about 89%, so a few hundred problems leave a gap of several right
+answers inside chance. Grade on the whole test split before calling an
+accuracy loss.</p>
+<hr />
+<h4 id="step-6--where-the-tokens-go">Step 6 — Where the Tokens Go</h4>
+<p>The eval rows keep the thinking and the answer as separate text.
+<code>docs/caps/think_lengths.py</code> counts both with Gemma 4's
+tokenizer, over all 1,319, for the seed-0 models:</p>
+<pre class="text"><code>base uncapped: thinking median 512 mean 607.6; answer median 264; thinking over 64/128/256: 1319/1319/1309 of 1319
+base + cap 64: thinking median 63 mean 63.0; answer median 321; thinking over 64/128/256: 0/0/0 of 1319
+tuned 512: thinking median 425 mean 410.1; answer median 245; thinking over 64/128/256: 1319/1314/1184 of 1319
+tuned 128: thinking median 127 mean 126.9; answer median 252; thinking over 64/128/256: 1319/0/0 of 1319
+tuned 64: thinking median 63 mean 63.0; answer median 274; thinking over 64/128/256: 2/0/0 of 1319</code></pre>
+<p>The tuned models stop thinking where their training cap stopped them,
+with no cap set: the 64-trained model's thinking runs over 64 tokens on
+2 problems of 1,319. The 512-trained model stops earlier than its cap,
+at a median of 425.</p>
+<p>The 64-trained model and the capped untrained model think for the
+same 63 tokens. The difference is the answer: the untrained model, cut
+off, writes a median of 321 answer tokens and gets 1,117 right; the
+trained model writes 274 and gets 1,175 right. After the same short
+thinking, it writes a shorter answer and gets more of them right.</p>
+<hr />
+<h4 id="step-7--repeat-with-a-second-seed">Step 7 — Repeat With a Second
+Seed</h4>
+<p>Every number above comes from one training run per cap.
+<code>train.py --seed 1</code> retrains the 64-cap model on the same
+samples with the same settings; the seed sets the adapter's starting
+values and the order of the training data. Paired against seed 0 and the
+untrained model on all 1,319:</p>
+<pre class="text"><code>tuned 64 seed 1: right 1154, tokens per correct 473.5; vs seed 0: -21 right, p=0.066; vs same cap: +37 right, 18.5% fewer tokens, p=0.0055; vs uncapped: -33 right, 52.4% fewer tokens, p=0.004
+tuned 64 seed 1 vs base cap 128: -12 right, 13.0% fewer tokens, p=0.335</code></pre>
+<p><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/caps/medium/img/devto-lazy-gemma-caps-table-3.png"
+alt="Table: 64-cap model, Right of 1,319, Tokens per correct answer, vs uncapped, untrained" /></p>
+<p>What repeats across the two seeds:</p>
+<ul>
+<li>Tokens per correct answer fall by more than half against the
+untrained model: 54.4% and 52.4%.</li>
+<li>The tuned model beats the untrained model with the same 64-token cap
+by a clear margin: 58 and 37 more right.</li>
+<li>Against the 128 cap, the best untrained setting, it uses 16.6% and
+13.0% fewer tokens, and the accuracy gap (+9 and -12 right) is within
+chance both times.</li>
+</ul>
+<p>Accuracy against the uncapped model differs between the seeds. Seed 0
+is within chance of it; seed 1 is 33 problems short, outside it. The two
+seeds differ from each other by 21 right answers (p = 0.066), so a
+single training run moves accuracy by about as much as the effect being
+measured.</p>
+<p>The 128-cap model, retrained the same way with seed 1:</p>
+<pre class="text"><code>tuned 128 seed 1: right 1163, tokens per correct 479.1; vs seed 0: +2 right, p=0.930; vs same cap: -3 right, 12.0% fewer tokens, p=0.85; vs uncapped: -24 right, 51.8% fewer tokens, p=0.025</code></pre>
+<p>Its two seeds agree: 1,161 and 1,163 right. Across all four tuned
+runs at the two tightest caps:</p>
+<p><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/caps/medium/img/devto-lazy-gemma-caps-table-4.png"
+alt="Table: Tuned run, Right of 1,319, Tokens per correct answer, vs uncapped (1,187 right), vs untrained + cap 128 (1,166 right)" /></p>
+<p>Against the untrained model with the 128 cap, every one of the four
+is within chance on accuracy (p from 0.335 to 0.855) and uses 9.5% to
+16.6% fewer tokens. Against the uncapped model, three of the four lose a
+measurable 24 to 33 right answers, about 2 percentage points, for about
+half the tokens.</p>
+<hr />
+<h4 id="compare-and-contrast">Compare and Contrast</h4>
+<p><img src="https://raw.githubusercontent.com/xbill9/lazy-gemma/main/docs/caps/medium/img/devto-lazy-gemma-caps-table-5.png"
+alt="Table: Untrained, uncapped, Untrained, cap 128, Tuned on 64-capped answers" /></p>
+<hr />
+<h4 id="so-which-one">So, Which One?</h4>
+<p>To make Gemma 4 E2B think less with no training, set
+<code>thinking_budget_tokens</code> to 128: it cuts tokens per correct
+answer by 45.3% for 21 fewer right out of 1,319. To halve the tokens
+with no request field, fine-tune on the model's own answers sampled
+under a 64-token cap: one night on the 3050, the 128 cap's accuracy with
+9.5% to 16.6% fewer tokens across four training runs, and the result
+serves from any client. Keep the uncapped model where every right answer
+counts: the tuned models get 12 to 33 fewer right, about 2 percentage
+points. Avoid a 64-token cap on the untrained model: it costs 70 right
+answers and saves fewer tokens than 128.</p>
+<p>The 64-trained model is on Hugging Face as <a
+href="https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf"><code>xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf</code></a>,
+the same size and format as the file it was trained from.</p>
+<hr />
+<h4 id="summary">Summary</h4>
+<p>The goal of this article was to make Gemma 4 E2B reach the same
+answer in fewer tokens with a fine-tune that beats llama.cpp's thinking
+cap. The key to the solution was the training data: answers the model
+writes under the cap, so the shortest right answer is half as long as
+the model's uncapped ones. The results on all 1,319 GSM8K test problems
+were:</p>
+<ul>
+<li>🟢 Tuned on 64-capped answers: 454.0 and 473.5 tokens per correct
+answer across two training seeds, against 994.9 uncapped, 54.4% and
+52.4% fewer.</li>
+<li>🟢 Against the best untrained setting, the 128 cap: all four tuned
+runs at caps 64 and 128 match its accuracy within chance and use 9.5% to
+16.6% fewer tokens, with no cap needed at inference.</li>
+<li>⚠️ Against the uncapped model: 12 to 33 fewer right, measurable in
+three of the four runs. The two 64-cap seeds differ by 21 right answers;
+the two 128-cap seeds by 2.</li>
+<li>🟢 Every tuned model stops thinking near its training cap with no
+cap set; the 64-trained model passes 64 thinking tokens on 2 of 1,319
+problems.</li>
+<li>🟢 The whole loop runs on one 8 GB RTX 3050, under 4.9 GB while
+training.</li>
+<li>⚠️ The 512-, 256- and 128-trained models save 23% to 51% of tokens
+against the uncapped model, and the two 128-trained runs lose 26 and 24
+right answers (p = 0.030 and 0.025).</li>
+<li>❌ The 64-token cap on the untrained model costs 70 right answers
+and saves fewer tokens than the 128 cap.</li>
+<li>❌ 250 problems were too few: a 6-problem gap there became 1 problem
+on all 1,319.</li>
+</ul>
+<p>Scope: one RTX 3050 OEM, llama.cpp <code>b11696-3-g7182ef71e</code>,
+GSM8K only, one greedy eval per model on all 1,319 test problems, four
+samples per training problem on the same 1,000 training problems at
+every cap, one training run per cap and a second training seed for the
+64 and 128 caps. Accuracy differences are tested per problem with an
+exact two-sided McNemar test.</p>
+<p>The strategy for training Gemma 4 to think less on a low-end 8 GB GPU
+was validated with an incremental step by step approach.</p>
+<hr />
+<h4 id="references">References</h4>
+<ul>
+<li><a
+href="https://dev.to/xbill/fine-tuning-gemma-4-on-an-8-gb-rtx-3050-slow-low-end-and-still-viable-291f">Part
+1: Fine-Tuning Gemma 4 on an 8 GB RTX 3050</a></li>
+<li><a href="https://github.com/xbill9/lazy-gemma">lazy-gemma on
+GitHub</a></li>
+<li><a
+href="https://github.com/xbill9/lazy-gemma/blob/main/benchmarks/runs/2026-10-22-rest-e2b-3050oem/REPORT.md">Results
+report for all 1,319 problems</a></li>
+<li><a
+href="https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf">Tuned
+on 64-capped answers, Q4_0 GGUF</a></li>
+<li><a
+href="https://huggingface.co/xbill9/gemma-4-E2B-it-qat-q4_0-exact-gguf">Gemma
+4 E2B, exact Q4_0 GGUF used as the base</a></li>
+<li><a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a></li>
+<li><a href="https://github.com/openai/grade-school-math">GSM8K</a></li>
+</ul>
+</body>
+</html>
