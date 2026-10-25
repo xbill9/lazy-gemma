@@ -1,6 +1,7 @@
 devto = https://dev.to/xbill/train-gemma-4-on-its-own-cut-short-answers-half-the-tokens-on-an-8-gb-rtx-3050-4537
 medium = https://xbill999.medium.com/train-gemma-4-on-its-own-cut-short-answers-half-the-tokens-on-an-8-gb-rtx-3050-d90710728dec
 substack = https://xbill9.substack.com/p/train-gemma-4-on-its-own-cut-short
+linkedin = https://www.linkedin.com/feed/update/urn:li:activity:7520149437562839040/
 repo = https://github.com/xbill9/lazy-gemma
 companion = https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf
 

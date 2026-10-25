@@ -1,0 +1,16 @@
+Train Gemma 4 on Its Own Cut-Short Answers: Half the Tokens on an 8 GB RTX 3050
+
+llama.cpp's thinking cap trades accuracy for tokens. Fine-tuning Gemma 4 E2B on its own answers sampled under a 64-token cap halves tokens per correct answer on all 1,319 GSM8K test problems, with no cap at inference, for 12 to 33 fewer right answers across four training runs, and matches the accuracy of the best cap with 9.5% to 16.6% fewer tokens.
+
+What is in it:
+
+- 🟢 Tuned on 64-capped answers: 454.0 and 473.5 tokens per correct answer across two training seeds, against 994.9 uncapped, 54.4% and 52.4% fewer.
+- 🟢 Against the best untrained setting, the 128 cap: all four tuned runs at caps 64 and 128 match its accuracy within chance and use 9.5% to 16.6% fewer tokens, with no cap needed at inference.
+- ⚠️ Against the uncapped model: 12 to 33 fewer right, measurable in three of the four runs. The two 64-cap seeds differ by 21 right answers; the two 128-cap seeds by 2.
+- 🟢 Every tuned model stops thinking near its training cap with no cap set; the 64-trained model passes 64 thinking tokens on 2 of 1,319 problems.
+
+dev.to: https://dev.to/xbill/train-gemma-4-on-its-own-cut-short-answers-half-the-tokens-on-an-8-gb-rtx-3050-4537
+Medium: https://xbill999.medium.com/train-gemma-4-on-its-own-cut-short-answers-half-the-tokens-on-an-8-gb-rtx-3050-d90710728dec
+Substack: https://xbill9.substack.com/p/train-gemma-4-on-its-own-cut-short
+Model on Hugging Face: https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf
+Source: https://github.com/xbill9/lazy-gemma
