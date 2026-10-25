@@ -1,5 +1,5 @@
-devto = PENDING
+devto = https://dev.to/xbill/train-gemma-4-on-its-own-cut-short-answers-half-the-tokens-on-an-8-gb-rtx-3050-4537
 repo = https://github.com/xbill9/lazy-gemma
 companion = https://huggingface.co/xbill9/gemma-4-E2B-it-lazy-capped64-q4_0-gguf
 
-# dev.to draft id 4907189 (unpublished), created 2026-10-23
+# dev.to id 4907189, created 2026-10-23, published 2026-10-25
